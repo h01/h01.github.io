@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta name="description" content="{{ site.description }}">
+	<!-- 引用CSS|JS -->
+	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="http://libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+	<!-- 自定义CSS -->
+	<style type="text/css">
+	.media>.pull-left {
+		margin-right: 0;
+		padding-right: 12px;
+		border-right: 5px solid #eee;
+	}
+	::selection {
+		background:lightblue;
+	}
+	</style>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tech-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{ site.url }}">{{ site.title }}</a>
+				<p class="navbar-text">{{ site.description }}</p>
+			</div>
+			<div class="collapse navbar-collapse" id="tech-navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+				{% for page in site.pages %}
+					{% if page.title %}
+					<li>
+						<a href="{{ page.url | prepend: site.baseurl }}"><span class="glyphicon {{ page.icon }}"></span> {{ page.title }}</a>
+					</li>
+					{% endif %}
+				{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</nav>

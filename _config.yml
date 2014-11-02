@@ -1,0 +1,10 @@
+# 网站信息设置
+title: Hotes - 简记		# 标题
+email: root@ursb.org	# 邮箱
+description: 为GitHub而生的轻笔记博客，为简单而记！
+baseurl: "" 			# 目录
+url: "http://localhost:4000" # 地址
+duoshuo_user: h01ger	# 多说账号
+
+# 编译设置
+markdown: kramdown		# MarkDown
