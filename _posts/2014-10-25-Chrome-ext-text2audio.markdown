@@ -1,0 +1,68 @@
+---
+category:    Chrome
+layout:      post
+title:       Chrome扩展开发之文字转语音功能
+desc:        chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～
+tags:        [Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转语音,文字转语音]
+---
+以前使用文字转语音功能都是直接用的百度翻译接口：
+
+    http://tts.baidu.com/text2audio?lan=zh&pid=101&ie=UTF-8&text=转语音的文字&spd=9
+
+不过需要网络访问，对于本地应用来说貌似非常不着调～。  
+偶然看到了`chrome`的`tts API`，测试过后发现很有趣，所以记录一下，也给有需要的一点帮助。    
+使用`tts`接口需要在`manifest.json`中声明权限：
+{% highlight js %}
+"permissions": ["tts"]
+{% endhighlight %}
+
+简单例子：
+{% highlight js %}
+chrome.tts.speak("Welcome to holger's notes")
+{% endhighlight %}
+
+不过也许你执行过后发现没有声音，经测试，个人觉得是因为没有加上"可选"的语言设置选项。     
+`speak`方法需要三个参数：
+{% highlight js %}
+chrome.tts.speak("要转换的文字[必选]", {设置[可选], 回调函数[可选]}
+{% endhighlight %}
+
+回调函数会在`speak`方法调用成功后立刻执行，所以可能会在播放结束之前就已经调用了。    
+其中设置的结构如下：
+{% highlight js %}
+{
+    enqueue: "是否将朗读任务加入队列[true|false];true=之前任务结束后才开始",
+    voiceName: "朗读所使用的声音名称",
+    extensionId: "为朗读提供声音引擎扩展的ID",
+    lang: "朗读文字所使用的语言",
+    gender: "朗读者的性别，也就是发音人是男[male]或女[female]",
+    rate: "朗读语速[0.1-10.0],默认为1.0",
+    pitch: "朗读语调[0-2.0],默认为1.0",
+    volume: "朗读音量[0-1.0],默认为1.0",
+    requireEventTypes: "声音必须支持的事件",
+    desiredEventTypes: "需要监听的事件(未指定监听全部事件的情况下)",
+    onEvent: "用于监听事件的函数"
+}
+{% endhighlight %}
+
+以上设置参考`《Chrome扩展及应用开发》`一书，有兴趣可自行研究。   
+例如，朗读一段中文如下：
+{% highlight js %}
+chrome.tts.speak("哈哈哈，哈哈哈哈，哈哈哈哈哈哈，活捉蛇精病患者一枚！", {lang: "ZH-CN", rate: 3.0})
+{% endhighlight %}
+其中`rate`并不是越大朗读速度越快，具体自行测试～
+
+如果需要阅读几段文字，同时执行的话可能只会朗读最后一段，所以我们需要`enqueue`加入队列设置前面播放完毕再播放：
+{% highlight js %}
+chrome.tts.speak("哭疼老叔婚丫", {lang: "ZN-CN", enqueue: true});
+chrome.tts.speak("小乔流水人渣", {lang: "ZN-CN", enqueue: true});
+chrome.tts.speak("鼓捣西峰手麻", {lang: "ZN-CN", enqueue: true});
+chrome.tts.speak("你丑，没事，我瞎", {lang: "ZH-CN", enqueue: true});
+{% endhighlight %}
+
+哈哈，基本的使用就是这样了，如果想了解支持的语言的话，可输入以下命令查看
+{% highlight js %}
+chrome.tts.getVoices(function(v){
+    console.log(v);
+})
+{% endhighlight %}
