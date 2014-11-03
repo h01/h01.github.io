@@ -1,0 +1,100 @@
+---
+category:    Chrome
+layout:      post
+title:       Chrome扩展开发之Cookie管理
+desc:        记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。
+tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
+---
+#### 【设置权限】
+{% highlight js %}
+"permissions": [
+    "cookies",
+    "<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
+]
+{% endhighlight %}
+
+`cookie`对象包含如下10项属性：
+
+    name            // 名称   
+    value           // 值    
+    domain          // 域    
+    hostOnly        // 是否只允许完全匹配domain的请求访问     
+    path            // 路径   
+    secure          // 是否只允许安全连接调用  
+    httpOnly        // 是否禁止客户端调用    
+    session         // 是否是session   
+    expirationDate  // 过期时间     
+    storeId         // cookie store的id  
+
+(以上及以下部分内容来源于`《Chrome扩展及应用开发》`)
+
+#### 【读取cookie】
+
+{% highlight js %}
+// get方法获取指定url和name等匹配的cookie(url和name为必须)
+chrome.cookies.get({
+    url: "https://ursb.org",
+    name: "vist"
+}, function(cs){
+    console.log(cs);
+});
+ 
+// getAll方法获取所有匹配条件的cookies
+// 1.获取某域下所有cookies
+chrome.cookies.getAll({
+    url: "https://ursb.org"
+}, function(cs){
+    console.log(cs);
+});
+// 2.获取所有cookies
+chrome.cookies.getAll({}, function(cs){
+    console.log(cs);
+});
+{% endhighlight %}
+
+#### 【设置cookie】
+
+{% highlight js %}
+chrome.cookies.set({
+    url: "https://ursb.org",    // 必选，其他可选（如果不存在则创建）
+    name: "vist",
+    value: "250"
+}, function(cookie){
+    console.log(cookie);    // 此处cookie为修改后的cookie||null
+});
+{% endhighlight %}
+
+#### 【删除cookie】
+
+{% highlight js %}
+chrome.cookies.remove({
+    url: "https://ursb.org",
+    name: "vist"
+}, function(res){
+    console.log(res);    // res=删除的cookie对象
+});
+{% endhighlight %}
+
+#### 【获取全部CookieStore】
+
+{% highlight js %}
+// chrome.cookies.getAllCookieStores(callback);
+// 我们首先要定义一个获取结果的回调函数，如下
+function getAllCS(cs){
+    console.log(cs);
+};
+// 然后直接调用
+chrome.cookies.getAllCookieStores(getAllCS);
+// *.只返回一个id属性和一个tabIds属性
+// *.id属性为这个cookieStore的id
+// *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id
+{% endhighlight %}
+
+#### 【监控操作cookie行为】
+
+{% highlight js %}
+chrome.cookies.onChanged.addListener(function(info){
+    console.log(info);
+});
+// 在测试中，发现如果在console里进行cookie操作（删除，设置等）的时候，不会调用
+{% endhighlight %}
