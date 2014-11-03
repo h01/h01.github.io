@@ -1,18 +1,18 @@
 ---
-category:	默认分类
-layout:		post
-title:		Hello Hotes!
-desc:		欢迎使用Hotes！
-tags:		[Hotes,GitHub]
+category:    null
+layout:      post
+title:       Hello Hotes!
+desc:        欢迎使用Hotes！
+tags:        [Hotes,GitHub]
 ---
 开始之前，先引用[阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)中一句经典的话：  
 
-	喜欢写Blog的人，会经历三个阶段：
-	1.第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
-	2.第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。  
-	3.第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。  
-	大多数Blog作者，都停留在第一和第二阶段，因为第三阶段不太容易到达：你很难找到俯首听命、愿意为你管理服务器的人。  
-	...
+    喜欢写Blog的人，会经历三个阶段：
+    1.第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
+    2.第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。  
+    3.第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。  
+    大多数Blog作者，都停留在第一和第二阶段，因为第三阶段不太容易到达：你很难找到俯首听命、愿意为你管理服务器的人。  
+    ...
 
 不管你有何感想，反正我中招了～近一两年一直徘徊在1和2之间，使用过asp、php、python写博客程序，也使用过百度空间、博客园、Lofter、点点等各种博客空间，可惜一直都是三分热度，然后不了了之。    
 后来折腾GitHub后发现把blog写到上面也挺不错的，至少不必纠结服务器什么时候会关，数据什么时候会丢失的问题。    
@@ -27,27 +27,27 @@ tags:		[Hotes,GitHub]
 直接在`_posts`目录下新建一个`.md`或`.markdown`的文件就好啦！文件名格式为：`年-月-日-标识符.markdown`。    
 文章页面格式：
 
-	在页面前添加:
-	---
-	category:	默认分类
-	layout:		post
-	title:		Hello Hotes!
-	desc:		欢迎使用Hotes！
-	tags:		[Hotes,GitHub]
-	---
-	...往下都是MarkDown格式的文档了
+    在页面前添加:
+    ---
+    category:    默认分类
+    layout:      post
+    title:       Hello Hotes!
+    desc:        欢迎使用Hotes！
+    tags:        [Hotes,GitHub]
+    ---
+    ...往下都是MarkDown格式的文档了
 
 #### 如何添加页面
 如果需要自定义页面，比如留言板，可以在`pages`目录下添加`.md`或`.markdown`的文件就好啦，文件名随意，内容如下：
 
-	---
-	layout:		page
-	title:		关于
-	permalink:	/about/
-	icon:		glyphicon-heart
-	---
-	...内容
-	其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
+    ---
+    layout:      page
+    title:       关于
+    permalink:   /about/
+    icon:        glyphicon-heart
+    ---
+    ...内容
+    其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
 
 #### 如何绑定域名
 绑定域名很简单，首先把域名的`CNAME`设置为你的githu.io地址，如`h01.github.io`，然后修改根目录的`CNAME`文件，内容为你要绑定域名即可！
