@@ -1,10 +1,9 @@
 ---
-layout: post
-title: Hello Hotes!
-date: 2014-11-03
-desc: 欢迎使用Hotes！
-category: 默认分类
-tags: [Hotes,GitHub]
+category:	默认分类
+layout:		post
+title:		Hello Hotes!
+desc:		欢迎使用Hotes！
+tags:		[Hotes,GitHub]
 ---
 开始之前，先引用[阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)中一句经典的话：  
 
@@ -30,12 +29,11 @@ tags: [Hotes,GitHub]
 
 	在页面前添加:
 	---
-	layout: post
-	title: Hello Hotes!
-	date: 2014-11-03
-	desc: 欢迎使用Hotes！
-	category: 默认分类
-	tags: [Hotes,GitHub]
+	category:	默认分类
+	layout:		post
+	title:		Hello Hotes!
+	desc:		欢迎使用Hotes！
+	tags:		[Hotes,GitHub]
 	---
 	...往下都是MarkDown格式的文档了
 
@@ -43,10 +41,10 @@ tags: [Hotes,GitHub]
 如果需要自定义页面，比如留言板，可以在`pages`目录下添加`.md`或`.markdown`的文件就好啦，文件名随意，内容如下：
 
 	---
-	layout: page
-	title: 关于
-	permalink: /about/
-	icon: glyphicon-heart
+	layout:		page
+	title:		关于
+	permalink:	/about/
+	icon:		glyphicon-heart
 	---
 	...内容
 	其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
