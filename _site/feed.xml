@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hotes</title>
+    <description>简记，为简单而记！</description>
+    <link>http://h01.github.io/</link>
+    <atom:link href="http://h01.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 03 Nov 2014 10:47:46 +0800</pubDate>
+    <lastBuildDate>Mon, 03 Nov 2014 10:47:46 +0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Hello Hotes!</title>
+        <description>&lt;p&gt;呵呵呵&lt;/p&gt;
+</description>
+        <pubDate>Mon, 03 Nov 2014 00:00:00 +0800</pubDate>
+        <link>http://h01.github.io/2014/11/03/Hello-Hotes.html</link>
+        <guid isPermaLink="true">http://h01.github.io/2014/11/03/Hello-Hotes.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
