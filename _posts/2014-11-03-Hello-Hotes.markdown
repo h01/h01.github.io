@@ -3,6 +3,8 @@ layout: post
 title: Hello Hotes!
 date: 2014-11-03
 desc: 欢迎使用Hotes！
+category: 默认分类
+tags: [Hotes,GitHub]
 ---
 开始之前，先引用[阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)中一句经典的话：  
 
@@ -31,7 +33,9 @@ desc: 欢迎使用Hotes！
 	layout: post
 	title: Hello Hotes!
 	date: 2014-11-03
-	desc: 欢迎使用Hotes!
+	desc: 欢迎使用Hotes！
+	category: 默认分类
+	tags: [Hotes,GitHub]
 	---
 	...往下都是MarkDown格式的文档了
 
