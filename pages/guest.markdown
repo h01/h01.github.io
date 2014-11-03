@@ -4,9 +4,9 @@ title: 留言板
 permalink: /guest/
 icon: glyphicon-envelope
 ---
-<!-- 留言板 -->
+
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="0" data-title="{{ page.title }}" data-url="{{ page.url | prepend: site.baseurl }}"></div>
+<div class="ds-thread" data-thread-key="0" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
