@@ -1,0 +1,93 @@
+---
+category:    Chrome
+layout:      post
+title:       Chrome扩展开发之History管理
+desc:        历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。
+tags:        [Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history]
+---
+#### 【声明权限】
+{% highlight js %}
+"permissions": ["history"]
+{% endhighlight %}
+
+chrome.history方法有下：
+
+    addUrl
+    deleteAll
+    deleteRange
+    deleteUrl
+    getVisits
+    onVisitRemoved
+    onVisited
+    search
+
+#### 【读取历史】
+{% highlight js %}
+// chrome.history.getVisits(Object, callback);
+// Object中url为必选参数
+// Callback中返回的对象有6个属性:id, url, title, lastVisiTime, visitCount, typedCount
+chrome.history.getVisits({
+    url: "https://ursb.org"
+}, function(historys){
+    console.log(historys);
+});
+{% endhighlight %}
+
+#### 【搜索历史】
+{% highlight js %}
+chrome.history.search({
+    text: "Holger",    // 匹配指定文字
+    startTime: new Date().getTime() - 24*3600*1000,    // 开始时间
+    endTime: new Date().getTime(),    // 结束时间
+    maxResults: 20    // 返回的最大数组总数
+}, function(arr){
+    console.log(arr);    // arr包含id, visitId, visitTime, referringVisitId, transition属性
+});
+{% endhighlight %}
+
+#### 【添加历史】
+{% highlight js %}
+// chrome.history.addUrl(Object, callback)
+// Object只需要url参数即可,callback为执行成功后调用
+chrome.history.addUrl({
+    url: "https://ursb.org/notes/?i=17"
+}, function(){
+    console.log("添加成功!");
+});
+{% endhighlight %}
+
+#### 【删除历史】
+{% highlight js %}
+// 删除指定URL的历史
+chrome.history.deleteUrl({
+    url: "https://ursb.org"
+}, function(){
+    console.log("deleted done!");
+});
+ 
+// 删除指定时间段历史
+chrome.history.deleteRange({
+    startTime: new Date().getTime()-24*3600*1000,
+    endTime: new Date().getTime()
+}, function(){
+    console.log("...");
+});
+ 
+// 删除全部的历史
+chrome.history.deleteAll(function(){
+    console.log("!!");
+}
+{% endhighlight %}
+
+#### 【监听历史操作】
+{% highlight js %}
+// 监听用户访问历史
+chrome.history.onVisited.addListener(function(item){
+    console.log(item);
+};
+ 
+// 监听用户删除历史
+chrome.history.onVisitRemoved.addListener(function(item){
+    console.log(item);
+}
+{% endhighlight %}
