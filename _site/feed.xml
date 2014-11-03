@@ -5,13 +5,61 @@
     <description>简记，为简单而记！</description>
     <link>http://h01.github.io/</link>
     <atom:link href="http://h01.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 03 Nov 2014 12:12:40 +0800</pubDate>
-    <lastBuildDate>Mon, 03 Nov 2014 12:12:40 +0800</lastBuildDate>
+    <pubDate>Mon, 03 Nov 2014 14:03:11 +0800</pubDate>
+    <lastBuildDate>Mon, 03 Nov 2014 14:03:11 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>Hello Hotes!</title>
-        <description>&lt;p&gt;呵呵呵&lt;/p&gt;
+        <description>&lt;p&gt;开始之前，先引用&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;阮一峰博客&lt;/a&gt;中一句经典的话：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;喜欢写Blog的人，会经历三个阶段：
+1.第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
+2.第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。  
+3.第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。  
+大多数Blog作者，都停留在第一和第二阶段，因为第三阶段不太容易到达：你很难找到俯首听命、愿意为你管理服务器的人。  
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不管你有何感谢，反正我中招了～近一两年一直徘徊在1和2之间，使用过asp、php、python写博客程序，也使用过百度空间、博客园、Lofter、点点等各种博客空间，可惜一直都是三分热度，然后不了了之。  &lt;br /&gt;
+后来折腾GitHub后发现把blog写到上面也挺不错的，至少不必纠结服务器什么时候会关，数据什么时候会丢失的问题。  &lt;br /&gt;
+在尝试了几个开源的基于Jekyll博客程序后，发现都不符合自己的口味。所以干脆自己操刀，弄了这么个程序。    &lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;如何安装及配置&lt;/h4&gt;
+
+&lt;p&gt;1.骚年看到底部的&lt;code&gt;GitHub&lt;/code&gt;了吗？那就是本程序的源代码啦，只需要点击进去，然后点击右上角的&lt;code&gt;Fork&lt;/code&gt;，然后再改名为&lt;code&gt;你的GitHub用户.github.io&lt;/code&gt;就好啦。  &lt;br /&gt;
+2.编辑&lt;code&gt;_config.yml&lt;/code&gt;文件，中文注释我想你都懂的。&lt;code&gt;duoshuo_user&lt;/code&gt;为你的多说账号，也就是留言以及评论需要用到的第三方评论系统。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;如何添加文章&lt;/h4&gt;
+&lt;p&gt;直接在&lt;code&gt;_posts&lt;/code&gt;目录下新建一个&lt;code&gt;.md&lt;/code&gt;或&lt;code&gt;.markdown&lt;/code&gt;的文件就好啦！文件名格式为：&lt;code&gt;年-月-日-标识符.markdown&lt;/code&gt;。  &lt;br /&gt;
+文章页面格式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;在页面前添加:
+---
+layout: post
+title: Hello Hotes!
+date: 2014-11-03
+desc: 欢迎使用Hotes!
+---
+...往下都是MarkDown格式的文档了
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;如何添加页面&lt;/h4&gt;
+&lt;p&gt;如果需要自定义页面，比如留言板，可以在&lt;code&gt;pages&lt;/code&gt;目录下添加&lt;code&gt;.md&lt;/code&gt;或&lt;code&gt;.markdown&lt;/code&gt;的文件就好啦，文件名随意，内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+layout: page
+title: 关于
+permalink: /about/
+icon: glyphicon-heart
+---
+...内容
+其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;写在后面&lt;/h4&gt;
+&lt;p&gt;本程序为自己的练手作品，开发时间很短，但维护更新时间很长。目前只完成了一些简单的功能也页面，样式以及js都懒得写～不过后面的版本预计会重新写吧！  &lt;br /&gt;
+把这程序开源出来希望能给需要的人一点帮助，也希望有兴趣的人一起加入！程序的&lt;code&gt;bug&lt;/code&gt;神马的可以在留言板里提出，谢谢支持！&lt;/p&gt;
 </description>
         <pubDate>Mon, 03 Nov 2014 00:00:00 +0800</pubDate>
         <link>http://h01.github.io/2014/11/03/Hello-Hotes.html</link>

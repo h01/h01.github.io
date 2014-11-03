@@ -1,5 +1,5 @@
 # 网站信息设置
-title: Hotes		# 标题
+title: Hotes			# 标题
 email: root@ursb.org	# 邮箱
 description: 简记，为简单而记！
 baseurl: "" 			# 目录
