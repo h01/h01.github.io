@@ -7,12 +7,12 @@
 	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 	<meta name="description" content="{{ site.description }}">
 	<!-- 引用CSS|JS -->
-	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link href="http://libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 	<!-- 自定义CSS -->
-	<link rel="shortcut icon" href="{{ site.baseurl }}/static/img/icon.png" />
+	<link rel="shortcut icon" href="/static/img/icon.png" />
 	<style type="text/css">
 	.media>.pull-left {
 		margin-right: 0;
@@ -48,7 +48,7 @@
 					{% else %}
 					<li>
 					{% endif %}
-						<a href="{{ p.url | prepend: site.baseurl }}"><span class="glyphicon {{ p.icon }}"></span> {{ p.title }}</a>
+						<a href="{{ p.url }}"><span class="glyphicon {{ p.icon }}"></span> {{ p.title }}</a>
 					</li>
 					{% endif %}
 				{% endfor %}
