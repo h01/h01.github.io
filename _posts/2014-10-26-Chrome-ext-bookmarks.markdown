@@ -1,0 +1,151 @@
+---
+category:    Chrome
+layout:      post
+title:       Chrome扩展开发之书签管理
+desc:        chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。
+tags:        [Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks]
+---
+### 要养成一种习惯：看书，实践，总结。   
+
+#### 【声明权限】
+{% highlight js %}
+"permissions": ["bookmarks"]
+{% endhighlight %}
+
+`bookmarks`对象有8个属性：    
+
+    1.id        #不需要设置，根ID=0    
+    2.parentId    
+    3.index     #在父节点中的位置，从0开始  
+    4.url       #创建文件夹不需要指定 
+    5.title     #必选 
+    6.dateAdded     
+    7.dateGroupModified     
+    8.children  #包含若干书签对象的数组    
+
+#### 【创建书签】
+{% highlight js %}
+// 创建文件夹
+chrome.bookmarks.create({
+    title: "文件夹2",
+    parentId: "1" // 父ID(如果知道且设为文件夹的ID，则会在对应书签文件夹中建立，设置1为在顶部书签栏设置，否在在"其他书签"中建立
+}, function(bookmark){
+    // 创建成功会反回该文件夹对象
+    console.log(bookmark);
+});
+ 
+// 创建书签
+chrome.bookmarks.create({
+    title: "Holger的笔记",
+    url: "https://ursb.org/",
+    parentId: "1" // 如果要在文件夹中创建，则需指定文件夹的ID
+}, function(bm){
+    console.log(bm);
+});
+{% endhighlight %}
+
+#### 【调整书签位置】
+{% highlight js %}
+chrome.bookmarks.move('250', {
+    parentId: '1',    // 要移动到的文件夹ID，1=顶部文件夹
+    index: 55        // 在文件夹中的位置
+}, function(bm){
+    console.log(bm);
+});
+{% endhighlight %}
+
+#### 【修改更新标签】
+{% highlight js %}
+chrome.bookmarks.update('167', {
+    title: '修改后的标题',
+    url: 'https://ursb.org/notes/'
+}, function(bm){
+    console.log(bm);
+});
+{% endhighlight %}
+
+#### 【删除书签和文件夹】
+{% highlight js %}
+// 删除书签或空的文件夹
+chrome.bookmarks.remove('250', function(){
+    console.log('ID=250的书签已经删除!');
+});
+// 删除包含书签或文件夹的书签分组(文件夹)
+chrome.bookmarks.removeTree('250', function(){
+    console.log('ID=250的文件夹已经删除!');
+});
+{% endhighlight %}
+
+#### 【获取书签和分组】
+{% highlight js %}
+// 获取所有书签和文件夹
+chrome.bookmarks.getTree(function(bms){
+    console.log(bms);
+});
+ 
+// 获取指定文件夹下所有书签列表
+chrome.bookmarks.getChildren('250', function(bms){
+    console.log(bms);
+});
+ 
+// 获取指定文件夹下所有书签和文件夹列表
+chrome.bookmarks.getSubTree('0', function(bms){
+    console.log(bms);
+});
+ 
+// 获取指定书签或文件夹属性(如标题，URL，ID等，第一个参数可以为字符串，也可以是字符串数组)
+chrome.bookmarks.get(['100', '101', '102'], function(arr){
+    console.log(arr);
+});
+ 
+// 获取最近添加的书签列表(第一个参数为获取的数量)
+chrome.bookmarks.getRecent(100, function(bms){
+    console.log(bms);
+});
+ 
+// 搜索书签
+chrome.bookmarks.search('keyword', function(bms){
+    console.log(bms);
+});
+{% endhighlight %}
+
+#### 【书签事件】
+{% highlight js %}
+// 创建书签事件
+chrome.bookmarks.onCreated.addListener(function(bm){
+    console.log("创建了书签");
+    console.log(bm);
+});
+ 
+// 删除书签事件
+chrome.bookmarks.onRemoved.addListener(function(id, info){
+    console.log("删除了书签:" + id);
+    console.log(info);    // info包含要删除的书签的parentId和index属性
+});
+ 
+// 更新书签事件
+chrome.bookmarks.onChanged.addListener(function(id, info){
+    console.log("更新了书签:" + id);
+    console.log(info);    // info包含书签更新后的title和url属性
+});
+ 
+// 移动书签事件
+chrome.bookmarks.onMoved.addListener(function(id, info){
+    console.log("移动了书签:" + id);
+    console.log(info);    // info包含移动前parentId,index和移动后oldParentId,oldIndex属性
+});
+ 
+// 文件夹下书签节点顺序更改事件
+chrome.bookmarks.onChildrenReorderd.addListener(function(id, info){
+    console.log("子节点顺序更改了:" + id);
+    console.log(info);
+});
+ 
+// 导入书签事件
+chrome.bookmarks.onImportBegan = function(){
+    console.log("书签导入开始..");
+};
+chrome.bookmarks.onImportEnded = function(){
+    console.log("书签导入结束..");
+};
+{% endhighlight %}
