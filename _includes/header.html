@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 	<meta name="description" content="{{ site.description }}">
-	{% if page.tags %}<meta name="keywords" content="{% for tag in page.tags %}{{ tag }},{% endfor %}">{% endif %}
+	<meta name="keywords" content="{{ page.tags | join: ',' }}">
 	<!-- 引用CSS|JS -->
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
