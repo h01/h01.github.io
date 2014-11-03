@@ -1,0 +1,69 @@
+---
+category:    Chrome
+layout:      post
+title:       Chrome扩展开发之自动更新升级
+desc:        这里简单介绍如何设置自动更新升级我们的Chrome扩展
+tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级]
+---
+##### 先贴上两个文档：  
+1.[自动升级--扩展开发文档](http://open.chrome.360.cn/extension_dev/autoupdate.html)    
+2.[Autoupdating - Google Chrome](https://developer.chrome.com/extensions/autoupdate)
+
+我们直接在`manifest.json`中设置`update_url`
+{% highlight js %}
+{
+    ...
+    "update_url": "https://ursb.org/chrome/test/update.php",
+    ...
+}
+{% endhighlight %}
+`update.php`也可以为静态的xml文件地址，不过为了动态更新方便，直接用php读取数据库或者文本等等操作。。
+
+输出的xml文件格式如下：
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>    
+<gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
+    <app appid="dikhaimodgjmmdgjlaeicddkepoeoibj">
+        <updatecheck codebase="http://ursb.org/chrome/test/1.1.crx" version="1.1"/>
+    </app>
+</gupdate>
+{% endhighlight %}
+第一二行不用理解，第三行的`appid`为我们的扩展的ID，如何查看？直接生成crx后，拖入扩展程序页面即可看到（需要开发者选项）
+然后关键的就是`updatecheck`这个节点了，`codebase`为更新的crx文件地址，`version`为更新的crx版本，这个版本要和crx文件中的版本一致。
+
+接下来就是PHP代码了，简单随手写了下，需要的拿去。。
+{% highlight php %}
+<?php
+/*
+ * Chrome升级xml类
+ * by Holger
+ * at 2014-10-06
+ */
+class ChromeUpdate{
+    protected $aid = "";
+    protected $crx = "";
+    protected $ver = "";
+    function __construct($appId, $crxUrl, $version){
+        $this->aid = $appId;
+        $this->crx = $crxUrl;
+        $this->ver = $version;
+    }
+    function show(){
+        header("Content-Type: text/xml;");
+        $dom = new DOMDocument("1.0", "UTF-8");
+        $gup = $dom->createElement("gupdate");
+        $app = $dom->createElement("app");
+        $chk = $dom->createElement("updatecheck");
+        $gup->setAttribute("xmlns", "http://www.google.com/update2/response");
+        $gup->setAttribute("protocol", "2.0");
+        $app->setAttribute("appid", $this->aid);
+        $chk->setAttribute("codebase", $this->crx);
+        $chk->setAttribute("version", $this->ver);
+        $app->appendChild($chk);
+        $gup->appendChild($app);
+        $dom->appendChild($gup);
+        echo $dom->saveXML();
+    }
+}
+?>
+{% endhighlight %}
