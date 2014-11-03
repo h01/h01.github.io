@@ -1,0 +1,9 @@
+.media>.pull-left {
+	margin-right: 0;
+	padding-right: 12px;
+	border-right: 5px solid #eee;
+}
+::selection {
+	color: #FFF;
+	background: rgba(0, 0, 0, 0.8);
+}
