@@ -3,68 +3,188 @@
   <channel>
     <title>Hotes</title>
     <description>简记，为简单而记！</description>
-    <link>http://h01.github.io/</link>
-    <atom:link href="http://h01.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 03 Nov 2014 14:03:11 +0800</pubDate>
-    <lastBuildDate>Mon, 03 Nov 2014 14:03:11 +0800</lastBuildDate>
-    <generator>Jekyll v2.4.0</generator>
+    <atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
+    <pubdate>Tue, 04 Nov 2014 18:28:43 +0800</pubdate>
+    <lastbuilddate>Tue, 04 Nov 2014 18:28:43 +0800</lastbuilddate>
+    <generator>Jekyll v2.4.0 &amp; Holger</generator>
+    
+      <item>
+        <title>socket.io的简单使用</title>
+        <description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
+        <pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/javascript/2014/11/04/Javascript-socket.io.html
+        <guid ispermalink="true">http://ursb.org/javascript/2014/11/04/Javascript-socket.io.html</guid>
+        
+        <category>Javascript</category>
+        
+        <category>socket.io</category>
+        
+        <category>socket.io.js使用</category>
+        
+        <category>node.js Websocket</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Javascript同步加载js文件</title>
+        <description>页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题</description>
+        <pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/javascript/2014/11/04/Javascript-loadScript.html
+        <guid ispermalink="true">http://ursb.org/javascript/2014/11/04/Javascript-loadScript.html</guid>
+        
+        <category>Javascript</category>
+        
+        <category>loadScript</category>
+        
+        <category>同步加载js文件</category>
+        
+        
+        <category>javascript</category>
+        
+      </item>
     
       <item>
         <title>Hello Hotes!</title>
-        <description>&lt;p&gt;开始之前，先引用&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;阮一峰博客&lt;/a&gt;中一句经典的话：  &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;喜欢写Blog的人，会经历三个阶段：
-1.第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
-2.第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。  
-3.第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。  
-大多数Blog作者，都停留在第一和第二阶段，因为第三阶段不太容易到达：你很难找到俯首听命、愿意为你管理服务器的人。  
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;不管你有何感谢，反正我中招了～近一两年一直徘徊在1和2之间，使用过asp、php、python写博客程序，也使用过百度空间、博客园、Lofter、点点等各种博客空间，可惜一直都是三分热度，然后不了了之。  &lt;br /&gt;
-后来折腾GitHub后发现把blog写到上面也挺不错的，至少不必纠结服务器什么时候会关，数据什么时候会丢失的问题。  &lt;br /&gt;
-在尝试了几个开源的基于Jekyll博客程序后，发现都不符合自己的口味。所以干脆自己操刀，弄了这么个程序。    &lt;/p&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;如何安装及配置&lt;/h4&gt;
-
-&lt;p&gt;1.骚年看到底部的&lt;code&gt;GitHub&lt;/code&gt;了吗？那就是本程序的源代码啦，只需要点击进去，然后点击右上角的&lt;code&gt;Fork&lt;/code&gt;，然后再改名为&lt;code&gt;你的GitHub用户.github.io&lt;/code&gt;就好啦。  &lt;br /&gt;
-2.编辑&lt;code&gt;_config.yml&lt;/code&gt;文件，中文注释我想你都懂的。&lt;code&gt;duoshuo_user&lt;/code&gt;为你的多说账号，也就是留言以及评论需要用到的第三方评论系统。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;如何添加文章&lt;/h4&gt;
-&lt;p&gt;直接在&lt;code&gt;_posts&lt;/code&gt;目录下新建一个&lt;code&gt;.md&lt;/code&gt;或&lt;code&gt;.markdown&lt;/code&gt;的文件就好啦！文件名格式为：&lt;code&gt;年-月-日-标识符.markdown&lt;/code&gt;。  &lt;br /&gt;
-文章页面格式：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;在页面前添加:
----
-layout: post
-title: Hello Hotes!
-date: 2014-11-03
-desc: 欢迎使用Hotes!
----
-...往下都是MarkDown格式的文档了
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;如何添加页面&lt;/h4&gt;
-&lt;p&gt;如果需要自定义页面，比如留言板，可以在&lt;code&gt;pages&lt;/code&gt;目录下添加&lt;code&gt;.md&lt;/code&gt;或&lt;code&gt;.markdown&lt;/code&gt;的文件就好啦，文件名随意，内容如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;---
-layout: page
-title: 关于
-permalink: /about/
-icon: glyphicon-heart
----
-...内容
-其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;写在后面&lt;/h4&gt;
-&lt;p&gt;本程序为自己的练手作品，开发时间很短，但维护更新时间很长。目前只完成了一些简单的功能也页面，样式以及js都懒得写～不过后面的版本预计会重新写吧！  &lt;br /&gt;
-把这程序开源出来希望能给需要的人一点帮助，也希望有兴趣的人一起加入！程序的&lt;code&gt;bug&lt;/code&gt;神马的可以在留言板里提出，谢谢支持！&lt;/p&gt;
-</description>
-        <pubDate>Mon, 03 Nov 2014 00:00:00 +0800</pubDate>
-        <link>http://h01.github.io/2014/11/03/Hello-Hotes.html</link>
-        <guid isPermaLink="true">http://h01.github.io/2014/11/03/Hello-Hotes.html</guid>
+        <description>欢迎使用Hotes！</description>
+        <pubdate>Mon, 03 Nov 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/2014/11/03/Hello-Hotes.html
+        <guid ispermalink="true">http://ursb.org/2014/11/03/Hello-Hotes.html</guid>
         
+        <category>Hotes</category>
+        
+        <category>GitHub</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之扩展与应用管理</title>
+        <description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
+        <pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/27/Chrome-ext-management.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/27/Chrome-ext-management.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>Chrome扩展开发</category>
+        
+        <category>Chrome插件管理</category>
+        
+        <category>Chrome扩展管理</category>
+        
+        <category>Chrome.management</category>
+        
+        
+        <category>chrome</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之History管理</title>
+        <description>历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</description>
+        <pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/27/Chrome-ext-history.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/27/Chrome-ext-history.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>Chrome扩展开发</category>
+        
+        <category>ChromeHistory管理</category>
+        
+        <category>Chrome.history</category>
+        
+        
+        <category>chrome</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之Cookie管理</title>
+        <description>记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</description>
+        <pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/26/Chrome-ext-cookies.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/26/Chrome-ext-cookies.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>Chrome扩展开发</category>
+        
+        <category>ChromeCookie管理</category>
+        
+        <category>Chrome.cookies</category>
+        
+        
+        <category>chrome</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之书签管理</title>
+        <description>chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。</description>
+        <pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/26/Chrome-ext-bookmarks.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/26/Chrome-ext-bookmarks.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>Chrome扩展开发</category>
+        
+        <category>Chrome书签管理</category>
+        
+        <category>Chrome.bookmarks</category>
+        
+        
+        <category>chrome</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之文字转语音功能</title>
+        <description>chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～</description>
+        <pubdate>Sat, 25 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/25/Chrome-ext-text2audio.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/25/Chrome-ext-text2audio.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>chrome.tts</category>
+        
+        <category>Chrome扩展</category>
+        
+        <category>Chrome扩展开发</category>
+        
+        <category>Chrome文字转语音</category>
+        
+        <category>文字转语音</category>
+        
+        
+        <category>chrome</category>
+        
+      </item>
+    
+      <item>
+        <title>Chrome扩展开发之自动更新升级</title>
+        <description>这里简单介绍如何设置自动更新升级我们的Chrome扩展</description>
+        <pubdate>Mon, 06 Oct 2014 00:00:00 +0800</pubdate>
+        <link />http://ursb.org/chrome/2014/10/06/Chrome-ext-update.html
+        <guid ispermalink="true">http://ursb.org/chrome/2014/10/06/Chrome-ext-update.html</guid>
+        
+        <category>Chrome</category>
+        
+        <category>update</category>
+        
+        <category>Chrome扩展</category>
+        
+        <category>Chrome扩展自动升级</category>
+        
+        <category>Chrome扩展升级</category>
+        
+        
+        <category>chrome</category>
         
       </item>
     

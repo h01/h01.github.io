@@ -7,3 +7,9 @@
 	color: #FFF;
 	background: rgba(0, 0, 0, 0.8);
 }
+code {
+	color: #E71BAE;
+}
+footer {
+	margin-bottom: 15px;
+}

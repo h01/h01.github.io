@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chrome扩展开发之Cookie管理</title>
+	<meta name="description" content="记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。">
+	<meta name="keywords" content="Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies">
+	<!-- 引用CSS|JS -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 自定义CSS -->
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Chrome扩展开发之Cookie管理</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">【设置权限】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="s2">&quot;permissions&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;&lt;all_urls&gt;&quot;</span>    <span class="c1">// 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL</span>
+<span class="p">]</span></code></pre></div>
+
+<p><code>cookie</code>对象包含如下10项属性：</p>
+
+<pre><code>name            // 名称   
+value           // 值    
+domain          // 域    
+hostOnly        // 是否只允许完全匹配domain的请求访问     
+path            // 路径   
+secure          // 是否只允许安全连接调用  
+httpOnly        // 是否禁止客户端调用    
+session         // 是否是session   
+expirationDate  // 过期时间     
+storeId         // cookie store的id  
+</code></pre>
+
+<p>(以上及以下部分内容来源于<code>《Chrome扩展及应用开发》</code>)</p>
+
+<h4 id="cookie">【读取cookie】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// get方法获取指定url和name等匹配的cookie(url和name为必须)</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;https://ursb.org&quot;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;vist&quot;</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cs</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cs</span><span class="p">);</span>
+<span class="p">});</span>
+ 
+<span class="c1">// getAll方法获取所有匹配条件的cookies</span>
+<span class="c1">// 1.获取某域下所有cookies</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">getAll</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;https://ursb.org&quot;</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cs</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cs</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// 2.获取所有cookies</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">getAll</span><span class="p">({},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cs</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cs</span><span class="p">);</span>
+<span class="p">});</span></code></pre></div>
+
+<h4 id="cookie-1">【设置cookie】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;https://ursb.org&quot;</span><span class="p">,</span>    <span class="c1">// 必选，其他可选（如果不存在则创建）</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;vist&quot;</span><span class="p">,</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;250&quot;</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cookie</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cookie</span><span class="p">);</span>    <span class="c1">// 此处cookie为修改后的cookie||null</span>
+<span class="p">});</span></code></pre></div>
+
+<h4 id="cookie-2">【删除cookie】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;https://ursb.org&quot;</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;vist&quot;</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>    <span class="c1">// res=删除的cookie对象</span>
+<span class="p">});</span></code></pre></div>
+
+<h4 id="cookiestore">【获取全部CookieStore】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// chrome.cookies.getAllCookieStores(callback);</span>
+<span class="c1">// 我们首先要定义一个获取结果的回调函数，如下</span>
+<span class="kd">function</span> <span class="nx">getAllCS</span><span class="p">(</span><span class="nx">cs</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cs</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="c1">// 然后直接调用</span>
+<span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">getAllCookieStores</span><span class="p">(</span><span class="nx">getAllCS</span><span class="p">);</span>
+<span class="c1">// *.只返回一个id属性和一个tabIds属性</span>
+<span class="c1">// *.id属性为这个cookieStore的id</span>
+<span class="c1">// *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id</span></code></pre></div>
+
+<h4 id="cookie-3">【监控操作cookie行为】</h4>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">chrome</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="nx">onChanged</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">info</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">info</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// 在测试中，发现如果在console里进行cookie操作（删除，设置等）的时候，不会调用</span></code></pre></div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Chrome扩展开发之Cookie管理" data-url="http://ursb.org/chrome/2014/10/26/Chrome-ext-cookies.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<footer>
+		<hr>
+		<div class="container text-center" style="margin-bottom: 10px">
+			<span class="text-muted">&copy; 2014 Hotes | </span>
+			<a href="/feed.xml" target="_blank">RSS</a>
+			<span class="text-muted"> | </span>
+			<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+			<span class="text-muted"> | </span>
+			<!-- 百度统计 -->
+			<script type="text/javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

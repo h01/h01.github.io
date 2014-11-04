@@ -5,41 +5,32 @@
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Hello Hotes!</title>
-	<meta name="description" content="简记，为简单而记！">
+	<meta name="description" content="欢迎使用Hotes！">
+	<meta name="keywords" content="Hotes,GitHub">
 	<!-- 引用CSS|JS -->
-	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link href="http://libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="canonical" href="http://h01.github.io/2014/11/03/Hello-Hotes.html">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- 自定义CSS -->
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<style type="text/css">
-	.media>.pull-left {
-		margin-right: 0;
-		padding-right: 12px;
-		border-right: 5px solid #eee;
-	}
-	::selection {
-		color: #FFF;
-		background: rgba(0, 0, 0, 0.8);
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 </head>
 <body>
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tech-navbar-collapse">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
 					<span class="sr-only">切换</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://h01.github.io">Hotes</a>
+				<a class="navbar-brand" href="/">Hotes</a>
 				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
 			</div>
-			<div class="collapse navbar-collapse" id="tech-navbar-collapse">
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
 				
 					
@@ -60,6 +51,8 @@
 					
 						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
 					</li>
+					
+				
 					
 				
 					
@@ -90,7 +83,7 @@
 ...
 </code></pre>
 
-<p>不管你有何感谢，反正我中招了～近一两年一直徘徊在1和2之间，使用过asp、php、python写博客程序，也使用过百度空间、博客园、Lofter、点点等各种博客空间，可惜一直都是三分热度，然后不了了之。  <br />
+<p>不管你有何感想，反正我中招了～近一两年一直徘徊在1和2之间，使用过asp、php、python写博客程序，也使用过百度空间、博客园、Lofter、点点等各种博客空间，可惜一直都是三分热度，然后不了了之。  <br />
 后来折腾GitHub后发现把blog写到上面也挺不错的，至少不必纠结服务器什么时候会关，数据什么时候会丢失的问题。  <br />
 在尝试了几个开源的基于Jekyll博客程序后，发现都不符合自己的口味。所以干脆自己操刀，弄了这么个程序。    </p>
 
@@ -105,10 +98,11 @@
 
 <pre><code>在页面前添加:
 ---
-layout: post
-title: Hello Hotes!
-date: 2014-11-03
-desc: 欢迎使用Hotes!
+category:    默认分类
+layout:      post
+title:       Hello Hotes!
+desc:        欢迎使用Hotes！
+tags:        [Hotes,GitHub]
 ---
 ...往下都是MarkDown格式的文档了
 </code></pre>
@@ -117,16 +111,19 @@ desc: 欢迎使用Hotes!
 <p>如果需要自定义页面，比如留言板，可以在<code>pages</code>目录下添加<code>.md</code>或<code>.markdown</code>的文件就好啦，文件名随意，内容如下：</p>
 
 <pre><code>---
-layout: page
-title: 关于
-permalink: /about/
-icon: glyphicon-heart
+layout:      page
+title:       关于
+permalink:   /about/
+icon:        glyphicon-heart
 ---
 ...内容
 其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
 </code></pre>
 
-<h4 id="section-3">写在后面</h4>
+<h4 id="section-3">如何绑定域名</h4>
+<p>绑定域名很简单，首先把域名的<code>CNAME</code>设置为你的githu.io地址，如<code>h01.github.io</code>，然后修改根目录的<code>CNAME</code>文件，内容为你要绑定域名即可！</p>
+
+<h4 id="section-4">写在后面</h4>
 <p>本程序为自己的练手作品，开发时间很短，但维护更新时间很长。目前只完成了一些简单的功能也页面，样式以及js都懒得写～不过后面的版本预计会重新写吧！  <br />
 把这程序开源出来希望能给需要的人一点帮助，也希望有兴趣的人一起加入！程序的<code>bug</code>神马的可以在留言板里提出，谢谢支持！</p>
 
@@ -140,7 +137,7 @@ icon: glyphicon-heart
 			</div>
 			<div class="panel-body">
 				<!-- 多说评论框 start -->
-				<div class="ds-thread" data-thread-key="0" data-title="Hello Hotes!" data-url="/2014/11/03/Hello-Hotes.html"></div>
+				<div class="ds-thread" data-thread-key="0" data-title="Hello Hotes!" data-url="http://ursb.org/2014/11/03/Hello-Hotes.html"></div>
 				<!-- 多说评论框 end -->
 				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 				<script type="text/javascript">
@@ -161,12 +158,29 @@ icon: glyphicon-heart
 	<!-- 底部文件 -->
 	<footer>
 		<hr>
-		<div class="container text-center">
+		<div class="container text-center" style="margin-bottom: 10px">
 			<span class="text-muted">&copy; 2014 Hotes | </span>
 			<a href="/feed.xml" target="_blank">RSS</a>
 			<span class="text-muted"> | </span>
 			<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+			<span class="text-muted"> | </span>
+			<!-- 百度统计 -->
+			<script type="text/javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+			</script>
 		</div>
 	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Hotes,GitHub");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
 </body>
 </html>

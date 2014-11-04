@@ -6,40 +6,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>留言板</title>
 	<meta name="description" content="简记，为简单而记！">
+	<meta name="keywords" content="">
 	<!-- 引用CSS|JS -->
-	<script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://libs.baidu.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<link href="http://libs.baidu.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="canonical" href="http://h01.github.io/guest/">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- 自定义CSS -->
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<style type="text/css">
-	.media>.pull-left {
-		margin-right: 0;
-		padding-right: 12px;
-		border-right: 5px solid #eee;
-	}
-	::selection {
-		color: #FFF;
-		background: rgba(0, 0, 0, 0.8);
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 </head>
 <body>
 	<!-- 导航栏 -->
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#tech-navbar-collapse">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
 					<span class="sr-only">切换</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://h01.github.io">Hotes</a>
+				<a class="navbar-brand" href="/">Hotes</a>
 				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
 			</div>
-			<div class="collapse navbar-collapse" id="tech-navbar-collapse">
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
 				
 					
@@ -64,6 +55,8 @@
 				
 					
 				
+					
+				
 				</ul>
 			</div>
 		</div>
@@ -76,7 +69,7 @@
 			</div>
 			<div class="panel-body">
 				<!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="0" data-title="留言板" data-url="http://h01.github.io/guest/"></div>
+<div class="ds-thread" data-thread-key="0" data-title="留言板" data-url="http://ursb.org/guest/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -99,12 +92,29 @@ var duoshuoQuery = {short_name:"h01ger"};
 	<!-- 底部文件 -->
 	<footer>
 		<hr>
-		<div class="container text-center">
+		<div class="container text-center" style="margin-bottom: 10px">
 			<span class="text-muted">&copy; 2014 Hotes | </span>
 			<a href="/feed.xml" target="_blank">RSS</a>
 			<span class="text-muted"> | </span>
 			<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+			<span class="text-muted"> | </span>
+			<!-- 百度统计 -->
+			<script type="text/javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+			</script>
 		</div>
 	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
 </body>
 </html>
