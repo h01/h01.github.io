@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: static
 permalink: /robots.txt
 ---
 User-Agent: *
