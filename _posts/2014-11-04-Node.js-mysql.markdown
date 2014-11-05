@@ -5,11 +5,11 @@ title:      Node.js连接操作MySql
 desc:       简记如何使用Node.js连接MySql并进行执行语句操作
 tags:       [Node.js,Node.js操作mysql]
 ---
-#### 安装mysql模块：
+#### 安装`mysql`模块：
 
     npm install mysql
 
-#### 初始化并连接`MySql`
+#### 初始化并连接`mysql`
 {% highlight js %}
 var mysql = require("mysql");
 var conn  = mysql.createConnection({
