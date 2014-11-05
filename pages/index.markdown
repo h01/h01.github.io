@@ -14,10 +14,10 @@ permalink: /index.html
 				<div class="panel-body">
 					<div class="media">
 						<div class="pull-left" align="center">
-							<p style="font-size: 33px;margin-bottom: -5px;">{{ post.date | date: "%d" }}</p>
-							<p class="text-muted">{{ post.date | date: "%Y-%m" }}</p>
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-{% if post.style %}{{ post.style }}{% else %}{{ "muted" }}{% endif %}">{{ post.date | date: "%d" }}</p>
+							<p class="text-{% if post.style %}{{ post.style }}{% else %}{{ "muted" }}{% endif %}">{{ post.date | date: "%Y-%m" }}</p>
 						</div>
-						<div class="media-body text-muted" style="padding-left: 5px;">
+						<div class="media-body text-{% if post.style %}{{ post.style }}{% else %}{{ "muted" }}{% endif %}" style="padding-left: 5px;">
 							{{ post.desc }}
 						</div>
 					</div>
