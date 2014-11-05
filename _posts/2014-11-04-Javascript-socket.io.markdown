@@ -1,5 +1,5 @@
 ---
-category:    javascript
+category:    node.js
 layout:      post
 title:       socket.io的简单使用
 desc:        socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用
@@ -12,34 +12,36 @@ npm install socket.io
 
 安装完毕我们本地监听一个`web`端口用于和用户交互以及通信：
 {% highlight js %}
-var app = require('http').createServer(handler),
-     io = require('socket.io').listen(app);
+var io = require("socket.io").listen(8888);
 
-function handler(req, res) {
-    res.writeHead(200);
-    res.end('Hello socket.io!');
-}
 function debug(msg){
-    console.log("[-] " + msg);
+    console.log('[-] %s', msg);
 }
-app.listen(8888);
-io.sockets.on('connection',function(socket){
-    debug("主机连接:" + socket.id);
 
-    socket.on('msg',function(data){
-        debug("收到数据:" + data.msg);
-        socket.emit("msg", {
-            msg: "你的数据(" + data.msg + ")我收到啦!"
+io.sockets.on('connection', function(socket){
+    debug("主机连接:" + socket.handshake.address);
+
+    socket.on('msg', function(msg){
+        debug("收到信息:" + msg.msg);
+        io.sockets.emit('msg', {
+            msg: socket.handshake.address + " 发送消息: " + msg.msg
         });
     });
-    socket.on('disconnect"', function(){
-        debug("主机断开:" + socket.id);
-    })
+
+    socket.on('disconnection', function(){
+        debug("主机断开:" + socket.handshake.address);
+    });
+
+    socket.emit('msg', {
+        msg: '你好aaa'
+    });
 });
 {% endhighlight %}
 
 然后客户端调用`web`的`socket.io.js`，或者直接调用外部`cdn`的`js`文件，进行和客户端通信：
 {% highlight js %}
+<script src="http://localhost:8888/socket.io/socket.io.js"></script>
+<script type="text/javascript">
 var socket = io.connect("http://localhost:8888");
 socket.on("msg", function(msg){
     console.log("[+] " + msg.msg);
@@ -47,4 +49,5 @@ socket.on("msg", function(msg){
 socket.emit("msg", {
     msg: "Hello!!!"
 });
+</script>
 {% endhighlight %}
