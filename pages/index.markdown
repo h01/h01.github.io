@@ -7,7 +7,7 @@ permalink: /index.html
 	<div class="row">
 		{% for post in site.posts %}
 		<div class="col-md-6 col-sm-12 col-xs-12">
-			<div class="panel panel-default">
+			<div class="panel panel-{% if post.style %}{{ post.style }}{% else %}{{ "default" }}{% endif %}">
 				<div class="panel-heading">
 					<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> <a href="{{ post.url }}">{{ post.title }}</a></h3>
 				</div>
