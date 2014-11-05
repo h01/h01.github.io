@@ -1,6 +1,7 @@
 ---
 category:    null
 layout:      post
+style:       danger
 title:       Hello Hotes!
 desc:        欢迎使用Hotes！
 tags:        [Hotes,GitHub]
@@ -29,11 +30,12 @@ tags:        [Hotes,GitHub]
 
     在页面前添加:
     ---
-    category:    默认分类
-    layout:      post
-    title:       Hello Hotes!
-    desc:        欢迎使用Hotes！
-    tags:        [Hotes,GitHub]
+    category:    默认分类        # 分类
+    layout:      post           # 模版 指定post
+    style:       danger         # 主题颜色[info, danger, primary, success] 默认default
+    title:       Hello Hotes!   # 标题
+    desc:        欢迎使用Hotes!  # 简介
+    tags:        [Hotes,GitHub] # Tags
     ---
     ...往下都是MarkDown格式的文档了
 
@@ -41,10 +43,10 @@ tags:        [Hotes,GitHub]
 如果需要自定义页面，比如留言板，可以在`pages`目录下添加`.md`或`.markdown`的文件就好啦，文件名随意，内容如下：
 
     ---
-    layout:      page
-    title:       关于
-    permalink:   /about/
-    icon:        glyphicon-heart
+    layout:      page           # 模版 指定page
+    title:       关于            # 标题
+    permalink:   /about/        # 固定链接
+    icon:        glyphicon-heart    # 图标
     ---
     ...内容
     其中title是页面的名称（标题）permalink是自定义的URL地址（不设置则为文件名.html）icon为显示的图标class，具体参考：http://v3.bootcss.com/components/#glyphicons
