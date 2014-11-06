@@ -1,0 +1,55 @@
+---
+category:   Javascript
+layout:     post
+title:      Web Worker简单使用
+desc:       当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。
+tags:       [Javascript,Web Worker,html5 worker,Javascript Worker使用]
+---
+#### 什么是Web Worker
+语文功底差，就不乱解释了。具体可以自己搜索或者参考[Html5 Web Workers][link-w3c]
+
+#### 有什么用
+本来这个应该归档于`Chrome`分类的，但是由于只是`Javascript`，就在此发出了。    
+用于进行多个任务的时候，特别是网络访问，比如扫描网站文件状态，网络爬虫。    
+在我的`Chrome.ext`小作品中，[WaCms][link-wacms]以及[hackerRss][link-hrss]都采用了Worker技术，主要就是为了解决UI卡死还有速度的问题，使用过后就知道效果咯！
+
+#### 如何使用
+我们先定义一个`Worker`对象，也就是一个js文件啦，比如`worker.js`。代码参考如下：
+{% highlight js linenos %}
+// 导入外部js文件使用
+importScripts("data.js");
+
+// 监听消息
+onmessage = function(e){
+    // 消息可以为对象
+    console.log(e.data);
+}
+
+// 发送消息
+postMessage({
+    msg: "这个消息发送自 Worker"
+});
+{% endhighlight %}
+
+然后我们创建`Worker`对象然后进行调用：
+{% highlight js linenos %}
+// 初始化对象
+var worker = new Worker("worker.js");
+
+// 监听消息
+worker.onmessage = function(e){
+    console.log(e.data);
+};
+
+// 发送消息
+worker.poseMessage({
+    msg: "这个消息来自某处.."
+});
+{% endhighlight %}
+
+### The End.
+暂时就写到这啦！
+
+[link-w3c]: http://www.w3school.com.cn/html5/html_5_webworkers.asp
+[link-wacms]: https://github.com/h01/chrome.ext/tree/master/WaCms
+[link-hrss]: https://github.com/h01/chrome.ext/tree/master/hackerRss
