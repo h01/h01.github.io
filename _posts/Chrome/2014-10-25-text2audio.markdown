@@ -1,5 +1,5 @@
 ---
-category:    [编程笔记,Chrome扩展]
+category:    Chrome
 layout:      post
 title:       Chrome扩展开发之文字转语音功能
 desc:        chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～

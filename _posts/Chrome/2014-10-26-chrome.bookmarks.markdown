@@ -1,5 +1,5 @@
 ---
-category:    [编程笔记,Chrome扩展]
+category:    Chrome
 layout:      post
 title:       Chrome扩展开发之书签管理
 desc:        chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。

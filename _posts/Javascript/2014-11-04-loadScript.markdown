@@ -1,5 +1,5 @@
 ---
-category:    [编程笔记,javascript]
+category:    Javascript
 layout:      post
 title:       Javascript同步加载js文件
 desc:        页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题

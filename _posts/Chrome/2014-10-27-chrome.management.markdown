@@ -1,5 +1,5 @@
 ---
-category:    [编程笔记,Chrome扩展]
+category:    Chrome
 layout:      post
 title:       Chrome扩展开发之扩展与应用管理
 desc:        通过Chrome的management接口来完成用户已安装的扩展和应用管理。
