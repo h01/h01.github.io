@@ -10,7 +10,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 2.[Autoupdating - Google Chrome](https://developer.chrome.com/extensions/autoupdate)
 
 我们直接在`manifest.json`中设置`update_url`
-{% highlight js %}
+{% highlight js linenos %}
 {
     ...
     "update_url": "https://ursb.org/chrome/test/update.php",
@@ -20,7 +20,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 `update.php`也可以为静态的xml文件地址，不过为了动态更新方便，直接用php读取数据库或者文本等等操作。。
 
 输出的xml文件格式如下：
-{% highlight xml %}
+{% highlight xml linenos %}
 <?xml version="1.0" encoding="UTF-8"?>    
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
     <app appid="dikhaimodgjmmdgjlaeicddkepoeoibj">
@@ -32,7 +32,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 然后关键的就是`updatecheck`这个节点了，`codebase`为更新的crx文件地址，`version`为更新的crx版本，这个版本要和crx文件中的版本一致。
 
 接下来就是PHP代码了，简单随手写了下，需要的拿去。。
-{% highlight php %}
+{% highlight php linenos %}
 <?php
 /*
  * Chrome升级xml类

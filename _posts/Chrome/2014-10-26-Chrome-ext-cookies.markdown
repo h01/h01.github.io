@@ -6,7 +6,7 @@ desc:        记录chrome.cookies接口的读取，设置，添加，删除，�
 tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
 ---
 #### 【设置权限】
-{% highlight js %}
+{% highlight js linenos %}
 "permissions": [
     "cookies",
     "<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
@@ -30,7 +30,7 @@ tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
 
 #### 【读取cookie】
 
-{% highlight js %}
+{% highlight js linenos %}
 // get方法获取指定url和name等匹配的cookie(url和name为必须)
 chrome.cookies.get({
     url: "https://ursb.org",
@@ -54,7 +54,7 @@ chrome.cookies.getAll({}, function(cs){
 
 #### 【设置cookie】
 
-{% highlight js %}
+{% highlight js linenos %}
 chrome.cookies.set({
     url: "https://ursb.org",    // 必选，其他可选（如果不存在则创建）
     name: "vist",
@@ -66,7 +66,7 @@ chrome.cookies.set({
 
 #### 【删除cookie】
 
-{% highlight js %}
+{% highlight js linenos %}
 chrome.cookies.remove({
     url: "https://ursb.org",
     name: "vist"
@@ -77,7 +77,7 @@ chrome.cookies.remove({
 
 #### 【获取全部CookieStore】
 
-{% highlight js %}
+{% highlight js linenos %}
 // chrome.cookies.getAllCookieStores(callback);
 // 我们首先要定义一个获取结果的回调函数，如下
 function getAllCS(cs){
@@ -92,7 +92,7 @@ chrome.cookies.getAllCookieStores(getAllCS);
 
 #### 【监控操作cookie行为】
 
-{% highlight js %}
+{% highlight js linenos %}
 chrome.cookies.onChanged.addListener(function(info){
     console.log(info);
 });

@@ -1,17 +1,17 @@
 ---
-category:    node.js
+category:    nodejs
 layout:      post
 title:       socket.io的简单使用
 desc:        socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用
 tags:        [Javascript,socket.io,socket.io.js使用,node.js Websocket]
 ---
 具体的介绍就不说了，在服务端安装命令：
-{% highlight bash %}
+{% highlight bash linenos %}
 npm install socket.io
 {% endhighlight %}
 
 安装完毕我们本地监听一个`web`端口用于和用户交互以及通信：
-{% highlight js %}
+{% highlight js linenos %}
 var io = require("socket.io").listen(8888);
 
 function debug(msg){
@@ -39,7 +39,7 @@ io.sockets.on('connection', function(socket){
 {% endhighlight %}
 
 然后客户端调用`web`的`socket.io.js`，或者直接调用外部`cdn`的`js`文件，进行和客户端通信：
-{% highlight js %}
+{% highlight js linenos %}
 <script src="http://localhost:8888/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 var socket = io.connect("http://localhost:8888");

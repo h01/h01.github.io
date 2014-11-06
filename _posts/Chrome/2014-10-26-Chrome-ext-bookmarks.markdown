@@ -8,23 +8,23 @@ tags:        [Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks]
 ### 要养成一种习惯：看书，实践，总结。   
 
 #### 【声明权限】
-{% highlight js %}
+{% highlight js linenos %}
 "permissions": ["bookmarks"]
 {% endhighlight %}
 
 `bookmarks`对象有8个属性：    
 
-    1.id        #不需要设置，根ID=0    
-    2.parentId    
-    3.index     #在父节点中的位置，从0开始  
-    4.url       #创建文件夹不需要指定 
-    5.title     #必选 
-    6.dateAdded     
-    7.dateGroupModified     
-    8.children  #包含若干书签对象的数组    
+    id        #不需要设置，根ID=0    
+    parentId    
+    index     #在父节点中的位置，从0开始  
+    url       #创建文件夹不需要指定 
+    title     #必选 
+    dateAdded     
+    dateGroupModified     
+    children  #包含若干书签对象的数组    
 
 #### 【创建书签】
-{% highlight js %}
+{% highlight js linenos %}
 // 创建文件夹
 chrome.bookmarks.create({
     title: "文件夹2",
@@ -45,7 +45,7 @@ chrome.bookmarks.create({
 {% endhighlight %}
 
 #### 【调整书签位置】
-{% highlight js %}
+{% highlight js linenos %}
 chrome.bookmarks.move('250', {
     parentId: '1',    // 要移动到的文件夹ID，1=顶部文件夹
     index: 55        // 在文件夹中的位置
@@ -55,7 +55,7 @@ chrome.bookmarks.move('250', {
 {% endhighlight %}
 
 #### 【修改更新标签】
-{% highlight js %}
+{% highlight js linenos %}
 chrome.bookmarks.update('167', {
     title: '修改后的标题',
     url: 'https://ursb.org/notes/'
@@ -65,7 +65,7 @@ chrome.bookmarks.update('167', {
 {% endhighlight %}
 
 #### 【删除书签和文件夹】
-{% highlight js %}
+{% highlight js linenos %}
 // 删除书签或空的文件夹
 chrome.bookmarks.remove('250', function(){
     console.log('ID=250的书签已经删除!');
@@ -77,7 +77,7 @@ chrome.bookmarks.removeTree('250', function(){
 {% endhighlight %}
 
 #### 【获取书签和分组】
-{% highlight js %}
+{% highlight js linenos %}
 // 获取所有书签和文件夹
 chrome.bookmarks.getTree(function(bms){
     console.log(bms);
@@ -110,7 +110,7 @@ chrome.bookmarks.search('keyword', function(bms){
 {% endhighlight %}
 
 #### 【书签事件】
-{% highlight js %}
+{% highlight js linenos %}
 // 创建书签事件
 chrome.bookmarks.onCreated.addListener(function(bm){
     console.log("创建了书签");

@@ -6,19 +6,19 @@ desc:        通过Chrome的management接口来完成用户已安装的扩展和
 tags:        [Chrome,Chrome扩展开发,Chrome插件管理,Chrome扩展管理,Chrome.management]
 ---
 #### 【设置权限】
-{% highlight js %}
+{% highlight js linenos %}
 "permissions": ["management"]
 {% endhighlight %}
 
 #### 【读取信息】
-{% highlight js %}
+{% highlight js linenos %}
 chrome.management.getAll(function(arr){
     console.log(arr);
 }
 {% endhighlight %}
 
 其中`arr`对象的结构如下：
-{% highlight js %}
+{% highlight js linenos %}
 {
     id: "扩展的ID",
     name: "扩展的名称",
@@ -61,14 +61,14 @@ chrome.management.getAll(function(arr){
     other       // 其他
 
 #### 【获取权限警告】
-{% highlight js %}
+{% highlight js linenos %}
 chrome.management.getPermissionWarningsById("扩展的ID", function(warning){
     console.log(warning);
 }
 {% endhighlight %}
 
 #### 【启用禁用扩展】
-{% highlight js %}
+{% highlight js linenos %}
 // true=启用;false=禁用
 chrome.management.setEnabled("扩展ID", false, function(){
     console.log(".");
@@ -76,6 +76,6 @@ chrome.management.setEnabled("扩展ID", false, function(){
 {% endhighlight %}
 
 #### 【卸载扩展】
-{% highlight js %}
+{% highlight js linenos %}
 // 等待实验中..
 {% endhighlight %}

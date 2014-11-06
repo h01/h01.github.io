@@ -8,7 +8,7 @@ tags:        [Javascript,loadScript,同步加载js文件]
 #### 文章代码参考于网络修改，在此留笔记供日后翻阅
 实现的原理很简单，我们首先创建一个`script`元素并赋予`src`值，等加载完毕后再执行`callback`函数。    
 代码直接贴出来吧，很简单：
-{% highlight js %}
+{% highlight js linenos %}
 function loadScript(url, callback){
 	var script = document.createElement("script");
 	script.type = "text/javascript";
@@ -30,7 +30,7 @@ function loadScript(url, callback){
 {% endhighlight %}
 
 调用方法：
-{% highlight js %}
+{% highlight js linenos %}
 loadScript("/jquery.js", function(){
 	console.log($("#test").val());
 })

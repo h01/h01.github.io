@@ -1,5 +1,5 @@
 ---
-category:   node.js
+category:   nodejs
 layout:     post
 title:      Node.js连接操作MySql
 desc:       简记如何使用Node.js连接MySql并进行执行语句操作

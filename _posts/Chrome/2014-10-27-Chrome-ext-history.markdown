@@ -6,7 +6,7 @@ desc:        历史用于记录用户访问过的页面。Chrome提供了history
 tags:        [Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history]
 ---
 #### 【声明权限】
-{% highlight js %}
+{% highlight js linenos %}
 "permissions": ["history"]
 {% endhighlight %}
 
@@ -22,7 +22,7 @@ chrome.history方法有下：
     search
 
 #### 【读取历史】
-{% highlight js %}
+{% highlight js linenos %}
 // chrome.history.getVisits(Object, callback);
 // Object中url为必选参数
 // Callback中返回的对象有6个属性:id, url, title, lastVisiTime, visitCount, typedCount
@@ -34,7 +34,7 @@ chrome.history.getVisits({
 {% endhighlight %}
 
 #### 【搜索历史】
-{% highlight js %}
+{% highlight js linenos %}
 chrome.history.search({
     text: "Holger",    // 匹配指定文字
     startTime: new Date().getTime() - 24*3600*1000,    // 开始时间
@@ -46,7 +46,7 @@ chrome.history.search({
 {% endhighlight %}
 
 #### 【添加历史】
-{% highlight js %}
+{% highlight js linenos %}
 // chrome.history.addUrl(Object, callback)
 // Object只需要url参数即可,callback为执行成功后调用
 chrome.history.addUrl({
@@ -57,7 +57,7 @@ chrome.history.addUrl({
 {% endhighlight %}
 
 #### 【删除历史】
-{% highlight js %}
+{% highlight js linenos %}
 // 删除指定URL的历史
 chrome.history.deleteUrl({
     url: "https://ursb.org"
@@ -80,7 +80,7 @@ chrome.history.deleteAll(function(){
 {% endhighlight %}
 
 #### 【监听历史操作】
-{% highlight js %}
+{% highlight js linenos %}
 // 监听用户访问历史
 chrome.history.onVisited.addListener(function(item){
     console.log(item);
