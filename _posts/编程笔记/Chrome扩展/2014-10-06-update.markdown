@@ -6,14 +6,14 @@ desc:        这里简单介绍如何设置自动更新升级我们的Chrome扩�
 tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级]
 ---
 ##### 先贴上两个文档：  
-1.[自动升级--扩展开发文档](http://open.chrome.360.cn/extension_dev/autoupdate.html)    
-2.[Autoupdating - Google Chrome](https://developer.chrome.com/extensions/autoupdate)
+1.[自动升级--扩展开发文档][link-1]    
+2.[Autoupdating - Google Chrome][link-2]
 
 我们直接在`manifest.json`中设置`update_url`
 {% highlight js linenos %}
 {
     ...
-    "update_url": "https://ursb.org/chrome/test/update.php",
+    "update_url": "http://ursb.org/chrome/test/update.php",
     ...
 }
 {% endhighlight %}
@@ -67,3 +67,6 @@ class ChromeUpdate{
 }
 ?>
 {% endhighlight %}
+
+[link-1]: http://open.chrome.360.cn/extension_dev/autoupdate.html
+[link-2]: https://developer.chrome.com/extensions/autoupdate
