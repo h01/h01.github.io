@@ -8,3 +8,4 @@ baidutongji: 39aaf5727abfcedefcdeecf3aad6d895   # 百度统计ID
 
 # 编译设置
 markdown: kramdown                              # MarkDown
+pygments: true
