@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>socket.io的简单使用</title>
+	<meta name="description" content="socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用">
+	<meta name="keywords" content="Javascript,socket.io,socket.io.js使用,node.js Websocket">
+	<!-- 引用CSS|JS -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 自定义CSS -->
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+							<span class="glyphicon glyphicon-th-large"></span>
+							分类
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
+						
+							<li>
+								<a href="/category/编程笔记">编程笔记</a>
+							</li>
+						
+							<li>
+								<a href="/category/chrome扩展">CHROME扩展</a>
+							</li>
+						
+							<li>
+								<a href="/category/javascript">JAVASCRIPT</a>
+							</li>
+						
+							<li>
+								<a href="/category/nodejs">NODEJS</a>
+							</li>
+						
+						</ul>
+					</li>
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> socket.io的简单使用</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<p>具体的介绍就不说了，在服务端安装命令：</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="lineno">1</span> npm install socket.io</code></pre></div>
+
+<p>安装完毕我们本地监听一个<code>web</code>端口用于和用户交互以及通信：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno"> 1</span> <span class="kd">var</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;socket.io&quot;</span><span class="p">).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8888</span><span class="p">);</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="kd">function</span> <span class="nx">debug</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno"> 4</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;[-] %s&#39;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+<span class="lineno"> 5</span> <span class="p">}</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">){</span>
+<span class="lineno"> 8</span>     <span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;主机连接:&quot;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">handshake</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
+<span class="lineno"> 9</span> 
+<span class="lineno">10</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno">11</span>         <span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;收到信息:&quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+<span class="lineno">12</span>         <span class="nx">io</span><span class="p">.</span><span class="nx">sockets</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno">13</span>             <span class="nx">msg</span><span class="o">:</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">handshake</span><span class="p">.</span><span class="nx">address</span> <span class="o">+</span> <span class="s2">&quot; 发送消息: &quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">msg</span>
+<span class="lineno">14</span>         <span class="p">});</span>
+<span class="lineno">15</span>     <span class="p">});</span>
+<span class="lineno">16</span> 
+<span class="lineno">17</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnection&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="lineno">18</span>         <span class="nx">debug</span><span class="p">(</span><span class="s2">&quot;主机断开:&quot;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">handshake</span><span class="p">.</span><span class="nx">address</span><span class="p">);</span>
+<span class="lineno">19</span>     <span class="p">});</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span>     <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;msg&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno">22</span>         <span class="nx">msg</span><span class="o">:</span> <span class="s1">&#39;你好aaa&#39;</span>
+<span class="lineno">23</span>     <span class="p">});</span>
+<span class="lineno">24</span> <span class="p">});</span></code></pre></div>
+
+<p>然后客户端调用<code>web</code>的<code>socket.io.js</code>，或者直接调用外部<code>cdn</code>的<code>js</code>文件，进行和客户端通信：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno"> 1</span> <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;http://localhost:8888/socket.io/socket.io.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="lineno"> 2</span> <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="lineno"> 3</span> <span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s2">&quot;http://localhost:8888&quot;</span><span class="p">);</span>
+<span class="lineno"> 4</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span>
+<span class="lineno"> 5</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;[+] &quot;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+<span class="lineno"> 6</span> <span class="p">});</span>
+<span class="lineno"> 7</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;msg&quot;</span><span class="p">,</span> <span class="p">{</span>
+<span class="lineno"> 8</span>     <span class="nx">msg</span><span class="o">:</span> <span class="s2">&quot;Hello!!!&quot;</span>
+<span class="lineno"> 9</span> <span class="p">});</span>
+<span class="lineno">10</span> <span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre></div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="socket.io的简单使用" data-url="http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Javascript,socket.io,socket.io.js使用,node.js Websocket");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

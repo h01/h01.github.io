@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chrome扩展开发之文字转语音功能</title>
+	<meta name="description" content="chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～">
+	<meta name="keywords" content="Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转语音,文字转语音">
+	<!-- 引用CSS|JS -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 自定义CSS -->
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+							<span class="glyphicon glyphicon-th-large"></span>
+							分类
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
+						
+							<li>
+								<a href="/category/编程笔记">编程笔记</a>
+							</li>
+						
+							<li>
+								<a href="/category/chrome扩展">CHROME扩展</a>
+							</li>
+						
+							<li>
+								<a href="/category/javascript">JAVASCRIPT</a>
+							</li>
+						
+							<li>
+								<a href="/category/nodejs">NODEJS</a>
+							</li>
+						
+						</ul>
+					</li>
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Chrome扩展开发之文字转语音功能</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<p>以前使用文字转语音功能都是直接用的百度翻译接口：</p>
+
+<pre><code>http://tts.baidu.com/text2audio?lan=zh&amp;pid=101&amp;ie=UTF-8&amp;text=转语音的文字&amp;spd=9
+</code></pre>
+
+<p>不过需要网络访问，对于本地应用来说貌似非常不着调～。<br />
+偶然看到了<code>chrome</code>的<code>tts API</code>，测试过后发现很有趣，所以记录一下，也给有需要的一点帮助。  <br />
+使用<code>tts</code>接口需要在<code>manifest.json</code>中声明权限：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="s2">&quot;permissions&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;tts&quot;</span><span class="p">]</span></code></pre></div>
+
+<p>简单例子：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;Welcome to holger&#39;s notes&quot;</span><span class="p">)</span></code></pre></div>
+
+<p>不过也许你执行过后发现没有声音，经测试，个人觉得是因为没有加上”可选”的语言设置选项。   <br />
+<code>speak</code>方法需要三个参数：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;要转换的文字[必选]&quot;</span><span class="p">,</span> <span class="p">{</span><span class="err">设置</span><span class="p">[</span><span class="err">可选</span><span class="p">],</span> <span class="err">回调函数</span><span class="p">[</span><span class="err">可选</span><span class="p">]}</span></code></pre></div>
+
+<p>回调函数会在<code>speak</code>方法调用成功后立刻执行，所以可能会在播放结束之前就已经调用了。  <br />
+其中设置的结构如下：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno"> 1</span> <span class="p">{</span>
+<span class="lineno"> 2</span>     <span class="nx">enqueue</span><span class="o">:</span> <span class="s2">&quot;是否将朗读任务加入队列[true|false];true=之前任务结束后才开始&quot;</span><span class="p">,</span>
+<span class="lineno"> 3</span>     <span class="nx">voiceName</span><span class="o">:</span> <span class="s2">&quot;朗读所使用的声音名称&quot;</span><span class="p">,</span>
+<span class="lineno"> 4</span>     <span class="nx">extensionId</span><span class="o">:</span> <span class="s2">&quot;为朗读提供声音引擎扩展的ID&quot;</span><span class="p">,</span>
+<span class="lineno"> 5</span>     <span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;朗读文字所使用的语言&quot;</span><span class="p">,</span>
+<span class="lineno"> 6</span>     <span class="nx">gender</span><span class="o">:</span> <span class="s2">&quot;朗读者的性别，也就是发音人是男[male]或女[female]&quot;</span><span class="p">,</span>
+<span class="lineno"> 7</span>     <span class="nx">rate</span><span class="o">:</span> <span class="s2">&quot;朗读语速[0.1-10.0],默认为1.0&quot;</span><span class="p">,</span>
+<span class="lineno"> 8</span>     <span class="nx">pitch</span><span class="o">:</span> <span class="s2">&quot;朗读语调[0-2.0],默认为1.0&quot;</span><span class="p">,</span>
+<span class="lineno"> 9</span>     <span class="nx">volume</span><span class="o">:</span> <span class="s2">&quot;朗读音量[0-1.0],默认为1.0&quot;</span><span class="p">,</span>
+<span class="lineno">10</span>     <span class="nx">requireEventTypes</span><span class="o">:</span> <span class="s2">&quot;声音必须支持的事件&quot;</span><span class="p">,</span>
+<span class="lineno">11</span>     <span class="nx">desiredEventTypes</span><span class="o">:</span> <span class="s2">&quot;需要监听的事件(未指定监听全部事件的情况下)&quot;</span><span class="p">,</span>
+<span class="lineno">12</span>     <span class="nx">onEvent</span><span class="o">:</span> <span class="s2">&quot;用于监听事件的函数&quot;</span>
+<span class="lineno">13</span> <span class="p">}</span></code></pre></div>
+
+<p>以上设置参考<code>《Chrome扩展及应用开发》</code>一书，有兴趣可自行研究。 <br />
+例如，朗读一段中文如下：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;哈哈哈，哈哈哈哈，哈哈哈哈哈哈，活捉蛇精病患者一枚！&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;ZH-CN&quot;</span><span class="p">,</span> <span class="nx">rate</span><span class="o">:</span> <span class="mf">3.0</span><span class="p">})</span></code></pre></div>
+
+<p>其中<code>rate</code>并不是越大朗读速度越快，具体自行测试～</p>
+
+<p>如果需要阅读几段文字，同时执行的话可能只会朗读最后一段，所以我们需要<code>enqueue</code>加入队列设置前面播放完毕再播放：</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;哭疼老叔婚丫&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;ZN-CN&quot;</span><span class="p">,</span> <span class="nx">enqueue</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="lineno">2</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;小乔流水人渣&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;ZN-CN&quot;</span><span class="p">,</span> <span class="nx">enqueue</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="lineno">3</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;鼓捣西峰手麻&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;ZN-CN&quot;</span><span class="p">,</span> <span class="nx">enqueue</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="lineno">4</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">speak</span><span class="p">(</span><span class="s2">&quot;你丑，没事，我瞎&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">lang</span><span class="o">:</span> <span class="s2">&quot;ZH-CN&quot;</span><span class="p">,</span> <span class="nx">enqueue</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span></code></pre></div>
+
+<p>哈哈，基本的使用就是这样了，如果想了解支持的语言的话，可输入以下命令查看</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">tts</span><span class="p">.</span><span class="nx">getVoices</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">v</span><span class="p">){</span>
+<span class="lineno">2</span>     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+<span class="lineno">3</span> <span class="p">})</span></code></pre></div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Chrome扩展开发之文字转语音功能" data-url="http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转语音,文字转语音");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

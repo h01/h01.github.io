@@ -1,192 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hotes</title>
-    <description>简记，为简单而记！</description>
-    <atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
-    <pubdate>Tue, 04 Nov 2014 18:28:43 +0800</pubdate>
-    <lastbuilddate>Tue, 04 Nov 2014 18:28:43 +0800</lastbuilddate>
-    <generator>Jekyll v2.4.0 &amp; Holger</generator>
-    
-      <item>
-        <title>socket.io的简单使用</title>
-        <description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
-        <pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/javascript/2014/11/04/Javascript-socket.io.html
-        <guid ispermalink="true">http://ursb.org/javascript/2014/11/04/Javascript-socket.io.html</guid>
-        
-        <category>Javascript</category>
-        
-        <category>socket.io</category>
-        
-        <category>socket.io.js使用</category>
-        
-        <category>node.js Websocket</category>
-        
-        
-        <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Javascript同步加载js文件</title>
-        <description>页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题</description>
-        <pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/javascript/2014/11/04/Javascript-loadScript.html
-        <guid ispermalink="true">http://ursb.org/javascript/2014/11/04/Javascript-loadScript.html</guid>
-        
-        <category>Javascript</category>
-        
-        <category>loadScript</category>
-        
-        <category>同步加载js文件</category>
-        
-        
-        <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>Hello Hotes!</title>
-        <description>欢迎使用Hotes！</description>
-        <pubdate>Mon, 03 Nov 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/2014/11/03/Hello-Hotes.html
-        <guid ispermalink="true">http://ursb.org/2014/11/03/Hello-Hotes.html</guid>
-        
-        <category>Hotes</category>
-        
-        <category>GitHub</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之扩展与应用管理</title>
-        <description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
-        <pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/27/Chrome-ext-management.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/27/Chrome-ext-management.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>Chrome扩展开发</category>
-        
-        <category>Chrome插件管理</category>
-        
-        <category>Chrome扩展管理</category>
-        
-        <category>Chrome.management</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之History管理</title>
-        <description>历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</description>
-        <pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/27/Chrome-ext-history.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/27/Chrome-ext-history.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>Chrome扩展开发</category>
-        
-        <category>ChromeHistory管理</category>
-        
-        <category>Chrome.history</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之Cookie管理</title>
-        <description>记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</description>
-        <pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/26/Chrome-ext-cookies.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/26/Chrome-ext-cookies.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>Chrome扩展开发</category>
-        
-        <category>ChromeCookie管理</category>
-        
-        <category>Chrome.cookies</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之书签管理</title>
-        <description>chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。</description>
-        <pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/26/Chrome-ext-bookmarks.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/26/Chrome-ext-bookmarks.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>Chrome扩展开发</category>
-        
-        <category>Chrome书签管理</category>
-        
-        <category>Chrome.bookmarks</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之文字转语音功能</title>
-        <description>chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～</description>
-        <pubdate>Sat, 25 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/25/Chrome-ext-text2audio.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/25/Chrome-ext-text2audio.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>chrome.tts</category>
-        
-        <category>Chrome扩展</category>
-        
-        <category>Chrome扩展开发</category>
-        
-        <category>Chrome文字转语音</category>
-        
-        <category>文字转语音</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-      <item>
-        <title>Chrome扩展开发之自动更新升级</title>
-        <description>这里简单介绍如何设置自动更新升级我们的Chrome扩展</description>
-        <pubdate>Mon, 06 Oct 2014 00:00:00 +0800</pubdate>
-        <link />http://ursb.org/chrome/2014/10/06/Chrome-ext-update.html
-        <guid ispermalink="true">http://ursb.org/chrome/2014/10/06/Chrome-ext-update.html</guid>
-        
-        <category>Chrome</category>
-        
-        <category>update</category>
-        
-        <category>Chrome扩展</category>
-        
-        <category>Chrome扩展自动升级</category>
-        
-        <category>Chrome扩展升级</category>
-        
-        
-        <category>chrome</category>
-        
-      </item>
-    
-  </channel>
+	<channel>
+		<title>Hotes</title>
+		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
+		<url>http://ursb.org</url>
+		<lastbuilddate>Thu, 06 Nov 2014 11:33:34 +0800</lastbuilddate>
+		<language>zh-CN</language>
+		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>socket.io的简单使用</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io.html</url>
+			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<category>Javascript,socket.io,socket.io.js使用,node.js Websocket</category>
+			<description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
+		</item>
+		
+		<item>
+			<title>Node.js连接操作MySql</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql.html</url>
+			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<category>Node.js,Node.js操作mysql</category>
+			<description>简记如何使用Node.js连接MySql并进行执行语句操作</description>
+		</item>
+		
+		<item>
+			<title>Javascript同步加载js文件</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript.html</url>
+			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<category>Javascript,loadScript,同步加载js文件</category>
+			<description>页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题</description>
+		</item>
+		
+		<item>
+			<title>Hello Hotes!</title>
+			<url>http://ursb.org/2014/11/03/Hello-Hotes.html</url>
+			<pubdate>Mon, 03 Nov 2014 00:00:00 +0800</pubdate>
+			<category>Hotes,GitHub</category>
+			<description>欢迎使用Hotes！</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之扩展与应用管理</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management.html</url>
+			<pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,Chrome扩展开发,Chrome插件管理,Chrome扩展管理,Chrome.management</category>
+			<description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之History管理</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history.html</url>
+			<pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history</category>
+			<description>历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之Cookie管理</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies.html</url>
+			<pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies</category>
+			<description>记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之书签管理</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks.html</url>
+			<pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks</category>
+			<description>chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之文字转语音功能</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio.html</url>
+			<pubdate>Sat, 25 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转语音,文字转语音</category>
+			<description>chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～</description>
+		</item>
+		
+		<item>
+			<title>Chrome扩展开发之自动更新升级</title>
+			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update.html</url>
+			<pubdate>Mon, 06 Oct 2014 00:00:00 +0800</pubdate>
+			<category>Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级</category>
+			<description>这里简单介绍如何设置自动更新升级我们的Chrome扩展</description>
+		</item>
+		
+	</channel>
 </rss>

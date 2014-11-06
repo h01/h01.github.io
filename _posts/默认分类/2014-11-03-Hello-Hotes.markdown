@@ -1,12 +1,11 @@
 ---
-category:    null
 layout:      post
 style:       danger
 title:       Hello Hotes!
 desc:        欢迎使用Hotes！
 tags:        [Hotes,GitHub]
 ---
-开始之前，先引用[阮一峰博客](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)中一句经典的话：  
+开始之前，先引用[阮一峰博客][link-1]中一句经典的话：  
 
     喜欢写Blog的人，会经历三个阶段：
     1.第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。  
@@ -56,4 +55,7 @@ tags:        [Hotes,GitHub]
 
 #### 写在后面
 本程序为自己的练手作品，开发时间很短，但维护更新时间很长。目前只完成了一些简单的功能也页面，样式以及js都懒得写～不过后面的版本预计会重新写吧！    
-把这程序开源出来希望能给需要的人一点帮助，也希望有兴趣的人一起加入！程序的`bug`神马的可以在留言板里提出，谢谢支持！
+把这程序开源出来希望能给需要的人一点帮助，也希望有兴趣的人一起加入！程序的`bug`神马的可以在[留言板][link-guest]里提出，谢谢支持！
+
+[link-1]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
+[link-guest]: /guest/

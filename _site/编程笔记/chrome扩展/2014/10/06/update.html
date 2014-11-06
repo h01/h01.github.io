@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Chrome扩展开发之自动更新升级</title>
+	<meta name="description" content="这里简单介绍如何设置自动更新升级我们的Chrome扩展">
+	<meta name="keywords" content="Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级">
+	<!-- 引用CSS|JS -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 自定义CSS -->
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+							<span class="glyphicon glyphicon-th-large"></span>
+							分类
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
+						
+							<li>
+								<a href="/category/编程笔记">编程笔记</a>
+							</li>
+						
+							<li>
+								<a href="/category/chrome扩展">CHROME扩展</a>
+							</li>
+						
+							<li>
+								<a href="/category/javascript">JAVASCRIPT</a>
+							</li>
+						
+							<li>
+								<a href="/category/nodejs">NODEJS</a>
+							</li>
+						
+						</ul>
+					</li>
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Chrome扩展开发之自动更新升级</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">这里简单介绍如何设置自动更新升级我们的Chrome扩展</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h5 id="section">先贴上两个文档：</h5>
+<p>1.<a href="http://open.chrome.360.cn/extension_dev/autoupdate.html">自动升级–扩展开发文档</a>  <br />
+2.<a href="https://developer.chrome.com/extensions/autoupdate">Autoupdating - Google Chrome</a></p>
+
+<p>我们直接在<code>manifest.json</code>中设置<code>update_url</code></p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="lineno">1</span> <span class="p">{</span>
+<span class="lineno">2</span>     <span class="p">...</span>
+<span class="lineno">3</span>     <span class="s2">&quot;update_url&quot;</span><span class="o">:</span> <span class="s2">&quot;https://ursb.org/chrome/test/update.php&quot;</span><span class="p">,</span>
+<span class="lineno">4</span>     <span class="p">...</span>
+<span class="lineno">5</span> <span class="p">}</span></code></pre></div>
+
+<p><code>update.php</code>也可以为静态的xml文件地址，不过为了动态更新方便，直接用php读取数据库或者文本等等操作。。</p>
+
+<p>输出的xml文件格式如下：</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="lineno">1</span> <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>    
+<span class="lineno">2</span> <span class="nt">&lt;gupdate</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.google.com/update2/response&quot;</span> <span class="na">protocol=</span><span class="s">&quot;2.0&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">3</span>     <span class="nt">&lt;app</span> <span class="na">appid=</span><span class="s">&quot;dikhaimodgjmmdgjlaeicddkepoeoibj&quot;</span><span class="nt">&gt;</span>
+<span class="lineno">4</span>         <span class="nt">&lt;updatecheck</span> <span class="na">codebase=</span><span class="s">&quot;http://ursb.org/chrome/test/1.1.crx&quot;</span> <span class="na">version=</span><span class="s">&quot;1.1&quot;</span><span class="nt">/&gt;</span>
+<span class="lineno">5</span>     <span class="nt">&lt;/app&gt;</span>
+<span class="lineno">6</span> <span class="nt">&lt;/gupdate&gt;</span></code></pre></div>
+
+<p>第一二行不用理解，第三行的<code>appid</code>为我们的扩展的ID，如何查看？直接生成crx后，拖入扩展程序页面即可看到（需要开发者选项）
+然后关键的就是<code>updatecheck</code>这个节点了，<code>codebase</code>为更新的crx文件地址，<code>version</code>为更新的crx版本，这个版本要和crx文件中的版本一致。</p>
+
+<p>接下来就是PHP代码了，简单随手写了下，需要的拿去。。</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="lineno"> 1</span> <span class="cp">&lt;?php</span>
+<span class="lineno"> 2</span> <span class="cm">/*</span>
+<span class="lineno"> 3</span> <span class="cm"> * Chrome升级xml类</span>
+<span class="lineno"> 4</span> <span class="cm"> * by Holger</span>
+<span class="lineno"> 5</span> <span class="cm"> * at 2014-10-06</span>
+<span class="lineno"> 6</span> <span class="cm"> */</span>
+<span class="lineno"> 7</span> <span class="k">class</span> <span class="nc">ChromeUpdate</span><span class="p">{</span>
+<span class="lineno"> 8</span>     <span class="k">protected</span> <span class="nv">$aid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno"> 9</span>     <span class="k">protected</span> <span class="nv">$crx</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno">10</span>     <span class="k">protected</span> <span class="nv">$ver</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="lineno">11</span>     <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$appId</span><span class="p">,</span> <span class="nv">$crxUrl</span><span class="p">,</span> <span class="nv">$version</span><span class="p">){</span>
+<span class="lineno">12</span>         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aid</span> <span class="o">=</span> <span class="nv">$appId</span><span class="p">;</span>
+<span class="lineno">13</span>         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">crx</span> <span class="o">=</span> <span class="nv">$crxUrl</span><span class="p">;</span>
+<span class="lineno">14</span>         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ver</span> <span class="o">=</span> <span class="nv">$version</span><span class="p">;</span>
+<span class="lineno">15</span>     <span class="p">}</span>
+<span class="lineno">16</span>     <span class="k">function</span> <span class="nf">show</span><span class="p">(){</span>
+<span class="lineno">17</span>         <span class="nb">header</span><span class="p">(</span><span class="s2">&quot;Content-Type: text/xml;&quot;</span><span class="p">);</span>
+<span class="lineno">18</span>         <span class="nv">$dom</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMDocument</span><span class="p">(</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span> <span class="s2">&quot;UTF-8&quot;</span><span class="p">);</span>
+<span class="lineno">19</span>         <span class="nv">$gup</span> <span class="o">=</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="na">createElement</span><span class="p">(</span><span class="s2">&quot;gupdate&quot;</span><span class="p">);</span>
+<span class="lineno">20</span>         <span class="nv">$app</span> <span class="o">=</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="na">createElement</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">);</span>
+<span class="lineno">21</span>         <span class="nv">$chk</span> <span class="o">=</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="na">createElement</span><span class="p">(</span><span class="s2">&quot;updatecheck&quot;</span><span class="p">);</span>
+<span class="lineno">22</span>         <span class="nv">$gup</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s2">&quot;xmlns&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.google.com/update2/response&quot;</span><span class="p">);</span>
+<span class="lineno">23</span>         <span class="nv">$gup</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;2.0&quot;</span><span class="p">);</span>
+<span class="lineno">24</span>         <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s2">&quot;appid&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aid</span><span class="p">);</span>
+<span class="lineno">25</span>         <span class="nv">$chk</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s2">&quot;codebase&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">crx</span><span class="p">);</span>
+<span class="lineno">26</span>         <span class="nv">$chk</span><span class="o">-&gt;</span><span class="na">setAttribute</span><span class="p">(</span><span class="s2">&quot;version&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ver</span><span class="p">);</span>
+<span class="lineno">27</span>         <span class="nv">$app</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span><span class="nv">$chk</span><span class="p">);</span>
+<span class="lineno">28</span>         <span class="nv">$gup</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span><span class="nv">$app</span><span class="p">);</span>
+<span class="lineno">29</span>         <span class="nv">$dom</span><span class="o">-&gt;</span><span class="na">appendChild</span><span class="p">(</span><span class="nv">$gup</span><span class="p">);</span>
+<span class="lineno">30</span>         <span class="k">echo</span> <span class="nv">$dom</span><span class="o">-&gt;</span><span class="na">saveXML</span><span class="p">();</span>
+<span class="lineno">31</span>     <span class="p">}</span>
+<span class="lineno">32</span> <span class="p">}</span>
+<span class="lineno">33</span> <span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Chrome扩展开发之自动更新升级" data-url="http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

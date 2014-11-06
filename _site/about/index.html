@@ -31,7 +31,35 @@
 				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
 			</div>
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+							<span class="glyphicon glyphicon-th-large"></span>
+							分类
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
+						
+							<li>
+								<a href="/category/编程笔记">编程笔记</a>
+							</li>
+						
+							<li>
+								<a href="/category/chrome扩展">CHROME扩展</a>
+							</li>
+						
+							<li>
+								<a href="/category/javascript">JAVASCRIPT</a>
+							</li>
+						
+							<li>
+								<a href="/category/nodejs">NODEJS</a>
+							</li>
+						
+						</ul>
+					</li>
 				
 					
 				
@@ -79,19 +107,24 @@
 		</div>
 	</div>
 	<!-- 底部文件 -->
+	<hr class="divider">
 	<footer>
-		<hr>
-		<div class="container text-center" style="margin-bottom: 10px">
-			<span class="text-muted">&copy; 2014 Hotes | </span>
-			<a href="/feed.xml" target="_blank">RSS</a>
-			<span class="text-muted"> | </span>
-			<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
-			<span class="text-muted"> | </span>
-			<!-- 百度统计 -->
-			<script type="text/javascript">
-				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
-			</script>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
 		</div>
 	</footer>
 	<!-- 谷歌更新优化 -->
