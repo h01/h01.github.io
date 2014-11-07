@@ -8,6 +8,7 @@ permalink: /api/posts.json
         "desc": "{{ post.desc }}",
         "date": "{{ post.date }}",
         "title": "{{ post.title }}",
+        "style": "{{ post.style }}",
         "category": "{{ post.category }}"
     }{% if forloop.last == false %},{% endif %}
 {% endfor %}
