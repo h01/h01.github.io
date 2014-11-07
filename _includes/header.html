@@ -9,6 +9,7 @@
 	<meta name="keywords" content="{{ page.tags | join: ',' }}">
 	<!-- 引用CSS|JS -->
 	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/custom.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- 自定义CSS -->
@@ -31,7 +32,22 @@
 				<p class="navbar-text hidden-xs">{{ site.description }}</p>
 			</div>
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+							<span class="glyphicon glyphicon-th-large"></span>
+							分类
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+						{% for category in site.categories %}
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('{{ category[0] }}');">{{ category[0] }}</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</li>
 				{% for p in site.pages %}
 					{% if p.title %}
 					{% if p.url == page.url %}

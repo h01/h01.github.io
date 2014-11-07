@@ -1,16 +1,14 @@
 ---
 permalink: /api/posts.json
 ---
-{
-    "posts": [
-    {% for post in site.posts %}
-        {
-            "link": "{{ post.url }}",
-            "desc": "{{ post.desc }}",
-            "date": "{{ post.date }}",
-            "title": "{{ post.title }}",
-            "category": "{{ post.category }}"
-        }{% if forloop.last == false %},{% endif %}
-    {% endfor %}
-    ]
-}
+[
+{% for post in site.posts %}
+    {
+        "link": "{{ post.url }}",
+        "desc": "{{ post.desc }}",
+        "date": "{{ post.date }}",
+        "title": "{{ post.title }}",
+        "category": "{{ post.category }}"
+    }{% if forloop.last == false %},{% endif %}
+{% endfor %}
+]

@@ -4,7 +4,7 @@ permalink: /index.html
 ---
 <!-- 文章列表 -->
 <div class="container">
-	<div class="row">
+	<div class="row" id="posts">
 		{% for post in site.posts %}
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-{% if post.style %}{{ post.style }}{% else %}{{ "default" }}{% endif %}">
