@@ -47,16 +47,15 @@
 								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">{{ site.posts | size }}</span></a> 
 							</li>
 							<li class="divider"></li>
-							<li>
-								<a href="javascript:void(0);" onclick="getCategory('');"><span class="glyphicon glyphicon-th-list"></span> 默认分类</a>
-							</li>
-							<li class="divider"></li>
 						{% for category in site.categories %}
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('{{ category[0] }}');"><span class="glyphicon glyphicon-th-large"></span> {{ category[0] }}<span class="pull-right badge">{{ category[1] | size }}</span></a>
+								<a href="javascript:void(0);" onclick="getCategory('{{ category[0] }}');"><span class="glyphicon glyphicon-file"></span> {{ category[0] }}<span class="pull-right badge">{{ category[1] | size }}</span></a>
 							</li>
 						{% endfor %}
 							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('');"><span class="glyphicon glyphicon-th-large"></span> 默认分类</a>
+							</li>
 						</ul>
 					</li>
 				{% endif %}
