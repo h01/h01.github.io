@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<title>{{ site.title }}{% if page.title %}{{ " - " | append: page.title }}{% else %}{{ " - " | append: site.description }}{% endif %}</title>
 	<meta name="description" content="{% if page.desc %}{{ page.desc }}{% else %}{{ site.description }}{% endif %}">
 	<meta name="keywords" content="{{ page.tags | join: ',' }}">
 	<!-- 引用CSS|JS -->
