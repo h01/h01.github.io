@@ -1,6 +1,7 @@
 ---
 category:	Jekyll
 layout:		post
+style:		info
 title:		Jekyll生成Json数据
 desc:		简记如何使用Jekyll生成Json，以及如何处理一些小问题
 tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
