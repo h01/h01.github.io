@@ -6,6 +6,7 @@
 // 文章JSON数据
 var posts = new Array();
 
+
 // 获取文章JSON数据列表
 $.getJSON("/api/posts.json", function(temp){
 	posts = temp;
@@ -17,7 +18,7 @@ function getCategory(type){
 	var html = "";
 	type = type.toUpperCase();
 	$.each(posts, function(i){
-		if (posts[i].category.toUpperCase() == type) {
+		if (posts[i].category.toUpperCase() == type || type == "ALL") {
 			html += genPostHtml(posts[i]);
 		};
 	});
