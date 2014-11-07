@@ -22,15 +22,15 @@ tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
 [
 	{% for post in site.posts %}
 	{
-		"link": {{ post.url }},
-		"desc": {{ post.desc }},
-		"date": {{ post.date }},
-		"title": {{ post.title }},
-		"category": {{ post.category }}
+		"link": "{{ post.url }}",
+		"desc": "{{ post.desc }}",
+		"date": "{{ post.date }}",
+		"title": "{{ post.title }}",
+		"category": "{{ post.category }}"
 	}{% if forloop.last == false %},{% endif %}
 	{% endfor %}
 ]
 {% endraw %}
 {% endhighlight %}
 
-<kbd>注</kbd>: 上述代码中`{% raw %}{% if.. %}{% endraw %}`才是关键所在，这个是判断是否为最后的数据，如果不是，则输出`,`符号。通白讲，就是去除最后一个`,`号。
+<strong>【注】</strong>: 上述代码中`{% raw %}{% if.. %}{% endraw %}`才是关键所在，这个是判断是否为最后的数据，如果不是，则输出`,`符号。通白讲，就是去除最后一个`,`号。
