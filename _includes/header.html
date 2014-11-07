@@ -34,6 +34,8 @@
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
+				{% if page.url == "/index.html" %}
+					<!-- 分类 -->
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
 							<span class="glyphicon glyphicon-th-large"></span>
@@ -48,6 +50,7 @@
 						{% endfor %}
 						</ul>
 					</li>
+				{% endif %}
 				{% for p in site.pages %}
 					{% if p.title %}
 					{% if p.url == page.url %}
