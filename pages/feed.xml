@@ -6,14 +6,14 @@ permalink: /feed.xml
 	<channel>
 		<title>{{ site.title | xml_escape }}</title>
 		<atom:link href="{{ "/feed.xml" | prepend: site.url }}" rel="self" type="application/rss+xml" />
-		<url>{{ site.url | xml_escape }}</url>
+		<link>{{ site.url | xml_escape }}</link>
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>{{ site.email | xml_escape }}</generator>
 		{% for post in site.posts limit:10 %}
 		<item>
 			<title>{{ post.title | xml_escape }}</title>
-			<url>{{ post.url | prepend: site.url | xml_escape }}</url>
+			<link>{{ post.url | prepend: site.url | xml_escape }}</link>
 			<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 			<category>{{ post.tags | join: "," | xml_escape }}</category>
 			<description>{{ post.desc | xml_escape }}</description>
