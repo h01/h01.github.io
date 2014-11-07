@@ -1,0 +1,35 @@
+---
+category:	Jekyll
+layout:		post
+title:		Jekyll生成Json数据
+desc:		简记如何使用Jekyll生成Json，以及如何处理一些小问题
+tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
+---
+#### 创建页面
+首先，我们要在`pages`目录下创建一个页面来自定义`json`的数据和连接，这里需要注意的是，页面的后缀不要为`markdown`，这里为`.html`，至于为什么？因为`markdown`会默认解析里面的一些特定字符，造成我们不想要的结果。
+
+#### 创建链接
+只需要在页面的前面设置`permalink`即可：
+
+	---
+	permalink: /api/posts.json
+	---
+
+#### 生成数据
+{% highlight js linenos %}
+{% raw %}
+[
+	{% for post in site.posts %}
+	{
+		"link": {{ post.url }},
+		"desc": {{ post.desc }},
+		"date": {{ post.date }},
+		"title": {{ post.title }},
+		"category": {{ post.category }}
+	}{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+]
+{% endraw %}
+{% endhighlight %}
+
+<kbd>注</kbd>: 上述代码中`{% raw %}{% if.. %}{% endraw %}`才是关键所在，这个是判断是否为最后的数据，如果不是，则输出`,`符号。通白讲，就是去除最后一个`,`号。
