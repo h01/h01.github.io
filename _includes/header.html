@@ -7,12 +7,7 @@
 	<title>{{ site.title }}{% if page.title %}{{ " - " | append: page.title }}{% else %}{{ " - " | append: site.description }}{% endif %}</title>
 	<meta name="description" content="{% if page.desc %}{{ page.desc }}{% else %}{{ site.description }}{% endif %}">
 	<meta name="keywords" content="{{ page.tags | join: ',' }}">
-	<!-- 引用CSS|JS -->
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/js/custom.js"></script>
-	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- 自定义CSS -->
 	<link rel="shortcut icon" href="/static/img/icon.png" />
 	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
