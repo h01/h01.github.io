@@ -6,13 +6,6 @@
 // 文章JSON数据
 var posts = new Array();
 
-
-// 获取文章JSON数据列表
-$.getJSON("/api/posts.json", function(temp){
-	posts = temp;
-});
-
-
 // 获取分类文章列表
 function getCategory(type){
 	var html = "";
@@ -54,3 +47,11 @@ function genPostHtml(obj){
 	html += '	</div></div></div>';
 	return html;
 }
+
+
+$(document).ready(function(){
+	// 获取文章JSON数据列表
+	$.getJSON("/api/posts.json", function(temp){
+		posts = temp;
+	});
+})
