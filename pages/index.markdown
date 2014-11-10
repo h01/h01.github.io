@@ -28,7 +28,7 @@ permalink: /index.html
 	</div>
 </div>
 <!-- 右键菜单 -->
-<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js"></script>
+<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
