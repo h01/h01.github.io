@@ -2,7 +2,7 @@
 //	@author		Holger
 //	@github		https://github.com/h01
 //	@myblog		http://ursb.org/
-//	@modify		2014/11/09
+//	@modify		2014/11/10
 //	@description
 /**
 	在使用前首先需要加载bootstrap(v3.2.0)的css文件，然后再引入本JS脚本
@@ -136,7 +136,7 @@ var _ctxMenu = {
 					}));
 				}else{
 					var _icon = this.createObj('i', {
-						class: 'glyphicon ' + (menus[i].icon || '')
+						class: 'pull-left glyphicon ' + (menus[i].icon || '')
 					});
 					// 1.2 创建链接文本
 					var _link = this.createObj('a', {
