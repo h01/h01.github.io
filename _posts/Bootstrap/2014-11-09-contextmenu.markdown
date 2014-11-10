@@ -1,6 +1,6 @@
 ---
 category:	Bootstrap
-style:		info
+style:		success
 layout:		post
 title:		BootStrap.ContextMenu 网页右键菜单插件
 desc:		基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。
@@ -11,9 +11,11 @@ tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单]
 之前在写一个`web桌面`应用框架的时候写过一款"中文"的插件，当时是自己写的`css`和`js`，除了图标之外不需要依赖`bootstrap`的支持。      
 后来在测试的时候，发现并不怎么理想，尤其是在`firefox`、`Safari`下，中文有时候会不支持所以无法执行，并且想着还有很多`BUG`，于是就重新写了。。
 
-目前貌似`bootstrap`已经更新到了`3.3.0`，但个人感觉不怎么美观，所以就在本人比较喜欢的`3.2.0`风格的基础上写了一点样式，<kbd>可以现在在这个页面上右键，看看实时的效果</kbd>
+目前貌似`bootstrap`已经更新到了`3.3.0`，但个人感觉不怎么美观，所以就在本人比较喜欢的`3.2.0`风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
 
-<b>项目地址</b>[https://github.com/h01/javascript/tree/master/bootstrap.contextmenu](https://github.com/h01/javascript/tree/master/bootstrap.contextmenu)
+<blockquote>
+项目地址:   https://github.com/h01/javascript/tree/master/bootstrap.contextmenu
+</blockquote>
 
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：
