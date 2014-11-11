@@ -2,7 +2,7 @@
 //	@author		Holger
 //	@github		https://github.com/h01
 //	@myblog		http://ursb.org/
-//	@modify		2014/11/10
+//	@modify		2014/11/11
 //	@description
 /**
 	在使用前首先需要加载bootstrap(v3.2.0)的css文件，然后再引入本JS脚本
@@ -47,9 +47,15 @@ var _ctxMenu = {
 	},
 	hide: function(){
 		// 隐藏所有菜单
+		/* jquery
 		$("._ctxMenu").each(function(m){
 			$("._ctxMenu")[m].style.display = 'none';
 		});
+		*/
+		var _mns = document.getElementsByClassName("dropdown-menu multi-level _ctxMenu");
+		for (var i = 0; i < _mns.length; i++) {
+			_mns[i].style.display = 'none';
+		};
 	},
 	bind: function(menu, obj){
 		// 绑定在obj对象
@@ -62,11 +68,19 @@ var _ctxMenu = {
 		obj.oncontextmenu = function(e){
 			var e = e || window.event;
 			var i = 0;
+			/* jquery
 			$("._ctxMenu").each(function(m){
 				if ($("._ctxMenu")[m].style.display == 'block') {
 					i ++;
 				};
 			});
+			*/
+			var _mns = document.getElementsByClassName("dropdown-menu multi-level _ctxMenu");
+			for (var ii = 0; ii < _mns.length; ii++) {
+				if (_mns[ii].style.display == "block") {
+					i ++;
+				};
+			};
 			menu.style.top = e.pageY + "px";
 			menu.style.left = e.pageX + "px";
 			if (i == 0) {
