@@ -24,7 +24,7 @@
 **/
 
 // 注入CSS样式
-document.write('<style type="text/css">._ctxMenu,.dropdown-menu {background: rgba(255, 255, 255, 0.9);}._ctxMenu a{outline:none;}._ctxMenu .glyphicon{width:15px;height:15px;margin-right:5px;margin-top:2px}._ctxMenu li a{padding:3px 10px}._ctxMenu li a:hover{color:#ffffff;text-shadow:rgba(0,0,0,0.4) .5px .5px .5px;background:-moz-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-o-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-ms-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(22,145,208,0.66)),color-stop(1,rgba(14,110,169,0.8)))}._ctxMenu .dropdown-submenu{position:relative}._ctxMenu .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px;border-radius:0 6px 6px 6px}._ctxMenu .dropdown-submenu:hover>.dropdown-menu{display:block}._ctxMenu .dropdown-submenu.pull-left{float:none}._ctxMenu .dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px}</style>');
+document.write('<style type="text/css">._ctxMenu,.dropdown-menu {background: rgba(255, 255, 255, 0.9);z-index: 99999}._ctxMenu a{outline:none;}._ctxMenu .glyphicon{width:15px;height:15px;margin-right:5px;margin-top:2px}._ctxMenu li a{padding:3px 10px}._ctxMenu li a:hover{color:#ffffff;text-shadow:rgba(0,0,0,0.4) .5px .5px .5px;background:-moz-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-o-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-ms-linear-gradient(top,rgba(22,145,208,0.66),rgba(14,110,169,0.8));background:-webkit-gradient(linear,left top,left bottom,color-stop(0,rgba(22,145,208,0.66)),color-stop(1,rgba(14,110,169,0.8)))}._ctxMenu .dropdown-submenu{position:relative}._ctxMenu .dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px;border-radius:0 6px 6px 6px}._ctxMenu .dropdown-submenu:hover>.dropdown-menu{display:block}._ctxMenu .dropdown-submenu.pull-left{float:none}._ctxMenu .dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px}</style>');
 var _ctxMenu = {
 	init: function(menus){
 		// 1.创建最外层UL
@@ -81,6 +81,7 @@ var _ctxMenu = {
 					i ++;
 				};
 			};
+			console.log(i);
 			menu.style.top = e.pageY + "px";
 			menu.style.left = e.pageX + "px";
 			if (i == 0) {
