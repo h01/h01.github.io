@@ -15,29 +15,24 @@ tags:		[Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览�
 创建一个对象数组，保存操作系统的通用名称，比如`Windows`,`Mac OSX`,`iPhone`等，然后再保存一个对应的正则表达式，用来从`UserAgent`中匹配出具体的版本号。
 
 ##### 实现
-{% highlight js %}
-var h0x  = {
-    info: {},
-    temp: {}
-};
-h0x.info.ua = navigator.userAgent;
+var info = {};
+var temp = {};
+info.ua = navigator.userAgent;
 // 
 // 获取操作系统版本
 //
-h0x.temp.os = {
+temp.os = {
     'Mac OS X': /Mac OS X ([\d\.\_]*)/,
     'iPhone OS': /iPhone OS ([\d\.\_]*)/,
-    '...': '...'
 }
-for (var o in h0x.temp.os){
-    if (h0x.info.ua.indexOf(o)) {
-        var m = h0x.info.ua.match(h0x.temp.os[o]);
-        h0x.info.os = m ? m[0] : (h0x.info.os || 'UnknowOS');
+for (var o in temp.os){
+    if (info.ua.indexOf(o)) {
+        var m = info.ua.match(temp.os[o]);
+        info.os = m ? m[0] : (info.os || 'UnknowOS');
     };
 }
-console.log(h0x);
 {% endhighlight %}
-上面的代码中`h0x.temp.os`对象可以自由地扩展，我想你都懂并能领会其中的好处！
+上面的代码中`temp.os`对象可以自由地扩展，我想你都懂并能领会其中的好处！
 
 #### 获取浏览器和版本
 同上面一样，就不多说了，直接上代码：
@@ -45,15 +40,15 @@ console.log(h0x);
 //
 // 获取浏览器版本
 //
-h0x.temp.browser = {
+temp.browser = {
     'Safari': /Safari\/([\d\.]+)$/,
     'Chrome': /Chrome\/([\d\.]+)/,
     'Firefox': /Firefox\/([\d\.]+)$/,
 }
-for (var b in h0x.temp.browser){
-    if (h0x.info.ua.indexOf(b)) {
-        var m = h0x.info.ua.match(h0x.temp.browser[b]);
-        h0x.info.browser = m ? m[0] : (h0x.info.browser || 'UnknowBrowser');
+for (var b in temp.browser){
+    if (info.ua.indexOf(b)) {
+        var m = info.ua.match(temp.browser[b]);
+        info.browser = m ? m[0] : (info.browser || 'UnknowBrowser');
     };
 }
 {% endhighlight %}
