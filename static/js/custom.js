@@ -84,6 +84,7 @@ $(document).ready(function(){
 					mode:	ctype,
 					tabMode:	"indent",
 					lineNumbers:	true,
+					lineWrapping:	true, 
 					textWarpping:	true,
 					readOnly:	true
 				});
