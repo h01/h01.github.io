@@ -93,9 +93,8 @@ permalink: /api/posts.json
 </code></pre>
 
 <h4 id="section-2">生成数据</h4>
-<p><textarea class="code javascript"></p>
-
-<p>[
+<p><textarea class="code javascript">
+[
 	{% for post in site.posts %}
 	{
 		“link”: “{{ post.url }}”,
@@ -105,9 +104,8 @@ permalink: /api/posts.json
 		“category”: “{{ post.category }}”
 	}{% if forloop.last == false %},{% endif %}
 	{% endfor %}
-]</p>
-
-<p></textarea></p>
+]
+</textarea></p>
 
 <p><strong>【注】</strong>: 上述代码中<code>{% if.. %}</code>才是关键所在，这个是判断是否为最后的数据，如果不是，则输出<code>,</code>符号。通白讲，就是去除最后一个<code>,</code>号。</p>
 
