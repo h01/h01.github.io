@@ -8,12 +8,12 @@
 	<meta name="description" content="当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。">
 	<meta name="keywords" content="Javascript,Web Worker,html5 worker,Javascript Worker使用">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -91,7 +91,7 @@
 
 <h4 id="section-1">如何使用</h4>
 <p>我们先定义一个<code>Worker</code>对象，也就是一个js文件啦，比如<code>worker.js</code>。代码参考如下：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 // 导入外部js文件使用
 importScripts(“data.js”);</p>
 
@@ -105,10 +105,10 @@ onmessage = function(e){
 postMessage({
     msg: “这个消息发送自 Worker”
 });
-</textarea></p>
+</pre></p>
 
 <p>然后我们创建<code>Worker</code>对象然后进行调用：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 // 初始化对象
 var worker = new Worker(“worker.js”);</p>
 
@@ -121,7 +121,7 @@ worker.onmessage = function(e){
 worker.poseMessage({
     msg: “这个消息来自某处..”
 });
-</textarea></p>
+</pre></p>
 
 <h3 id="the-end">The End.</h3>
 <p>暂时就写到这啦！</p>
@@ -160,9 +160,6 @@ worker.poseMessage({
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -173,6 +170,9 @@ worker.poseMessage({
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

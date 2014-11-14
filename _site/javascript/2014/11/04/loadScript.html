@@ -8,12 +8,12 @@
 	<meta name="description" content="页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题">
 	<meta name="keywords" content="Javascript,loadScript,同步加载js文件">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -84,7 +84,7 @@
 					<h4 id="section">文章代码参考于网络修改，在此留笔记供日后翻阅</h4>
 <p>实现的原理很简单，我们首先创建一个<code>script</code>元素并赋予<code>src</code>值，等加载完毕后再执行<code>callback</code>函数。  <br />
 代码直接贴出来吧，很简单：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 function loadScript(url, callback){
 	var script = document.createElement(“script”);
 	script.type = “text/javascript”;
@@ -103,14 +103,14 @@ function loadScript(url, callback){
 	script.src = url;
 	document.getElementsByTagName(“head”)[0].appendChild(script);
 }
-</textarea></p>
+</pre></p>
 
 <p>调用方法：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 loadScript(“/jquery.js”, function(){
 	console.log($(“#test”).val());
 })
-</textarea></p>
+</pre></p>
 
 				</div>
 			</div>
@@ -145,9 +145,6 @@ loadScript(“/jquery.js”, function(){
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -158,6 +155,9 @@ loadScript(“/jquery.js”, function(){
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

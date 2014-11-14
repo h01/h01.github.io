@@ -8,12 +8,12 @@
 	<meta name="description" content="如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)">
 	<meta name="keywords" content="Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -92,7 +92,7 @@
 <p>创建一个对象数组，保存操作系统的通用名称，比如<code>Windows</code>,<code>Mac OSX</code>,<code>iPhone</code>等，然后再保存一个对应的正则表达式，用来从<code>UserAgent</code>中匹配出具体的版本号。    </p>
 
 <h5 id="section-3">【实现】</h5>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 var info = {};
 var temp = {};
 info.ua = navigator.userAgent;
@@ -109,12 +109,12 @@ for (var o in temp.os){
         info.os = m ? m[0] : (info.os || ‘UnknowOS’);
     };
 }
-</textarea>
+</pre>
 上面的代码中<code>temp.os</code>对象可以自由地扩展，我想你都懂并能领会其中的好处！</p>
 
 <h4 id="section-4">获取浏览器和版本</h4>
 <p>同上面一样，就不多说了，直接上代码：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 //
 // 获取浏览器版本
 //
@@ -129,7 +129,7 @@ for (var b in temp.browser){
         info.browser = m ? m[0] : (info.browser || ‘UnknowBrowser’);
     };
 }
-</textarea></p>
+</pre></p>
 
 <h4 id="section-5">总结</h4>
 <p>其实呢，我觉得<code>js</code>好玩的地方非常多，有很多地方是其他语言无法超越的。当然，每个语言都有自己的长处，随个人所好～</p>
@@ -167,9 +167,6 @@ for (var b in temp.browser){
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -180,6 +177,9 @@ for (var b in temp.browser){
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

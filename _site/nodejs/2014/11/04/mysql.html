@@ -8,12 +8,12 @@
 	<meta name="description" content="简记如何使用Node.js连接MySql并进行执行语句操作">
 	<meta name="keywords" content="Node.js,Node.js操作mysql">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -87,7 +87,7 @@
 </code></pre>
 
 <h4 id="mysql-1">初始化并连接<code>mysql</code></h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 var mysql = require(“mysql”);
 var conn  = mysql.createConnection({
     host: ‘localhost’,
@@ -97,17 +97,17 @@ var conn  = mysql.createConnection({
     database: ‘mysql’
 });
 conn.connect();
-</textarea></p>
+</pre></p>
 
 <h4 id="sql">执行<code>SQL</code>语句并获取结果</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 conn.query(“SELECT user,host,password FROM user”, function(err, rows, fields){
     if (err) throw err;
     for (var i in rows){
         console.log(“[%s] USER:%s HOST:%s PASS:%s”, i, rows[i].user, rows[i].host, rows[i].password);
     }
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="the-end">The End.</h4>
 <p>暂时就写到这了，用到的时候再查询记录吧！具体更多详细功能可参考：<a href="http://blog.fens.me/nodejs-mysql-intro/">用Nodejs连接MySQL</a></p>
@@ -145,9 +145,6 @@ conn.query(“SELECT user,host,password FROM user”, function(err, rows, fields
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -158,6 +155,9 @@ conn.query(“SELECT user,host,password FROM user”, function(err, rows, fields
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

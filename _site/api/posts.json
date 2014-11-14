@@ -82,15 +82,6 @@
     },
 
     {
-        "link": "/2014/11/03/Hello-Hotes.html",
-        "desc": "欢迎使用Hotes！",
-        "date": "2014-11-03 00:00:00 +0800",
-        "title": "Hello Hotes!",
-        "style": "danger",
-        "category": ""
-    },
-
-    {
         "link": "/chrome/2014/10/27/chrome.management.html",
         "desc": "通过Chrome的management接口来完成用户已安装的扩展和应用管理。",
         "date": "2014-10-27 00:00:00 +0800",

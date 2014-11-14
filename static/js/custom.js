@@ -48,49 +48,13 @@ function genPostHtml(obj){
 	return html;
 }
 
-// 加载js文件(用于代码高亮)
-function loadScript(url, editor, ctype, callback){
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	if (script.readyState) {
-		script.onreadystatechange = function(){
-			if (script.readyState == "loaded" || script.readyState == "complete") {
-				script.onreadystatechange = null;
-				callback(editor, ctype);
-			};
-		}
-	}else{
-		script.onload = function(){
-			callback(editor, ctype);
-		}
-	};
-	script.src = url;
-	document.getElementsByTagName("head")[0].appendChild(script);
-}
-
 $(document).ready(function(){
 	// 获取文章JSON数据列表
 	$.getJSON("/api/posts.json", function(temp){
 		posts = temp;
 	});
 	// 代码高亮
-	var codemirror_editor = document.getElementsByClassName("code");
-	if (codemirror_editor.length > 0) {
-		for (var i = 0; i < codemirror_editor.length; i++) {
-			var _editor = codemirror_editor[i];
-			var _ctype = _editor.className.replace(/code /, '');
-			loadScript("/static/codemirror-4.7/mode/" + _ctype + "/" + _ctype + ".js", _editor, _ctype, function(editor, ctype){
-				CodeMirror.fromTextArea(editor, {
-					mode:	ctype,
-					tabMode:	"indent",
-					lineNumbers:	true,
-					lineWrapping:	true, 
-					textWarpping:	true,
-					readOnly:	true
-				});
-			});
-		};
-	};
+	SyntaxHighlighter.all();
 	// 替换markdown元素
 	var h4s = document.getElementsByTagName("h4");
 	for (var i = 0; i < h4s.length; i++) {

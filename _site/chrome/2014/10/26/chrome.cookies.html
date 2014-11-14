@@ -8,12 +8,12 @@
 	<meta name="description" content="记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。">
 	<meta name="keywords" content="Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -82,12 +82,12 @@
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
 					<h4 id="section">【设置权限】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 “permissions”: [
     “cookies”,
     “<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
 ]
-</textarea></all_urls></p>
+</pre></all_urls></p>
 
 <p><code>cookie</code>对象包含如下10项属性：</p>
 
@@ -107,7 +107,7 @@ storeId         // cookie store的id
 
 <h4 id="cookie">【读取cookie】</h4>
 
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // get方法获取指定url和name等匹配的cookie(url和name为必须)
 chrome.cookies.get({
     url: “https://ursb.org”,
@@ -127,11 +127,11 @@ chrome.cookies.getAll({
 chrome.cookies.getAll({}, function(cs){
     console.log(cs);
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="cookie-1">【设置cookie】</h4>
 
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 chrome.cookies.set({
     url: “https://ursb.org”,    // 必选，其他可选（如果不存在则创建）
     name: “vist”,
@@ -139,22 +139,22 @@ chrome.cookies.set({
 }, function(cookie){
     console.log(cookie);    // 此处cookie为修改后的cookie||null
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="cookie-2">【删除cookie】</h4>
 
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 chrome.cookies.remove({
     url: “https://ursb.org”,
     name: “vist”
 }, function(res){
     console.log(res);    // res=删除的cookie对象
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="cookiestore">【获取全部CookieStore】</h4>
 
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // chrome.cookies.getAllCookieStores(callback);
 // 我们首先要定义一个获取结果的回调函数，如下
 function getAllCS(cs){
@@ -165,16 +165,16 @@ chrome.cookies.getAllCookieStores(getAllCS);
 // *.只返回一个id属性和一个tabIds属性
 // *.id属性为这个cookieStore的id
 // *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id
-</textarea></p>
+</pre></p>
 
 <h4 id="cookie-3">【监控操作cookie行为】</h4>
 
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 chrome.cookies.onChanged.addListener(function(info){
     console.log(info);
 });
 // 在测试中，发现如果在console里进行cookie操作（删除，设置等）的时候，不会调用
-</textarea></p>
+</pre></p>
 
 				</div>
 			</div>
@@ -209,9 +209,6 @@ chrome.cookies.onChanged.addListener(function(info){
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -222,6 +219,9 @@ chrome.cookies.onChanged.addListener(function(info){
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

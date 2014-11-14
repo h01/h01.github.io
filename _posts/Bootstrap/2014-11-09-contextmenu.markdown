@@ -17,12 +17,12 @@ tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单]
 
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：
-[code:htmlembedded:]
-<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js"></script>
+[code:html:]
+&lt;script&gt; src="/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js"&gt;&lt;/script&gt;
 [codend]
 
 然后我们来配置我们要创建的菜单对象：
-[code:javascript:]
+[code:js:]
 var menu = _ctxMenu.init([
 {
     text: '文字',
@@ -34,7 +34,7 @@ var menu = _ctxMenu.init([
 ]);
 [codend]
 然后我们把这个菜单绑定到`dom`上，比如`document`：
-[code:javascript:]
+[code:js:]
 _ctxMenu.bind(menu, document);
 [codend]
 
@@ -43,7 +43,7 @@ _ctxMenu.bind(menu, document);
 菜单的选项使用注意：
 1.icon的图标为[Glyphicon字体图标](http://v3.bootcss.com/components/#glyphicons)中的图标，不过我们不需要前面的`glyphicon`，只需要后面的就可以了，比如：glyphicon-plus    
 2.其他可以不定义，`text`为必须，如果需要分隔符，只需要设置为`---`即可。如：
-[code:javascript:]
+[code:js:]
 {
     text: '---'
 }
@@ -52,12 +52,12 @@ _ctxMenu.bind(menu, document);
 4.`menu`多级菜单和一级菜单定义方法一样。
 
 然后就是绑定方法，第一个参数为我们定义好的`menu`对象，第二个为要绑定某个`dom`的右键事件，如果是某个`ID`，则可以这样定义：
-[code:javascript:]
+[code:js:]
 _ctxMenu.bind(menu, document.getElementById('id'));
 [codend]
 当然，如果我们图方便，也可以使用`Jquery`，不过使用方法有改变如下：
-[code:javascript:]
-_ctxMenu.bind(menu, $("#id")[0]);
+[code:js:]
+_ctxMenu.bind(menu, $('#id')[0]);
 [codend]
 最后，试试在下面的吐槽`div`里右键一下？
 

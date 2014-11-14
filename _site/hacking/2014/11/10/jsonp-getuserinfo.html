@@ -8,12 +8,12 @@
 	<meta name="description" content="jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！">
 	<meta name="keywords" content="jsonp,xss,xss-jsonp,jsonp攻击,探测信息">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -91,17 +91,17 @@
 
 <h4 id="section-2">利用</h4>
 <p>我们先定义一个我们的接收函数：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 function cb(data){
 	console.log(‘[*] 获取到数据..’);
 	console.log(data);
 }
-</textarea></p>
+</pre></p>
 
 <p>然后再添加一个<code>&lt;script&gt;</code>标签引用我们扫描到的<code>jsonp</code>接口：
-<textarea class="code xml">
+<pre class="brush:xml;toolbar:false">
 <script src="http://passport.game.renren.com/user/info?callback=cb"></script>
-</textarea>
+</pre>
 这里注意的是，<code>URL</code>中的<code>callback</code>参数为我们定义的函数名称。如果不出意外，<code>js</code>脚本在执行完毕之后就会执行我们的<code>cb</code>函数了。</p>
 
 <h4 id="section-3">扩展</h4>
@@ -146,9 +146,6 @@ function cb(data){
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -159,6 +156,9 @@ function cb(data){
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

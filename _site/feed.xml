@@ -4,7 +4,7 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Fri, 14 Nov 2014 09:11:27 +0800</lastBuildDate>
+		<lastBuildDate>Fri, 14 Nov 2014 23:13:55 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
 		
@@ -81,11 +81,11 @@
 		</item>
 		
 		<item>
-			<title>Hello Hotes!</title>
-			<link>http://ursb.org/2014/11/03/Hello-Hotes.html</link>
-			<pubDate>Mon, 03 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Hotes,GitHub</category>
-			<description>欢迎使用Hotes！</description>
+			<title>Chrome扩展开发之扩展与应用管理</title>
+			<link>http://ursb.org/chrome/2014/10/27/chrome.management.html</link>
+			<pubDate>Mon, 27 Oct 2014 00:00:00 +0800</pubDate>
+			<category>Chrome,Chrome扩展开发,Chrome插件管理,Chrome扩展管理,Chrome.management</category>
+			<description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
 		</item>
 		
 	</channel>

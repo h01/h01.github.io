@@ -8,12 +8,12 @@
 	<meta name="description" content="在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。">
 	<meta name="keywords" content="xss,javascript扫描端口,xss扫描端口">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -87,7 +87,7 @@
 
 <h4 id="section-1">实现</h4>
 <p>先简单贴一些代码：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 function scan(ip, port){
 	var s = document.createElement(“script”);
 	s.src = “http://” + ip + “:” + port;
@@ -96,13 +96,13 @@ function scan(ip, port){
 	}
 	document.body.appendChild(s);
 }
-</textarea>
+</pre>
 然后我们使用<code>for</code>循环扫描端口，例如：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 for (var i = 0; i &lt; 100; i++) {
 	scan(“10.1.1.1”, i);
 };
-</textarea>
+</pre>
 这时候如果对方端口打开，就会触发<code>onload</code>事件了，事件里的功能代码可以随意扩展～</p>
 
 				</div>
@@ -138,9 +138,6 @@ for (var i = 0; i &lt; 100; i++) {
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -151,6 +148,9 @@ for (var i = 0; i &lt; 100; i++) {
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

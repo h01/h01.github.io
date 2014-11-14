@@ -8,12 +8,12 @@
 	<meta name="description" content="socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用">
 	<meta name="keywords" content="Javascript,socket.io,socket.io.js使用,node.js Websocket">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -82,12 +82,12 @@
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
 					<p>具体的介绍就不说了，在服务端安装命令：
-<textarea class="code shell">
+<pre class="brush:shell;toolbar:false">
 npm install socket.io
-</textarea></p>
+</pre></p>
 
 <p>安装完毕我们本地监听一个<code>web</code>端口用于和用户交互以及通信：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 var io = require(“socket.io”).listen(8888);</p>
 
 <p>function debug(msg){
@@ -110,11 +110,11 @@ socket.on('disconnection', function(){
 
 socket.emit('msg', {
     msg: '你好aaa'
-}); }); </textarea>
+}); }); </pre>
 </code></pre>
 
 <p>然后客户端调用<code>web</code>的<code>socket.io.js</code>，或者直接调用外部<code>cdn</code>的<code>js</code>文件，进行和客户端通信：
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 <script src="http://localhost:8888/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 var socket = io.connect("http://localhost:8888");
@@ -125,7 +125,7 @@ socket.emit("msg", {
     msg: "Hello!!!"
 });
 </script>
-</textarea></p>
+</pre></p>
 
 				</div>
 			</div>
@@ -160,9 +160,6 @@ socket.emit("msg", {
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -173,6 +170,9 @@ socket.emit("msg", {
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

@@ -13,7 +13,7 @@ layout: default
 				<blockquote class="text-muted" style="font-size: 14px;">{{ page.desc }}</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					{{ content | replace: '[code:', '<textarea class="code ' | replace: ':]', '">' | replace: '[codend]', '</textarea>' }}
+					{{ content | replace: '[code:', '<pre class="brush:' | replace: ':]', ';toolbar:false">' | replace: "[codend]", '</pre>' }}
 				</div>
 			</div>
 		</div>

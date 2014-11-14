@@ -8,12 +8,12 @@
 	<meta name="description" content="这里简单介绍如何设置自动更新升级我们的Chrome扩展">
 	<meta name="keywords" content="Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -86,29 +86,29 @@
 2.<a href="https://developer.chrome.com/extensions/autoupdate">Autoupdating - Google Chrome</a></p>
 
 <p>我们直接在<code>manifest.json</code>中设置<code>update_url</code>
-<textarea class="code javascript">
+<pre class="brush:javascript;toolbar:false">
 {
     …
     “update_url”: “http://ursb.org/chrome/test/update.php”,
     …
 }
-</textarea>
+</pre>
 <code>update.php</code>也可以为静态的xml文件地址，不过为了动态更新方便，直接用php读取数据库或者文本等等操作。。</p>
 
 <p>输出的xml文件格式如下：
-<textarea class="code xml">
+<pre class="brush:xml;toolbar:false">
 <?xml version="1.0" encoding="UTF-8"?>  <br />
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
     <app appid="dikhaimodgjmmdgjlaeicddkepoeoibj">
         <updatecheck codebase="http://ursb.org/chrome/test/1.1.crx" version="1.1"></updatecheck>
     </app>
 </gupdate>
-</textarea>
+</pre>
 第一二行不用理解，第三行的<code>appid</code>为我们的扩展的ID，如何查看？直接生成crx后，拖入扩展程序页面即可看到（需要开发者选项）
 然后关键的就是<code>updatecheck</code>这个节点了，<code>codebase</code>为更新的crx文件地址，<code>version</code>为更新的crx版本，这个版本要和crx文件中的版本一致。</p>
 
 <p>接下来就是PHP代码了，简单随手写了下，需要的拿去。。
-<textarea class="code php">
+<pre class="brush:php;toolbar:false">
 <?php
 /*
  * Chrome升级xml类
@@ -142,7 +142,7 @@ class ChromeUpdate{
     }
 }
 ?>
-</textarea></p>
+</pre></p>
 
 
 				</div>
@@ -178,9 +178,6 @@ class ChromeUpdate{
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -191,6 +188,9 @@ class ChromeUpdate{
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

@@ -8,12 +8,12 @@
 	<meta name="description" content="历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。">
 	<meta name="keywords" content="Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -82,9 +82,9 @@
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
 					<h4 id="section">【声明权限】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 “permissions”: [“history”]
-</textarea></p>
+</pre></p>
 
 <p>chrome.history方法有下：</p>
 
@@ -99,7 +99,7 @@ search
 </code></pre>
 
 <h4 id="section-1">【读取历史】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // chrome.history.getVisits(Object, callback);
 // Object中url为必选参数
 // Callback中返回的对象有6个属性:id, url, title, lastVisiTime, visitCount, typedCount
@@ -108,10 +108,10 @@ chrome.history.getVisits({
 }, function(historys){
     console.log(historys);
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="section-2">【搜索历史】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 chrome.history.search({
     text: “Holger”,    // 匹配指定文字
     startTime: new Date().getTime() - 24<em>3600</em>1000,    // 开始时间
@@ -120,10 +120,10 @@ chrome.history.search({
 }, function(arr){
     console.log(arr);    // arr包含id, visitId, visitTime, referringVisitId, transition属性
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="section-3">【添加历史】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // chrome.history.addUrl(Object, callback)
 // Object只需要url参数即可,callback为执行成功后调用
 chrome.history.addUrl({
@@ -131,10 +131,10 @@ chrome.history.addUrl({
 }, function(){
     console.log(“添加成功!”);
 });
-</textarea></p>
+</pre></p>
 
 <h4 id="section-4">【删除历史】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // 删除指定URL的历史
 chrome.history.deleteUrl({
     url: “https://ursb.org”
@@ -154,10 +154,10 @@ chrome.history.deleteRange({
 chrome.history.deleteAll(function(){
     console.log(“!!”);
 }
-</textarea></p>
+</pre></p>
 
 <h4 id="section-5">【监听历史操作】</h4>
-<p><textarea class="code javascript">
+<p><pre class="brush:javascript;toolbar:false">
 // 监听用户访问历史
 chrome.history.onVisited.addListener(function(item){
     console.log(item);
@@ -167,7 +167,7 @@ chrome.history.onVisited.addListener(function(item){
 chrome.history.onVisitRemoved.addListener(function(item){
     console.log(item);
 }
-</textarea></p>
+</pre></p>
 
 				</div>
 			</div>
@@ -202,9 +202,6 @@ chrome.history.onVisitRemoved.addListener(function(item){
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -215,6 +212,9 @@ chrome.history.onVisitRemoved.addListener(function(item){
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>

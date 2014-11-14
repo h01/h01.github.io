@@ -8,12 +8,12 @@
 	<meta name="description" content="简记，为简单而记！">
 	<meta name="keywords" content="Hotes,简记,GitHub博客程序">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
 </head>
 <body>
@@ -43,7 +43,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">16</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">15</span></a> 
 							</li>
 							<li class="divider"></li>
 						
@@ -289,25 +289,6 @@
 		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
-			<div class="panel panel-danger">
-				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/2014/11/03/Hello-Hotes.html">Hello Hotes!</a></h3>
-				</div>
-				<div class="panel-body">
-					<div class="media">
-						<div class="pull-left" align="center">
-							<p style="font-size: 33px;margin-bottom: -5px;" class="text-danger">03</p>
-							<p class="text-danger">2014-11</p>
-						</div>
-						<div class="media-body text-danger" style="padding-left: 5px;">
-							欢迎使用Hotes！
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/27/chrome.management.html">Chrome扩展开发之扩展与应用管理</a></h3>
@@ -429,7 +410,7 @@
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">16</i>全部分类',
+	text: '<i class="pull-right badge">15</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -561,9 +542,6 @@ _ctxMenu.bind(mainmenu, document);
 	<footer>
 		<div class="container">
 			<div class="pull-left">
-				<p class="text-muted">&copy; 2014 Hotes.</p>
-			</div>
-			<div class="pull-right">
 				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
 				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
@@ -574,6 +552,9 @@ _ctxMenu.bind(mainmenu, document);
 						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
 					</script>
 				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 		</div>
 	</footer>
