@@ -8,9 +8,9 @@ tags:        [Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks]
 ### 要养成一种习惯：看书，实践，总结。   
 
 #### 【声明权限】
-{% highlight js linenos %}
+[code:javascript:]
 "permissions": ["bookmarks"]
-{% endhighlight %}
+[codend]
 
 `bookmarks`对象有8个属性：    
 
@@ -24,7 +24,7 @@ tags:        [Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks]
     children  #包含若干书签对象的数组    
 
 #### 【创建书签】
-{% highlight js linenos %}
+[code:javascript:]
 // 创建文件夹
 chrome.bookmarks.create({
     title: "文件夹2",
@@ -42,30 +42,30 @@ chrome.bookmarks.create({
 }, function(bm){
     console.log(bm);
 });
-{% endhighlight %}
+[codend]
 
 #### 【调整书签位置】
-{% highlight js linenos %}
+[code:javascript:]
 chrome.bookmarks.move('250', {
     parentId: '1',    // 要移动到的文件夹ID，1=顶部文件夹
     index: 55        // 在文件夹中的位置
 }, function(bm){
     console.log(bm);
 });
-{% endhighlight %}
+[codend]
 
 #### 【修改更新标签】
-{% highlight js linenos %}
+[code:javascript:]
 chrome.bookmarks.update('167', {
     title: '修改后的标题',
     url: 'https://ursb.org/notes/'
 }, function(bm){
     console.log(bm);
 });
-{% endhighlight %}
+[codend]
 
 #### 【删除书签和文件夹】
-{% highlight js linenos %}
+[code:javascript:]
 // 删除书签或空的文件夹
 chrome.bookmarks.remove('250', function(){
     console.log('ID=250的书签已经删除!');
@@ -74,10 +74,10 @@ chrome.bookmarks.remove('250', function(){
 chrome.bookmarks.removeTree('250', function(){
     console.log('ID=250的文件夹已经删除!');
 });
-{% endhighlight %}
+[codend]
 
 #### 【获取书签和分组】
-{% highlight js linenos %}
+[code:javascript:]
 // 获取所有书签和文件夹
 chrome.bookmarks.getTree(function(bms){
     console.log(bms);
@@ -107,10 +107,10 @@ chrome.bookmarks.getRecent(100, function(bms){
 chrome.bookmarks.search('keyword', function(bms){
     console.log(bms);
 });
-{% endhighlight %}
+[codend]
 
 #### 【书签事件】
-{% highlight js linenos %}
+[code:javascript:]
 // 创建书签事件
 chrome.bookmarks.onCreated.addListener(function(bm){
     console.log("创建了书签");
@@ -148,4 +148,4 @@ chrome.bookmarks.onImportBegan = function(){
 chrome.bookmarks.onImportEnded = function(){
     console.log("书签导入结束..");
 };
-{% endhighlight %}
+[codend]

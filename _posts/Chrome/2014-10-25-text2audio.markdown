@@ -12,24 +12,24 @@ tags:        [Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转�
 不过需要网络访问，对于本地应用来说貌似非常不着调～。  
 偶然看到了`chrome`的`tts API`，测试过后发现很有趣，所以记录一下，也给有需要的一点帮助。    
 使用`tts`接口需要在`manifest.json`中声明权限：
-{% highlight js linenos %}
+[code:javascript:]
 "permissions": ["tts"]
-{% endhighlight %}
+[codend]
 
 简单例子：
-{% highlight js linenos %}
+[code:javascript:]
 chrome.tts.speak("Welcome to holger's notes")
-{% endhighlight %}
+[codend]
 
 不过也许你执行过后发现没有声音，经测试，个人觉得是因为没有加上"可选"的语言设置选项。     
 `speak`方法需要三个参数：
-{% highlight js linenos %}
+[code:javascript:]
 chrome.tts.speak("要转换的文字[必选]", {设置[可选], 回调函数[可选]}
-{% endhighlight %}
+[codend]
 
 回调函数会在`speak`方法调用成功后立刻执行，所以可能会在播放结束之前就已经调用了。    
 其中设置的结构如下：
-{% highlight js linenos %}
+[code:javascript:]
 {
     enqueue: "是否将朗读任务加入队列[true|false];true=之前任务结束后才开始",
     voiceName: "朗读所使用的声音名称",
@@ -43,26 +43,26 @@ chrome.tts.speak("要转换的文字[必选]", {设置[可选], 回调函数[可
     desiredEventTypes: "需要监听的事件(未指定监听全部事件的情况下)",
     onEvent: "用于监听事件的函数"
 }
-{% endhighlight %}
+[codend]
 
 以上设置参考`《Chrome扩展及应用开发》`一书，有兴趣可自行研究。   
 例如，朗读一段中文如下：
-{% highlight js linenos %}
+[code:javascript:]
 chrome.tts.speak("哈哈哈，哈哈哈哈，哈哈哈哈哈哈，活捉蛇精病患者一枚！", {lang: "ZH-CN", rate: 3.0})
-{% endhighlight %}
+[codend]
 其中`rate`并不是越大朗读速度越快，具体自行测试～
 
 如果需要阅读几段文字，同时执行的话可能只会朗读最后一段，所以我们需要`enqueue`加入队列设置前面播放完毕再播放：
-{% highlight js linenos %}
+[code:javascript:]
 chrome.tts.speak("哭疼老叔婚丫", {lang: "ZN-CN", enqueue: true});
 chrome.tts.speak("小乔流水人渣", {lang: "ZN-CN", enqueue: true});
 chrome.tts.speak("鼓捣西峰手麻", {lang: "ZN-CN", enqueue: true});
 chrome.tts.speak("你丑，没事，我瞎", {lang: "ZH-CN", enqueue: true});
-{% endhighlight %}
+[codend]
 
 哈哈，基本的使用就是这样了，如果想了解支持的语言的话，可输入以下命令查看
-{% highlight js linenos %}
+[code:javascript:]
 chrome.tts.getVoices(function(v){
     console.log(v);
 })
-{% endhighlight %}
+[codend]

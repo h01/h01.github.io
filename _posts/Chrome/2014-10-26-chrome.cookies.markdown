@@ -6,12 +6,12 @@ desc:        记录chrome.cookies接口的读取，设置，添加，删除，�
 tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
 ---
 #### 【设置权限】
-{% highlight js linenos %}
+[code:javascript:]
 "permissions": [
     "cookies",
     "<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
 ]
-{% endhighlight %}
+[codend]
 
 `cookie`对象包含如下10项属性：
 
@@ -30,7 +30,7 @@ tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
 
 #### 【读取cookie】
 
-{% highlight js linenos %}
+[code:javascript:]
 // get方法获取指定url和name等匹配的cookie(url和name为必须)
 chrome.cookies.get({
     url: "https://ursb.org",
@@ -50,11 +50,11 @@ chrome.cookies.getAll({
 chrome.cookies.getAll({}, function(cs){
     console.log(cs);
 });
-{% endhighlight %}
+[codend]
 
 #### 【设置cookie】
 
-{% highlight js linenos %}
+[code:javascript:]
 chrome.cookies.set({
     url: "https://ursb.org",    // 必选，其他可选（如果不存在则创建）
     name: "vist",
@@ -62,22 +62,22 @@ chrome.cookies.set({
 }, function(cookie){
     console.log(cookie);    // 此处cookie为修改后的cookie||null
 });
-{% endhighlight %}
+[codend]
 
 #### 【删除cookie】
 
-{% highlight js linenos %}
+[code:javascript:]
 chrome.cookies.remove({
     url: "https://ursb.org",
     name: "vist"
 }, function(res){
     console.log(res);    // res=删除的cookie对象
 });
-{% endhighlight %}
+[codend]
 
 #### 【获取全部CookieStore】
 
-{% highlight js linenos %}
+[code:javascript:]
 // chrome.cookies.getAllCookieStores(callback);
 // 我们首先要定义一个获取结果的回调函数，如下
 function getAllCS(cs){
@@ -88,13 +88,13 @@ chrome.cookies.getAllCookieStores(getAllCS);
 // *.只返回一个id属性和一个tabIds属性
 // *.id属性为这个cookieStore的id
 // *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id
-{% endhighlight %}
+[codend]
 
 #### 【监控操作cookie行为】
 
-{% highlight js linenos %}
+[code:javascript:]
 chrome.cookies.onChanged.addListener(function(info){
     console.log(info);
 });
 // 在测试中，发现如果在console里进行cookie操作（删除，设置等）的时候，不会调用
-{% endhighlight %}
+[codend]
