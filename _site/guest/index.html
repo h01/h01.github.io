@@ -2,19 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>留言板</title>
+	<title>Hotes - 留言板</title>
 	<meta name="description" content="简记，为简单而记！">
-	<meta name="keywords" content="">
-	<!-- 引用CSS|JS -->
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- 自定义CSS -->
+	<meta name="keywords" content="Hotes,简记,GitHub博客程序">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -33,33 +33,7 @@
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-							<span class="glyphicon glyphicon-th-large"></span>
-							分类
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
-						
-							<li>
-								<a href="/category/编程笔记">编程笔记</a>
-							</li>
-						
-							<li>
-								<a href="/category/chrome扩展">CHROME扩展</a>
-							</li>
-						
-							<li>
-								<a href="/category/javascript">JAVASCRIPT</a>
-							</li>
-						
-							<li>
-								<a href="/category/nodejs">NODEJS</a>
-							</li>
-						
-						</ul>
-					</li>
+				
 				
 					
 				
@@ -74,11 +48,17 @@
 					
 				
 					
+				
+					
+				
+					
 					
 					<li class="active">
 					
 						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
 					</li>
+					
+				
 					
 				
 					
@@ -125,9 +105,9 @@ var duoshuoQuery = {short_name:"h01ger"};
 				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 			<div class="pull-right">
-				<a href="/feed.xml" target="_blank">RSS</a>
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
-				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
 				<div style="display: none;">
 					<!-- 百度统计 -->
 					<script type="text/javascript">

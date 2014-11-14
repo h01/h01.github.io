@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - 使用JSONP攻击探测目标用户信息</title>
+	<meta name="description" content="jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！">
+	<meta name="keywords" content="jsonp,xss,xss-jsonp,jsonp攻击,探测信息">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> 使用JSONP攻击探测目标用户信息</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">科普</h4>
+<p>如果你是第一次听说这个玩意，可以点击<a href="http://baike.baidu.com/view/2131174.htm?fr=aladdin">jsonp-百度百科</a>进行大概的了解。    </p>
+
+<h4 id="section-1">原理</h4>
+<p>很多大型的网站，比如百度、QQ、人人、新浪等等社交网站，都存在<code>jsonp</code>接口以方便其他页面调用。  <br />
+比如要获取当前的登陆用户信息，则需要在本地定义一个接收用户信息的函数，然后再使用<code>&lt;script&gt;</code>标签进行跨域地访问<code>jsonp</code>接口，<code>jsonp</code>返回的数据一般都是<code>json</code>格式，也就是<code>js</code>可以直接<code>eval</code>的代码，然后再把执行成功的<code>object</code>返回给用户定义的函数。  <br />
+额，这个是个人的简单理解，因人而已，可以不必纠结。。</p>
+
+<h4 id="section-2">利用</h4>
+<p>我们先定义一个我们的接收函数：
+<textarea class="code javascript">
+function cb(data){
+	console.log(‘[*] 获取到数据..’);
+	console.log(data);
+}
+</textarea></p>
+
+<p>然后再添加一个<code>&lt;script&gt;</code>标签引用我们扫描到的<code>jsonp</code>接口：
+<textarea class="code xml">
+<script src="http://passport.game.renren.com/user/info?callback=cb"></script>
+</textarea>
+这里注意的是，<code>URL</code>中的<code>callback</code>参数为我们定义的函数名称。如果不出意外，<code>js</code>脚本在执行完毕之后就会执行我们的<code>cb</code>函数了。</p>
+
+<h4 id="section-3">扩展</h4>
+<p>综上所述，如果我们需要探测对方的信息，则需要更多的<code>jsonp</code>接口来探测，这时候问题就来了，我们如何去扫描<code>jsonp</code>接口呢？  <br />
+根据一般的<code>jsonp</code>地址不难看出有个特性，就是基本都有<code>callback</code>参数，那么我们就可以直接使用搜索引擎搜索类如：</p>
+
+<pre><code>site:qq.com inurl:callback
+</code></pre>
+
+<p>还可以自己写个插件神马的，浏览一个网站的时候判断所访问的所有<code>url</code>地址，然后判断是否为<code>jsonp</code>，那效率杠杠的！</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="使用JSONP攻击探测目标用户信息" data-url="http://ursb.org/hacking/2014/11/10/jsonp-getuserinfo.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("jsonp,xss,xss-jsonp,jsonp攻击,探测信息");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

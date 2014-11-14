@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - Jekyll生成Json数据</title>
+	<meta name="description" content="简记如何使用Jekyll生成Json，以及如何处理一些小问题">
+	<meta name="keywords" content="Jekyll,Jekyll 2 Json,Jekyll生成Json">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Jekyll生成Json数据</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">简记如何使用Jekyll生成Json，以及如何处理一些小问题</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">创建页面</h4>
+<p>首先，我们要在<code>pages</code>目录下创建一个页面来自定义<code>json</code>的数据和连接，这里需要注意的是，页面的后缀不要为<code>markdown</code>，这里为<code>.html</code>，至于为什么？因为<code>markdown</code>会默认解析里面的一些特定字符，造成我们不想要的结果。</p>
+
+<h4 id="section-1">创建链接</h4>
+<p>只需要在页面的前面设置<code>permalink</code>即可：</p>
+
+<pre><code>---
+permalink: /api/posts.json
+---
+</code></pre>
+
+<h4 id="section-2">生成数据</h4>
+<p><textarea class="code javascript"></p>
+
+<p>[
+	{% for post in site.posts %}
+	{
+		“link”: “{{ post.url }}”,
+		“desc”: “{{ post.desc }}”,
+		“date”: “{{ post.date }}”,
+		“title”: “{{ post.title }}”,
+		“category”: “{{ post.category }}”
+	}{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+]</p>
+
+<p></textarea></p>
+
+<p><strong>【注】</strong>: 上述代码中<code>{% if.. %}</code>才是关键所在，这个是判断是否为最后的数据，如果不是，则输出<code>,</code>符号。通白讲，就是去除最后一个<code>,</code>号。</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-info hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Jekyll生成Json数据" data-url="http://ursb.org/jekyll/2014/11/07/genJson.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Jekyll,Jekyll 2 Json,Jekyll生成Json");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - Chrome扩展开发之History管理</title>
+	<meta name="description" content="历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。">
+	<meta name="keywords" content="Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Chrome扩展开发之History管理</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">【声明权限】</h4>
+<p><textarea class="code javascript">
+“permissions”: [“history”]
+</textarea></p>
+
+<p>chrome.history方法有下：</p>
+
+<pre><code>addUrl
+deleteAll
+deleteRange
+deleteUrl
+getVisits
+onVisitRemoved
+onVisited
+search
+</code></pre>
+
+<h4 id="section-1">【读取历史】</h4>
+<p><textarea class="code javascript">
+// chrome.history.getVisits(Object, callback);
+// Object中url为必选参数
+// Callback中返回的对象有6个属性:id, url, title, lastVisiTime, visitCount, typedCount
+chrome.history.getVisits({
+    url: “https://ursb.org”
+}, function(historys){
+    console.log(historys);
+});
+</textarea></p>
+
+<h4 id="section-2">【搜索历史】</h4>
+<p><textarea class="code javascript">
+chrome.history.search({
+    text: “Holger”,    // 匹配指定文字
+    startTime: new Date().getTime() - 24<em>3600</em>1000,    // 开始时间
+    endTime: new Date().getTime(),    // 结束时间
+    maxResults: 20    // 返回的最大数组总数
+}, function(arr){
+    console.log(arr);    // arr包含id, visitId, visitTime, referringVisitId, transition属性
+});
+</textarea></p>
+
+<h4 id="section-3">【添加历史】</h4>
+<p><textarea class="code javascript">
+// chrome.history.addUrl(Object, callback)
+// Object只需要url参数即可,callback为执行成功后调用
+chrome.history.addUrl({
+    url: “https://ursb.org/notes/?i=17”
+}, function(){
+    console.log(“添加成功!”);
+});
+</textarea></p>
+
+<h4 id="section-4">【删除历史】</h4>
+<p><textarea class="code javascript">
+// 删除指定URL的历史
+chrome.history.deleteUrl({
+    url: “https://ursb.org”
+}, function(){
+    console.log(“deleted done!”);
+});</p>
+
+<p>// 删除指定时间段历史
+chrome.history.deleteRange({
+    startTime: new Date().getTime()-24<em>3600</em>1000,
+    endTime: new Date().getTime()
+}, function(){
+    console.log(“…”);
+});</p>
+
+<p>// 删除全部的历史
+chrome.history.deleteAll(function(){
+    console.log(“!!”);
+}
+</textarea></p>
+
+<h4 id="section-5">【监听历史操作】</h4>
+<p><textarea class="code javascript">
+// 监听用户访问历史
+chrome.history.onVisited.addListener(function(item){
+    console.log(item);
+};</p>
+
+<p>// 监听用户删除历史
+chrome.history.onVisitRemoved.addListener(function(item){
+    console.log(item);
+}
+</textarea></p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Chrome扩展开发之History管理" data-url="http://ursb.org/chrome/2014/10/27/chrome.history.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

@@ -2,19 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hotes</title>
+	<title>Hotes - 简记，为简单而记！</title>
 	<meta name="description" content="简记，为简单而记！">
-	<meta name="keywords" content="">
-	<!-- 引用CSS|JS -->
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- 自定义CSS -->
+	<meta name="keywords" content="Hotes,简记,GitHub博客程序">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -33,6 +33,8 @@
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
+				
+					<!-- 分类 -->
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
 							<span class="glyphicon glyphicon-th-large"></span>
@@ -40,26 +42,42 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">16</span></a> 
+							</li>
+							<li class="divider"></li>
 						
 							<li>
-								<a href="/category/编程笔记">编程笔记</a>
+								<a href="javascript:void(0);" onclick="getCategory('chrome');"><span class="glyphicon glyphicon-file"></span> chrome<span class="pull-right badge">6</span></a>
 							</li>
 						
 							<li>
-								<a href="/category/chrome扩展">CHROME扩展</a>
+								<a href="javascript:void(0);" onclick="getCategory('javascript');"><span class="glyphicon glyphicon-file"></span> javascript<span class="pull-right badge">3</span></a>
 							</li>
 						
 							<li>
-								<a href="/category/javascript">JAVASCRIPT</a>
+								<a href="javascript:void(0);" onclick="getCategory('nodejs');"><span class="glyphicon glyphicon-file"></span> nodejs<span class="pull-right badge">2</span></a>
 							</li>
 						
 							<li>
-								<a href="/category/nodejs">NODEJS</a>
+								<a href="javascript:void(0);" onclick="getCategory('jekyll');"><span class="glyphicon glyphicon-file"></span> jekyll<span class="pull-right badge">1</span></a>
 							</li>
 						
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('bootstrap');"><span class="glyphicon glyphicon-file"></span> bootstrap<span class="pull-right badge">1</span></a>
+							</li>
+						
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('hacking');"><span class="glyphicon glyphicon-file"></span> hacking<span class="pull-right badge">2</span></a>
+							</li>
+						
+							<li class="divider"></li>
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('');"><span class="glyphicon glyphicon-th-large"></span> 默认分类</a>
+							</li>
 						</ul>
 					</li>
+				
 				
 					
 				
@@ -69,6 +87,10 @@
 					
 						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
 					</li>
+					
+				
+					
+				
 					
 				
 					
@@ -85,18 +107,134 @@
 				
 					
 				
+					
+				
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- 文章列表 -->
 <div class="container">
-	<div class="row">
+	<div class="row" id="posts">
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io.html">socket.io的简单使用</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/javascript/2014/11/13/get-client-info.html">更准确高效地获取客户端浏览器|系统信息</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">13</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/hacking/2014/11/12/xss-scanPorts.html">xss中使用js扫描外|内网端口</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">12</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/hacking/2014/11/10/jsonp-getuserinfo.html">使用JSONP攻击探测目标用户信息</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">10</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/bootstrap/2014/11/09/contextmenu.html">BootStrap.ContextMenu 网页右键菜单插件</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-success">09</p>
+							<p class="text-success">2014-11</p>
+						</div>
+						<div class="media-body text-success" style="padding-left: 5px;">
+							基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/jekyll/2014/11/07/genJson.html">Jekyll生成Json数据</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-info">07</p>
+							<p class="text-info">2014-11</p>
+						</div>
+						<div class="media-body text-info" style="padding-left: 5px;">
+							简记如何使用Jekyll生成Json，以及如何处理一些小问题
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/javascript/2014/11/06/Worker.html">Web Worker简单使用</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">06</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/nodejs/2014/11/04/socket.io.html">socket.io的简单使用</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -115,7 +253,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql.html">Node.js连接操作MySql</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/nodejs/2014/11/04/mysql.html">Node.js连接操作MySql</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -134,7 +272,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript.html">Javascript同步加载js文件</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/javascript/2014/11/04/loadScript.html">Javascript同步加载js文件</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -172,7 +310,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management.html">Chrome扩展开发之扩展与应用管理</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/27/chrome.management.html">Chrome扩展开发之扩展与应用管理</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -191,7 +329,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history.html">Chrome扩展开发之History管理</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/27/chrome.history.html">Chrome扩展开发之History管理</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -210,7 +348,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies.html">Chrome扩展开发之Cookie管理</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/26/chrome.cookies.html">Chrome扩展开发之Cookie管理</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -229,7 +367,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks.html">Chrome扩展开发之书签管理</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/26/chrome.bookmarks.html">Chrome扩展开发之书签管理</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -248,7 +386,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio.html">Chrome扩展开发之文字转语音功能</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/25/text2audio.html">Chrome扩展开发之文字转语音功能</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -267,7 +405,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update.html">Chrome扩展开发之自动更新升级</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/10/06/update.html">Chrome扩展开发之自动更新升级</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -285,6 +423,138 @@
 		
 	</div>
 </div>
+<!-- 右键菜单 -->
+<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
+
+<script type="text/javascript">
+var category_menu = [];
+category_menu.push({
+	text: '<i class="pull-right badge">16</i>全部分类',
+	icon: 'glyphicon-th',
+	callback: function(){
+		getCategory('all');
+	}
+});
+category_menu.push({
+	text: '---'
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">6</i>chrome',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('chrome');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">3</i>javascript',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('javascript');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">2</i>nodejs',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('nodejs');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">1</i>jekyll',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('jekyll');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">1</i>bootstrap',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('bootstrap');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">2</i>hacking',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('hacking');
+	}
+});
+
+category_menu.push({
+	text: '---'
+});
+category_menu.push({
+	text: '默认分类',
+	icon: 'glyphicon-th-large',
+	callback: function(){
+		getCategory('');
+	}
+});
+
+var mainmenu = _ctxMenu.init([
+{
+	text: '返回顶部',
+	icon: 'glyphicon-chevron-up',
+	callback: function(){
+		location.href = "#top";
+	}
+},{
+	text: '---'
+},{
+	text: '刷新页面',
+	icon: 'glyphicon-refresh',
+	callback: function(){
+		location.reload();
+	}
+},{
+	text: '---'
+},{
+	text: '文章分类',
+	icon: 'glyphicon-th-large',
+	menu: category_menu
+},{
+	text: '个人页面',
+	icon: 'glyphicon-book',
+	menu: [
+	{
+		text: '关于本站',
+		icon: 'glyphicon-heart',
+		callback: function(){
+			window.open("/about/", "_blank");
+		}
+	},{
+		text: '留个言吧',
+		icon: 'glyphicon-envelope',
+		callback: function(){
+			window.open("/guest/", "_blank");
+		}
+	},{
+		text: '---'
+	},{
+		text: 'GitHub',
+		icon: 'glyphicon-paperclip',
+		callback: function(){
+			window.open("https://github.com/h01", "_blank");
+		}
+	}]
+},{
+	text: '---'
+},{
+	text: '关闭页面',
+	icon: 'glyphicon-off',
+	disabled: true
+}
+]);
+_ctxMenu.bind(mainmenu, document);
+</script>
+
 
 	<!-- 底部文件 -->
 	<hr class="divider">
@@ -294,9 +564,9 @@
 				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 			<div class="pull-right">
-				<a href="/feed.xml" target="_blank">RSS</a>
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
-				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
 				<div style="display: none;">
 					<!-- 百度统计 -->
 					<script type="text/javascript">

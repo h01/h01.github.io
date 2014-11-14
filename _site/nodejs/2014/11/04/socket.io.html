@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - socket.io的简单使用</title>
+	<meta name="description" content="socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用">
+	<meta name="keywords" content="Javascript,socket.io,socket.io.js使用,node.js Websocket">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> socket.io的简单使用</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<p>具体的介绍就不说了，在服务端安装命令：
+<textarea class="code shell">
+npm install socket.io
+</textarea></p>
+
+<p>安装完毕我们本地监听一个<code>web</code>端口用于和用户交互以及通信：
+<textarea class="code javascript">
+var io = require(“socket.io”).listen(8888);</p>
+
+<p>function debug(msg){
+    console.log(‘[-] %s’, msg);
+}</p>
+
+<p>io.sockets.on(‘connection’, function(socket){
+    debug(“主机连接:” + socket.handshake.address);</p>
+
+<pre><code>socket.on('msg', function(msg){
+    debug("收到信息:" + msg.msg);
+    io.sockets.emit('msg', {
+        msg: socket.handshake.address + " 发送消息: " + msg.msg
+    });
+});
+
+socket.on('disconnection', function(){
+    debug("主机断开:" + socket.handshake.address);
+});
+
+socket.emit('msg', {
+    msg: '你好aaa'
+}); }); </textarea>
+</code></pre>
+
+<p>然后客户端调用<code>web</code>的<code>socket.io.js</code>，或者直接调用外部<code>cdn</code>的<code>js</code>文件，进行和客户端通信：
+<textarea class="code javascript">
+<script src="http://localhost:8888/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+var socket = io.connect("http://localhost:8888");
+socket.on("msg", function(msg){
+    console.log("[+] " + msg.msg);
+});
+socket.emit("msg", {
+    msg: "Hello!!!"
+});
+</script>
+</textarea></p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="socket.io的简单使用" data-url="http://ursb.org/nodejs/2014/11/04/socket.io.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Javascript,socket.io,socket.io.js使用,node.js Websocket");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

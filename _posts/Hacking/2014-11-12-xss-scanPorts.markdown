@@ -11,7 +11,7 @@ tags:		[xss,javascript扫描端口,xss扫描端口]
 
 #### 实现
 先简单贴一些代码：
-{% highlight js %}
+[code:javascript:]
 function scan(ip, port){
 	var s = document.createElement("script");
 	s.src = "http://" + ip + ":" + port;
@@ -20,11 +20,11 @@ function scan(ip, port){
 	}
 	document.body.appendChild(s);
 }
-{% endhighlight %}
+[codend]
 然后我们使用`for`循环扫描端口，例如：
-{% highlight js %}
+[code:javascript:]
 for (var i = 0; i < 100; i++) {
 	scan("10.1.1.1", i);
 };
-{% endhighlight %}
+[codend]
 这时候如果对方端口打开，就会触发`onload`事件了，事件里的功能代码可以随意扩展～

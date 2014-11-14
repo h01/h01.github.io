@@ -1,0 +1,147 @@
+[
+
+    {
+        "link": "/javascript/2014/11/13/get-client-info.html",
+        "desc": "如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)",
+        "date": "2014-11-13 00:00:00 +0800",
+        "title": "更准确高效地获取客户端浏览器|系统信息",
+        "style": "",
+        "category": "Javascript"
+    },
+
+    {
+        "link": "/hacking/2014/11/12/xss-scanPorts.html",
+        "desc": "在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。",
+        "date": "2014-11-12 00:00:00 +0800",
+        "title": "xss中使用js扫描外|内网端口",
+        "style": "",
+        "category": "hacking"
+    },
+
+    {
+        "link": "/hacking/2014/11/10/jsonp-getuserinfo.html",
+        "desc": "jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！",
+        "date": "2014-11-10 00:00:00 +0800",
+        "title": "使用JSONP攻击探测目标用户信息",
+        "style": "",
+        "category": "Hacking"
+    },
+
+    {
+        "link": "/bootstrap/2014/11/09/contextmenu.html",
+        "desc": "基于bootstrap(v.3.2.0)写了个右键菜单的小&quot;插件&quot;，这里简单介绍下使用方法。",
+        "date": "2014-11-09 00:00:00 +0800",
+        "title": "BootStrap.ContextMenu 网页右键菜单插件",
+        "style": "success",
+        "category": "Bootstrap"
+    },
+
+    {
+        "link": "/jekyll/2014/11/07/genJson.html",
+        "desc": "简记如何使用Jekyll生成Json，以及如何处理一些小问题",
+        "date": "2014-11-07 00:00:00 +0800",
+        "title": "Jekyll生成Json数据",
+        "style": "info",
+        "category": "Jekyll"
+    },
+
+    {
+        "link": "/javascript/2014/11/06/Worker.html",
+        "desc": "当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。",
+        "date": "2014-11-06 00:00:00 +0800",
+        "title": "Web Worker简单使用",
+        "style": "",
+        "category": "Javascript"
+    },
+
+    {
+        "link": "/nodejs/2014/11/04/socket.io.html",
+        "desc": "socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用",
+        "date": "2014-11-04 00:00:00 +0800",
+        "title": "socket.io的简单使用",
+        "style": "",
+        "category": "NodeJs"
+    },
+
+    {
+        "link": "/nodejs/2014/11/04/mysql.html",
+        "desc": "简记如何使用Node.js连接MySql并进行执行语句操作",
+        "date": "2014-11-04 00:00:00 +0800",
+        "title": "Node.js连接操作MySql",
+        "style": "",
+        "category": "NodeJs"
+    },
+
+    {
+        "link": "/javascript/2014/11/04/loadScript.html",
+        "desc": "页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题",
+        "date": "2014-11-04 00:00:00 +0800",
+        "title": "Javascript同步加载js文件",
+        "style": "",
+        "category": "Javascript"
+    },
+
+    {
+        "link": "/2014/11/03/Hello-Hotes.html",
+        "desc": "欢迎使用Hotes！",
+        "date": "2014-11-03 00:00:00 +0800",
+        "title": "Hello Hotes!",
+        "style": "danger",
+        "category": ""
+    },
+
+    {
+        "link": "/chrome/2014/10/27/chrome.management.html",
+        "desc": "通过Chrome的management接口来完成用户已安装的扩展和应用管理。",
+        "date": "2014-10-27 00:00:00 +0800",
+        "title": "Chrome扩展开发之扩展与应用管理",
+        "style": "",
+        "category": "Chrome"
+    },
+
+    {
+        "link": "/chrome/2014/10/27/chrome.history.html",
+        "desc": "历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。",
+        "date": "2014-10-27 00:00:00 +0800",
+        "title": "Chrome扩展开发之History管理",
+        "style": "",
+        "category": "Chrome"
+    },
+
+    {
+        "link": "/chrome/2014/10/26/chrome.cookies.html",
+        "desc": "记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。",
+        "date": "2014-10-26 00:00:00 +0800",
+        "title": "Chrome扩展开发之Cookie管理",
+        "style": "",
+        "category": "Chrome"
+    },
+
+    {
+        "link": "/chrome/2014/10/26/chrome.bookmarks.html",
+        "desc": "chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。",
+        "date": "2014-10-26 00:00:00 +0800",
+        "title": "Chrome扩展开发之书签管理",
+        "style": "",
+        "category": "Chrome"
+    },
+
+    {
+        "link": "/chrome/2014/10/25/text2audio.html",
+        "desc": "chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～",
+        "date": "2014-10-25 00:00:00 +0800",
+        "title": "Chrome扩展开发之文字转语音功能",
+        "style": "",
+        "category": "Chrome"
+    },
+
+    {
+        "link": "/chrome/2014/10/06/update.html",
+        "desc": "这里简单介绍如何设置自动更新升级我们的Chrome扩展",
+        "date": "2014-10-06 00:00:00 +0800",
+        "title": "Chrome扩展开发之自动更新升级",
+        "style": "",
+        "category": "Chrome"
+    }
+
+]

@@ -17,7 +17,7 @@ tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
 	---
 
 #### 生成数据
-{% highlight js linenos %}
+[code:javascript:]
 {% raw %}
 [
 	{% for post in site.posts %}
@@ -31,6 +31,6 @@ tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
 	{% endfor %}
 ]
 {% endraw %}
-{% endhighlight %}
+[codend]
 
 <strong>【注】</strong>: 上述代码中`{% raw %}{% if.. %}{% endraw %}`才是关键所在，这个是判断是否为最后的数据，如果不是，则输出`,`符号。通白讲，就是去除最后一个`,`号。

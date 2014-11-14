@@ -1,0 +1,30 @@
+.media>.pull-left {
+	margin-right: 10px;
+	padding-right: 12px;
+	border-right: 1.5px solid #eee;
+}
+::selection {
+	color: #FFF;
+	background: rgba(126, 31, 49, 1);
+}
+code {
+	color: #B6531F;
+	font-weight: bold;
+}
+footer {
+	margin-bottom: 15px;
+}
+.CodeMirror {
+	width: 100%;
+	height: 100%;
+}
+.code {
+	display: none;
+}
+h4 {
+	color: #27A0A5;
+	cursor: pointer;
+}
+h4:hover {
+	color: #136F73;
+}

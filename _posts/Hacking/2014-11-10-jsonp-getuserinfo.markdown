@@ -15,17 +15,17 @@ tags:		[jsonp,xss,xss-jsonp,jsonp攻击,探测信息]
 
 #### 利用
 我们先定义一个我们的接收函数：
-{% highlight js %}
+[code:javascript:]
 function cb(data){
 	console.log('[*] 获取到数据..');
 	console.log(data);
 }
-{% endhighlight %}
+[codend]
 
 然后再添加一个`<script>`标签引用我们扫描到的`jsonp`接口：
-{% highlight html %}
+[code:xml:]
 <script src="http://passport.game.renren.com/user/info?callback=cb"></script>
-{% endhighlight %}
+[codend]
 这里注意的是，`URL`中的`callback`参数为我们定义的函数名称。如果不出意外，`js`脚本在执行完毕之后就会执行我们的`cb`函数了。
 
 #### 扩展

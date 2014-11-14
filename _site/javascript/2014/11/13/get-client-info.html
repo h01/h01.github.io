@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - 更准确高效地获取客户端浏览器|系统信息</title>
+	<meta name="description" content="如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)">
+	<meta name="keywords" content="Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> 更准确高效地获取客户端浏览器|系统信息</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">前言</h4>
+<p>尝试着在百度、谷歌搜索过相关资料，大多都是互相转载而且版权一大堆内容特垃圾的那种～～鄙视中。。  <br />
+现在需要的是获取浏览器的具体版本和操作系统的具体版本，比如<code>iPhone</code>,<code>Android</code>,<code>Win10</code>,<code>IE11</code>等等比较新鲜的东西，网上传的那种就见鬼去了～  <br />
+所以呢，我就打算自己动刀，想一个比较完美又可以扩展的办法，终于弄出了点眉目。</p>
+
+<h4 id="section-1">获取操作系统以及版本</h4>
+
+<h5 id="section-2">【思路】</h5>
+<p>创建一个对象数组，保存操作系统的通用名称，比如<code>Windows</code>,<code>Mac OSX</code>,<code>iPhone</code>等，然后再保存一个对应的正则表达式，用来从<code>UserAgent</code>中匹配出具体的版本号。    </p>
+
+<h5 id="section-3">【实现】</h5>
+<p><textarea class="code javascript">
+var info = {};
+var temp = {};
+info.ua = navigator.userAgent;
+// 
+// 获取操作系统版本
+//
+temp.os = {
+    ‘Mac OS X’: /Mac OS X ([\d._]<em>)/,
+    ‘iPhone OS’: /iPhone OS ([\d._]</em>)/,
+}
+for (var o in temp.os){
+    if (info.ua.indexOf(o)) {
+        var m = info.ua.match(temp.os[o]);
+        info.os = m ? m[0] : (info.os || ‘UnknowOS’);
+    };
+}
+</textarea>
+上面的代码中<code>temp.os</code>对象可以自由地扩展，我想你都懂并能领会其中的好处！</p>
+
+<h4 id="section-4">获取浏览器和版本</h4>
+<p>同上面一样，就不多说了，直接上代码：
+<textarea class="code javascript">
+//
+// 获取浏览器版本
+//
+temp.browser = {
+    ‘Safari’: /Safari\/([\d.]+)$/,
+    ‘Chrome’: /Chrome\/([\d.]+)/,
+    ‘Firefox’: /Firefox\/([\d.]+)$/,
+}
+for (var b in temp.browser){
+    if (info.ua.indexOf(b)) {
+        var m = info.ua.match(temp.browser[b]);
+        info.browser = m ? m[0] : (info.browser || ‘UnknowBrowser’);
+    };
+}
+</textarea></p>
+
+<h4 id="section-5">总结</h4>
+<p>其实呢，我觉得<code>js</code>好玩的地方非常多，有很多地方是其他语言无法超越的。当然，每个语言都有自己的长处，随个人所好～</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="更准确高效地获取客户端浏览器|系统信息" data-url="http://ursb.org/javascript/2014/11/13/get-client-info.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+			<div class="pull-right">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

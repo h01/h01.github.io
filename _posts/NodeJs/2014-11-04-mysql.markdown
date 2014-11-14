@@ -10,7 +10,7 @@ tags:       [Node.js,Node.js操作mysql]
     npm install mysql
 
 #### 初始化并连接`mysql`
-{% highlight js linenos %}
+[code:javascript:]
 var mysql = require("mysql");
 var conn  = mysql.createConnection({
     host: 'localhost',
@@ -20,17 +20,17 @@ var conn  = mysql.createConnection({
     database: 'mysql'
 });
 conn.connect();
-{% endhighlight %}
+[codend]
 
 #### 执行`SQL`语句并获取结果
-{% highlight js linenos %}
+[code:javascript:]
 conn.query("SELECT user,host,password FROM user", function(err, rows, fields){
     if (err) throw err;
     for (var i in rows){
         console.log("[%s] USER:%s HOST:%s PASS:%s", i, rows[i].user, rows[i].host, rows[i].password);
     }
 });
-{% endhighlight %}
+[codend]
 
 #### The End.
 暂时就写到这了，用到的时候再查询记录吧！具体更多详细功能可参考：[用Nodejs连接MySQL](http://blog.fens.me/nodejs-mysql-intro/)

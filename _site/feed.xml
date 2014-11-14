@@ -3,89 +3,89 @@
 	<channel>
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
-		<url>http://ursb.org</url>
-		<lastbuilddate>Thu, 06 Nov 2014 11:35:29 +0800</lastbuilddate>
+		<link>http://ursb.org</link>
+		<lastBuildDate>Fri, 14 Nov 2014 09:10:32 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
 		
 		<item>
+			<title>更准确高效地获取客户端浏览器|系统信息</title>
+			<link>http://ursb.org/javascript/2014/11/13/get-client-info.html</link>
+			<pubDate>Thu, 13 Nov 2014 00:00:00 +0800</pubDate>
+			<category>Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本</category>
+			<description>如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)</description>
+		</item>
+		
+		<item>
+			<title>xss中使用js扫描外|内网端口</title>
+			<link>http://ursb.org/hacking/2014/11/12/xss-scanPorts.html</link>
+			<pubDate>Wed, 12 Nov 2014 00:00:00 +0800</pubDate>
+			<category>xss,javascript扫描端口,xss扫描端口</category>
+			<description>在xss攻击中，为了更深一步探测信息，可以尝试着获取一下内网IP段，然后进行端口扫描。当然，神马中间人攻击、跳板exp的这里就不说了。</description>
+		</item>
+		
+		<item>
+			<title>使用JSONP攻击探测目标用户信息</title>
+			<link>http://ursb.org/hacking/2014/11/10/jsonp-getuserinfo.html</link>
+			<pubDate>Mon, 10 Nov 2014 00:00:00 +0800</pubDate>
+			<category>jsonp,xss,xss-jsonp,jsonp攻击,探测信息</category>
+			<description>jsonp攻击已经算是很成熟了，出来了应该很久，但是知道的人也许并不是很多。这个玩意能做什么呢？也许你能让TA发挥更强大！</description>
+		</item>
+		
+		<item>
+			<title>BootStrap.ContextMenu 网页右键菜单插件</title>
+			<link>http://ursb.org/bootstrap/2014/11/09/contextmenu.html</link>
+			<pubDate>Sun, 09 Nov 2014 00:00:00 +0800</pubDate>
+			<category>Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单</category>
+			<description>基于bootstrap(v.3.2.0)写了个右键菜单的小&quot;插件&quot;，这里简单介绍下使用方法。</description>
+		</item>
+		
+		<item>
+			<title>Jekyll生成Json数据</title>
+			<link>http://ursb.org/jekyll/2014/11/07/genJson.html</link>
+			<pubDate>Fri, 07 Nov 2014 00:00:00 +0800</pubDate>
+			<category>Jekyll,Jekyll 2 Json,Jekyll生成Json</category>
+			<description>简记如何使用Jekyll生成Json，以及如何处理一些小问题</description>
+		</item>
+		
+		<item>
+			<title>Web Worker简单使用</title>
+			<link>http://ursb.org/javascript/2014/11/06/Worker.html</link>
+			<pubDate>Thu, 06 Nov 2014 00:00:00 +0800</pubDate>
+			<category>Javascript,Web Worker,html5 worker,Javascript Worker使用</category>
+			<description>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。</description>
+		</item>
+		
+		<item>
 			<title>socket.io的简单使用</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io.html</url>
-			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<link>http://ursb.org/nodejs/2014/11/04/socket.io.html</link>
+			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Javascript,socket.io,socket.io.js使用,node.js Websocket</category>
 			<description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
 		</item>
 		
 		<item>
 			<title>Node.js连接操作MySql</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql.html</url>
-			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<link>http://ursb.org/nodejs/2014/11/04/mysql.html</link>
+			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Node.js,Node.js操作mysql</category>
 			<description>简记如何使用Node.js连接MySql并进行执行语句操作</description>
 		</item>
 		
 		<item>
 			<title>Javascript同步加载js文件</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript.html</url>
-			<pubdate>Tue, 04 Nov 2014 00:00:00 +0800</pubdate>
+			<link>http://ursb.org/javascript/2014/11/04/loadScript.html</link>
+			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Javascript,loadScript,同步加载js文件</category>
 			<description>页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题</description>
 		</item>
 		
 		<item>
 			<title>Hello Hotes!</title>
-			<url>http://ursb.org/2014/11/03/Hello-Hotes.html</url>
-			<pubdate>Mon, 03 Nov 2014 00:00:00 +0800</pubdate>
+			<link>http://ursb.org/2014/11/03/Hello-Hotes.html</link>
+			<pubDate>Mon, 03 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Hotes,GitHub</category>
 			<description>欢迎使用Hotes！</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之扩展与应用管理</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management.html</url>
-			<pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,Chrome扩展开发,Chrome插件管理,Chrome扩展管理,Chrome.management</category>
-			<description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之History管理</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history.html</url>
-			<pubdate>Mon, 27 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history</category>
-			<description>历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之Cookie管理</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies.html</url>
-			<pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies</category>
-			<description>记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之书签管理</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks.html</url>
-			<pubdate>Sun, 26 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks</category>
-			<description>chrome.bookmarks接口的添加、管理、删除、编辑书签等各种功能使用。</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之文字转语音功能</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio.html</url>
-			<pubdate>Sat, 25 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,chrome.tts,Chrome扩展,Chrome扩展开发,Chrome文字转语音,文字转语音</category>
-			<description>chrome.tts接口可将文字转语音，从而使用不痛的语速、音调来阅读文字。懒人必备～</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之自动更新升级</title>
-			<url>http://ursb.org/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update.html</url>
-			<pubdate>Mon, 06 Oct 2014 00:00:00 +0800</pubdate>
-			<category>Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展升级</category>
-			<description>这里简单介绍如何设置自动更新升级我们的Chrome扩展</description>
 		</item>
 		
 	</channel>

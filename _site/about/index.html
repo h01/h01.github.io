@@ -2,19 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>关于</title>
+	<title>Hotes - 关于</title>
 	<meta name="description" content="简记，为简单而记！">
-	<meta name="keywords" content="">
-	<!-- 引用CSS|JS -->
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
-	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- 自定义CSS -->
+	<meta name="keywords" content="Hotes,简记,GitHub博客程序">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
-	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
+	<link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/static/codemirror-4.7/lib/codemirror.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/codemirror-4.7/lib/codemirror.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/js/custom.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -33,33 +33,7 @@
 			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
 				<!-- 页面导航栏 -->
 				<ul class="nav navbar-nav pull-right">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-							<span class="glyphicon glyphicon-th-large"></span>
-							分类
-							<span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-						{"编程笔记"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "chrome扩展"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.management>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/27/chrome.history>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.cookies>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/26/chrome.bookmarks>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/25/text2audio>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/chrome%E6%89%A9%E5%B1%95/2014/10/06/update>], "javascript"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/javascript/2014/11/04/loadScript>], "nodejs"=>[<Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/socket.io>, <Post: /%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/nodejs/2014/11/04/mysql>]}
-						
-							<li>
-								<a href="/category/编程笔记">编程笔记</a>
-							</li>
-						
-							<li>
-								<a href="/category/chrome扩展">CHROME扩展</a>
-							</li>
-						
-							<li>
-								<a href="/category/javascript">JAVASCRIPT</a>
-							</li>
-						
-							<li>
-								<a href="/category/nodejs">NODEJS</a>
-							</li>
-						
-						</ul>
-					</li>
+				
 				
 					
 				
@@ -74,11 +48,17 @@
 					
 				
 					
+				
+					
+				
+					
 					
 					<li>
 					
 						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
 					</li>
+					
+				
 					
 				
 					
@@ -96,12 +76,11 @@
 				<h3 class="panel-title"><span class="glyphicon glyphicon-heart"></span> 关于</h3>
 			</div>
 			<div class="panel-body">
-				<h4 id="hotes---">Hotes - 为简单而生。</h4>
-<p>写过很多<code>Blog</code>程序，绝大多数都变了一次又一次，直到最后删除，清空。  <br />
-不知道这一次会不会也这样，在<code>GitHub</code>上写博客的目的一是为了防止某一天自己的小派毁了，二是防止网络某一天断了，三呢，是为了一个爱好吧！  <br />
-写的博客不多，写的程序不少，可惜很久以前的自己总是喜欢自娱自乐，所以后来就干脆让大家一起乐乐吧！    </p>
-
-<p>简记，书写简单的记忆。</p>
+				<h4 id="hotes---">Hotes - 简记</h4>
+<blockquote>
+  <p>这里记录着一些博主在程序开发中的小笔记，以及一些开源小程序的介绍和展示。  <br />
+这里，是我简单的小笔记。</p>
+</blockquote>
 
 			</div>
 		</div>
@@ -114,9 +93,9 @@
 				<p class="text-muted">&copy; 2014 Hotes.</p>
 			</div>
 			<div class="pull-right">
-				<a href="/feed.xml" target="_blank">RSS</a>
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
 				<span class="text-muted"> | </span>
-				<a href="https://github.com/h01/h01.github.io" target="_blank">GitHub</a>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
 				<div style="display: none;">
 					<!-- 百度统计 -->
 					<script type="text/javascript">
