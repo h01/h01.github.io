@@ -57,7 +57,7 @@ _ctxMenu.bind(menu, document.getElementById('id'));
 [codend]
 当然，如果我们图方便，也可以使用`Jquery`，不过使用方法有改变如下：
 [code:javascript:]
-    _ctxMenu.bind(menu, $("#id")[0]);
+_ctxMenu.bind(menu, $("#id")[0]);
 [codend]
 最后，试试在下面的吐槽`div`里右键一下？
 
