@@ -11,10 +11,11 @@ tags:		[Jekyll, Jekyll 2 Json,Jekyll生成Json]
 
 #### 创建链接
 只需要在页面的前面设置`permalink`即可：
-
-	---
-	permalink: /api/posts.json
-	---
+[code:js:]
+\-\-\-
+permalink: /api/posts.json
+\-\-\-
+[codend]
 
 #### 生成数据
 [code:javascript:]{% raw %}

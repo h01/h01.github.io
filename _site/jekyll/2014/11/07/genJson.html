@@ -83,12 +83,12 @@
 <p>首先，我们要在<code>pages</code>目录下创建一个页面来自定义<code>json</code>的数据和连接，这里需要注意的是，页面的后缀不要为<code>markdown</code>，这里为<code>.html</code>，至于为什么？因为<code>markdown</code>会默认解析里面的一些特定字符，造成我们不想要的结果。</p>
 
 <h4 id="section-1">创建链接</h4>
-<p>只需要在页面的前面设置<code>permalink</code>即可：</p>
-
-<pre><code>---
+<p>只需要在页面的前面设置<code>permalink</code>即可：
+<pre class="brush:js;toolbar:false">
+---
 permalink: /api/posts.json
 ---
-</code></pre>
+</pre></p>
 
 <h4 id="section-2">生成数据</h4>
 <p><pre class="brush:javascript;toolbar:false">

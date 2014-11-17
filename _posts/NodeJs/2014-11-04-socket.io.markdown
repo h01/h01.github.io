@@ -13,11 +13,9 @@ npm install socket.io
 安装完毕我们本地监听一个`web`端口用于和用户交互以及通信：
 [code:javascript:]
 var io = require("socket.io").listen(8888);
-
 function debug(msg){
     console.log('[-] %s', msg);
 }
-
 io.sockets.on('connection', function(socket){
     debug("主机连接:" + socket.handshake.address);
 
