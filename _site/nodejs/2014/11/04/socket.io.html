@@ -91,23 +91,21 @@ function debug(msg){
     console.log(‘[-] %s’, msg);
 }
 io.sockets.on(‘connection’, function(socket){
-    debug(“主机连接:” + socket.handshake.address);</p>
-
-<pre><code>socket.on('msg', function(msg){
-    debug("收到信息:" + msg.msg);
-    io.sockets.emit('msg', {
-        msg: socket.handshake.address + " 发送消息: " + msg.msg
+    debug(“主机连接:” + socket.handshake.address);
+    socket.on(‘msg’, function(msg){
+        debug(“收到信息:” + msg.msg);
+        io.sockets.emit(‘msg’, {
+            msg: socket.handshake.address + “ 发送消息: “ + msg.msg
+        });
+    });
+    socket.on(‘disconnection’, function(){
+        debug(“主机断开:” + socket.handshake.address);
+    });
+    socket.emit(‘msg’, {
+        msg: ‘你好aaa’
     });
 });
-
-socket.on('disconnection', function(){
-    debug("主机断开:" + socket.handshake.address);
-});
-
-socket.emit('msg', {
-    msg: '你好aaa'
-}); }); </pre>
-</code></pre>
+</pre></p>
 
 <p>然后客户端调用<code>web</code>的<code>socket.io.js</code>，或者直接调用外部<code>cdn</code>的<code>js</code>文件，进行和客户端通信：
 <pre class="brush:javascript;toolbar:false">
