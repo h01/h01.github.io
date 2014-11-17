@@ -12,8 +12,10 @@ tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单]
 后来在测试的时候，发现并不怎么理想，尤其是在`firefox`、`Safari`下，中文有时候会不支持所以无法执行，并且想着还有很多`BUG`，于是就重新写了。。
 
 目前貌似`bootstrap`已经更新到了`3.3.0`，但个人感觉不怎么美观，所以就在本人比较喜欢的`3.2.0`风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
-
-    项目地址:   https://github.com/h01/javascript/tree/master/bootstrap.contextmenu
+[code:js:]
+// 项目地址
+var github = "https://github.com/h01/javascript/tree/master/bootstrap.contextmenu";
+[codend]
 
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：

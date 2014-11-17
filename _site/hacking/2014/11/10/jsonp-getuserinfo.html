@@ -63,8 +63,6 @@
 				
 					
 				
-					
-				
 				</ul>
 			</div>
 		</div>
@@ -99,19 +97,18 @@ function cb(data){
 </pre></p>
 
 <p>然后再添加一个<code>&lt;script&gt;</code>标签引用我们扫描到的<code>jsonp</code>接口：
-<pre class="brush:xml;toolbar:false">
-<script src="http://passport.game.renren.com/user/info?callback=cb"></script>
+<pre class="brush:html;toolbar:false">
+&lt;script src=”http://passport.game.renren.com/user/info?callback=cb”&gt;&lt;/script&gt;
 </pre>
 这里注意的是，<code>URL</code>中的<code>callback</code>参数为我们定义的函数名称。如果不出意外，<code>js</code>脚本在执行完毕之后就会执行我们的<code>cb</code>函数了。</p>
 
 <h4 id="section-3">扩展</h4>
 <p>综上所述，如果我们需要探测对方的信息，则需要更多的<code>jsonp</code>接口来探测，这时候问题就来了，我们如何去扫描<code>jsonp</code>接口呢？  <br />
-根据一般的<code>jsonp</code>地址不难看出有个特性，就是基本都有<code>callback</code>参数，那么我们就可以直接使用搜索引擎搜索类如：</p>
-
-<pre><code>site:qq.com inurl:callback
-</code></pre>
-
-<p>还可以自己写个插件神马的，浏览一个网站的时候判断所访问的所有<code>url</code>地址，然后判断是否为<code>jsonp</code>，那效率杠杠的！</p>
+根据一般的<code>jsonp</code>地址不难看出有个特性，就是基本都有<code>callback</code>参数，那么我们就可以直接使用搜索引擎搜索类如：
+<pre class="brush:shell;toolbar:false">
+site:qq.com inurl:callback
+</pre>
+还可以自己写个插件神马的，浏览一个网站的时候判断所访问的所有<code>url</code>地址，然后判断是否为<code>jsonp</code>，那效率杠杠的！</p>
 
 				</div>
 			</div>
@@ -164,14 +161,12 @@ function cb(data){
 	</footer>
 	<!-- 谷歌更新优化 -->
 	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		try {
-			var pageTracker = _gat._getTracker("jsonp,xss,xss-jsonp,jsonp攻击,探测信息");
-			pageTracker._trackPageview();
-		} catch(err) {}
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("jsonp,xss,xss-jsonp,jsonp攻击,探测信息");
+				pageTracker._trackPageview();
+			} catch(err) {}
 	</script>
 </body>
 </html>

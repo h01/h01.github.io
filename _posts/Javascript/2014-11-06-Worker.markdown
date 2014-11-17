@@ -18,13 +18,11 @@ tags:       [Javascript,Web Worker,html5 worker,Javascript Worker使用]
 [code:javascript:]
 // 导入外部js文件使用
 importScripts("data.js");
-
 // 监听消息
 onmessage = function(e){
     // 消息可以为对象
     console.log(e.data);
 }
-
 // 发送消息
 postMessage({
     msg: "这个消息发送自 Worker"
@@ -35,12 +33,10 @@ postMessage({
 [code:javascript:]
 // 初始化对象
 var worker = new Worker("worker.js");
-
 // 监听消息
 worker.onmessage = function(e){
     console.log(e.data);
 };
-
 // 发送消息
 worker.poseMessage({
     msg: "这个消息来自某处.."

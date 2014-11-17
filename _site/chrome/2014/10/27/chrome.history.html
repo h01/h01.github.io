@@ -63,8 +63,6 @@
 				
 					
 				
-					
-				
 				</ul>
 			</div>
 		</div>
@@ -220,14 +218,12 @@ chrome.history.onVisitRemoved.addListener(function(item){
 	</footer>
 	<!-- 谷歌更新优化 -->
 	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		try {
-			var pageTracker = _gat._getTracker("Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history");
-			pageTracker._trackPageview();
-		} catch(err) {}
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("Chrome,Chrome扩展开发,ChromeHistory管理,Chrome.history");
+				pageTracker._trackPageview();
+			} catch(err) {}
 	</script>
 </body>
 </html>

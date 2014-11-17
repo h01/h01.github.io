@@ -63,8 +63,6 @@
 				
 					
 				
-					
-				
 				</ul>
 			</div>
 		</div>
@@ -87,10 +85,11 @@
 <p>之前在写一个<code>web桌面</code>应用框架的时候写过一款”中文”的插件，当时是自己写的<code>css</code>和<code>js</code>，除了图标之外不需要依赖<code>bootstrap</code>的支持。    <br />
 后来在测试的时候，发现并不怎么理想，尤其是在<code>firefox</code>、<code>Safari</code>下，中文有时候会不支持所以无法执行，并且想着还有很多<code>BUG</code>，于是就重新写了。。</p>
 
-<p>目前貌似<code>bootstrap</code>已经更新到了<code>3.3.0</code>，但个人感觉不怎么美观，所以就在本人比较喜欢的<code>3.2.0</code>风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd></p>
-
-<pre><code>项目地址:   https://github.com/h01/javascript/tree/master/bootstrap.contextmenu
-</code></pre>
+<p>目前貌似<code>bootstrap</code>已经更新到了<code>3.3.0</code>，但个人感觉不怎么美观，所以就在本人比较喜欢的<code>3.2.0</code>风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
+<pre class="brush:js;toolbar:false">
+// 项目地址
+var github = “https://github.com/h01/javascript/tree/master/bootstrap.contextmenu”;
+</pre></p>
 
 <h4 id="section-1">使用</h4>
 <p>使用的方法很简单，首先在页面中加载我们的<code>js</code>文件：
@@ -267,14 +266,12 @@ $(function(){
 	</footer>
 	<!-- 谷歌更新优化 -->
 	<script type="text/javascript">
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-		try {
-			var pageTracker = _gat._getTracker("Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单");
-			pageTracker._trackPageview();
-		} catch(err) {}
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单");
+				pageTracker._trackPageview();
+			} catch(err) {}
 	</script>
 </body>
 </html>
