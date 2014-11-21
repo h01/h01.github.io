@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 留言板
+title: 留言
 permalink: /guest/
 icon: glyphicon-envelope
 ---

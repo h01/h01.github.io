@@ -6,6 +6,7 @@ desc:		目前网上流传的大多都是通过下载源码编译，测试发现�
 tags:		[node.js,raspberry,树莓派,树莓派安装node.js,raspberry install node.js]
 ---
 之所以说一步到位，是因为我们只需要下载官网已经编译好的程序然后配置环境就可以了～
+
 #### 下载程序
 [code:shell:]
 cd ~

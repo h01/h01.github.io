@@ -48,7 +48,7 @@ function genPostHtml(obj){
 	return html;
 }
 
-//$(document).ready(function(){
+$(document).ready(function(){
 	// 获取文章JSON数据列表
 	$.getJSON("/api/posts.json", function(temp){
 		posts = temp;
@@ -61,4 +61,4 @@ function genPostHtml(obj){
 		h4s[i].setAttribute("id", h4s[i].innerText);
 		h4s[i].setAttribute("onclick", "javascript:location.href='#' + this.innerText;");
 	};
-//})
+})
