@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - ssh文件上传下载</title>
+	<meta name="description" content="linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。">
+	<meta name="keywords" content="linux,scp,ssh,ssh上传,ssh下载,scp命令">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> ssh文件上传下载</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">下载文件和目录</h4>
+<p><pre class="brush:shell;toolbar:false">
+scp username@servername:/remote/filename /local/dir/
+scp -r username@servername:/remote/dir/ /local/dir/
+</pre></p>
+
+<h4 id="section-1">上传文件和目录</h4>
+<p><pre class="brush:shell;toolbar:false">
+scp /local/filename username@servername:/remote/dir/
+scp  -r /local/dir username@servername:/remote/dir/
+</pre></p>
+
+<p>仅作记录.</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="ssh文件上传下载" data-url="http://ursb.org/linux/2014/11/21/ssh-upload-download-file.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("linux,scp,ssh,ssh上传,ssh下载,scp命令");
+				pageTracker._trackPageview();
+			} catch(err) {}
+	</script>
+</body>
+</html>

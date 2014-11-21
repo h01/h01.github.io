@@ -1,6 +1,24 @@
 [
 
     {
+        "link": "/linux/2014/11/21/ssh-upload-download-file.html",
+        "desc": "linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。",
+        "date": "2014-11-21 00:00:00 +0800",
+        "title": "ssh文件上传下载",
+        "style": "",
+        "category": "Linux"
+    },
+
+    {
+        "link": "/nodejs/2014/11/21/raspberry-install-node.html",
+        "desc": "目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！",
+        "date": "2014-11-21 00:00:00 +0800",
+        "title": "树莓派安装node.js环境",
+        "style": "",
+        "category": "NodeJs"
+    },
+
+    {
         "link": "/javascript/2014/11/13/get-client-info.html",
         "desc": "如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)",
         "date": "2014-11-13 00:00:00 +0800",

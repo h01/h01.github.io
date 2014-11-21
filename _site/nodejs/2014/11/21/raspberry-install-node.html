@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - 树莓派安装node.js环境</title>
+	<meta name="description" content="目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！">
+	<meta name="keywords" content="node.js,raspberry,树莓派,树莓派安装node.js,raspberry install node.js">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> 树莓派安装node.js环境</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<p>之所以说一步到位，是因为我们只需要下载官网已经编译好的程序然后配置环境就可以了～
+#### 下载程序
+<pre class="brush:shell;toolbar:false">
+cd ~
+wget -N http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-arm-pi.tar.gz
+tar xzvf node-v0.10.28-linux-arm-pi.tar.gz
+mv node-v0.10.28-linux-arm-pi/ node
+</pre>
+上面的命令是下载并解压文件，然后把目录重命名为<code>node</code>，这是为了方便。其中的<code>v0.10.28</code>为<code>node</code>的版本，可随机应变～</p>
+
+<h4 id="section">配置环境</h4>
+<p>我们可以直接进入<code>node/bin</code>目录就可以直接执行<code>./node --version</code>命令了。  <br />
+但是这样显然是很麻烦的，所以我们把<code>node/bin</code>的目录加入到我们的执行环境中：
+<pre class="brush:shell;toolbar:false">
+cd ~
+vim .profile
+</pre>
+然后我们添加环境变量：
+<pre class="brush:shell;toolbar:false">
+PATH=$PATH:/home/pi/node/bin
+</pre>
+保存，更新：
+<pre class="brush:shell;toolbar:false">
+source .profile
+</pre>
+这样直接输入如下命令就可执行了：
+<pre class="brush:shell;toolbar:false">
+node –version
+</pre>
+最后，我们要解决在<code>root</code>权限下执行命令无法找到的问题：
+<pre class="brush:shell;toolbar:false">
+sudo vim /etc/sudoers
+# 在Defaults		secure_path=”..”后加入node/bin路径，如/home/pi/node/bin
+:wq!
+</pre></p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="树莓派安装node.js环境" data-url="http://ursb.org/nodejs/2014/11/21/raspberry-install-node.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("node.js,raspberry,树莓派,树莓派安装node.js,raspberry install node.js");
+				pageTracker._trackPageview();
+			} catch(err) {}
+	</script>
+</body>
+</html>

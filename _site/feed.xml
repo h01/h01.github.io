@@ -4,9 +4,25 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Mon, 17 Nov 2014 17:34:29 +0800</lastBuildDate>
+		<lastBuildDate>Fri, 21 Nov 2014 21:15:19 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>ssh文件上传下载</title>
+			<link>http://ursb.org/linux/2014/11/21/ssh-upload-download-file.html</link>
+			<pubDate>Fri, 21 Nov 2014 00:00:00 +0800</pubDate>
+			<category>linux,scp,ssh,ssh上传,ssh下载,scp命令</category>
+			<description>linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。</description>
+		</item>
+		
+		<item>
+			<title>树莓派安装node.js环境</title>
+			<link>http://ursb.org/nodejs/2014/11/21/raspberry-install-node.html</link>
+			<pubDate>Fri, 21 Nov 2014 00:00:00 +0800</pubDate>
+			<category>node.js,raspberry,树莓派,树莓派安装node.js,raspberry install node.js</category>
+			<description>目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！</description>
+		</item>
 		
 		<item>
 			<title>更准确高效地获取客户端浏览器|系统信息</title>
@@ -70,22 +86,6 @@
 			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Node.js,Node.js操作mysql</category>
 			<description>简记如何使用Node.js连接MySql并进行执行语句操作</description>
-		</item>
-		
-		<item>
-			<title>Javascript同步加载js文件</title>
-			<link>http://ursb.org/javascript/2014/11/04/loadScript.html</link>
-			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Javascript,loadScript,同步加载js文件</category>
-			<description>页面中的js并不是同步加载的，这就会导致如果几个js文件是互为牵制的话，可能会造成有未读取到的js没有及时生成元素而报错的问题</description>
-		</item>
-		
-		<item>
-			<title>Chrome扩展开发之扩展与应用管理</title>
-			<link>http://ursb.org/chrome/2014/10/27/chrome.management.html</link>
-			<pubDate>Mon, 27 Oct 2014 00:00:00 +0800</pubDate>
-			<category>Chrome,Chrome扩展开发,Chrome插件管理,Chrome扩展管理,Chrome.management</category>
-			<description>通过Chrome的management接口来完成用户已安装的扩展和应用管理。</description>
 		</item>
 		
 	</channel>

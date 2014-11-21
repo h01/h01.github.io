@@ -43,7 +43,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">15</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">17</span></a> 
 							</li>
 							<li class="divider"></li>
 						
@@ -56,7 +56,7 @@
 							</li>
 						
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('nodejs');"><span class="glyphicon glyphicon-file"></span> nodejs<span class="pull-right badge">2</span></a>
+								<a href="javascript:void(0);" onclick="getCategory('nodejs');"><span class="glyphicon glyphicon-file"></span> nodejs<span class="pull-right badge">3</span></a>
 							</li>
 						
 							<li>
@@ -69,6 +69,10 @@
 						
 							<li>
 								<a href="javascript:void(0);" onclick="getCategory('hacking');"><span class="glyphicon glyphicon-file"></span> hacking<span class="pull-right badge">2</span></a>
+							</li>
+						
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('linux');"><span class="glyphicon glyphicon-file"></span> linux<span class="pull-right badge">1</span></a>
 							</li>
 						
 							<li class="divider"></li>
@@ -114,6 +118,44 @@
 	<!-- 文章列表 -->
 <div class="container">
 	<div class="row" id="posts">
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/linux/2014/11/21/ssh-upload-download-file.html">ssh文件上传下载</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">21</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/nodejs/2014/11/21/raspberry-install-node.html">树莓派安装node.js环境</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">21</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -408,7 +450,7 @@
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">15</i>全部分类',
+	text: '<i class="pull-right badge">17</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -435,7 +477,7 @@ category_menu.push({
 });
 
 category_menu.push({
-	text: '<i class="pull-right badge">2</i>nodejs',
+	text: '<i class="pull-right badge">3</i>nodejs',
 	icon: 'glyphicon-file',
 	callback: function(){
 		getCategory('nodejs');
@@ -463,6 +505,14 @@ category_menu.push({
 	icon: 'glyphicon-file',
 	callback: function(){
 		getCategory('hacking');
+	}
+});
+
+category_menu.push({
+	text: '<i class="pull-right badge">1</i>linux',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('linux');
 	}
 });
 
