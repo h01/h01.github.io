@@ -15,6 +15,7 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -55,7 +56,7 @@
 					
 					<li>
 					
-						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言板</a>
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言</a>
 					</li>
 					
 				
@@ -79,9 +80,10 @@
 				<blockquote class="text-muted" style="font-size: 14px;">目前网上流传的大多都是通过下载源码编译，测试发现编译时间太久，结果也没装上。所以就直接来个更简单的，一步到位！</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<p>之所以说一步到位，是因为我们只需要下载官网已经编译好的程序然后配置环境就可以了～
-#### 下载程序
-<pre class="brush:shell;toolbar:false">
+					<p>之所以说一步到位，是因为我们只需要下载官网已经编译好的程序然后配置环境就可以了～</p>
+
+<h4 id="section">下载程序</h4>
+<p><pre class="brush:shell;toolbar:false">
 cd ~
 wget -N http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-arm-pi.tar.gz
 tar xzvf node-v0.10.28-linux-arm-pi.tar.gz
@@ -89,7 +91,7 @@ mv node-v0.10.28-linux-arm-pi/ node
 </pre>
 上面的命令是下载并解压文件，然后把目录重命名为<code>node</code>，这是为了方便。其中的<code>v0.10.28</code>为<code>node</code>的版本，可随机应变～</p>
 
-<h4 id="section">配置环境</h4>
+<h4 id="section-1">配置环境</h4>
 <p>我们可以直接进入<code>node/bin</code>目录就可以直接执行<code>./node --version</code>命令了。  <br />
 但是这样显然是很麻烦的，所以我们把<code>node/bin</code>的目录加入到我们的执行环境中：
 <pre class="brush:shell;toolbar:false">

@@ -5,10 +5,10 @@
 }
 ::selection {
 	color: #FFF;
-	background: rgba(126, 31, 49, 1);
+	background: #19A384;
 }
 code {
-	color: #B6531F;
+	color: #D02F00;
 	font-weight: bold;
 }
 footer {
@@ -22,9 +22,13 @@ footer {
 .code {
 }
 h4 {
-	color: #27A0A5;
+	color: #515151;
 	cursor: pointer;
+	-moz-transition: all 0.5s ease-in;
+	-webkit-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;
+	transition: all 0.5s ease-in;
 }
 h4:hover {
-	color: #136F73;
+	color: #1091A1;
 }
