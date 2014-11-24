@@ -22,11 +22,11 @@ $ bundle install
 [code:shell:]
 $ ./beef
 [codend]
-附上运行的截图：
+附上运行的截图：    
 ![beeF-install](/static/upload/img/beef-install.jpg)
 
 #### 简单使用
 根据提示，我们访问`http://localhost:3000/ui/panel`，然后使用默认帐号密码`beef`进行登录。    
 然后测试呢，直接使用给出的`js`地址`http://localhost:3000/hook.js`，具体你懂的！    
-最后附上截图，挺不错的一个工具。
+最后附上截图，挺不错的一个工具。    
 ![beeF-browser](/static/upload/img/beef-browser.jpg)
