@@ -4,9 +4,17 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Sun, 23 Nov 2014 14:28:01 +0800</lastBuildDate>
+		<lastBuildDate>Mon, 24 Nov 2014 13:19:54 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>Mac下安装beeF以及简单使用</title>
+			<link>http://ursb.org/hacking/2014/11/24/beef-install.html</link>
+			<pubDate>Mon, 24 Nov 2014 00:00:00 +0800</pubDate>
+			<category>beef,beef-xss,install-beef,安装beef,mac安装beef,beef使用</category>
+			<description>神器beeF之前在backtrack中粗略地使用过，不过当时使用的是已经安装好的环境。这次记录下如何在mac中安装并使用</description>
+		</item>
 		
 		<item>
 			<title>ssh文件上传下载</title>
@@ -78,14 +86,6 @@
 			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Javascript,socket.io,socket.io.js使用,node.js Websocket</category>
 			<description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
-		</item>
-		
-		<item>
-			<title>Node.js连接操作MySql</title>
-			<link>http://ursb.org/nodejs/2014/11/04/mysql.html</link>
-			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Node.js,Node.js操作mysql</category>
-			<description>简记如何使用Node.js连接MySql并进行执行语句操作</description>
 		</item>
 		
 	</channel>

@@ -61,4 +61,8 @@ $(document).ready(function(){
 		h4s[i].setAttribute("id", h4s[i].innerText);
 		h4s[i].setAttribute("onclick", "javascript:location.href='#' + this.innerText;");
 	};
+	// 图片点击事件
+	$("img").click(function(){
+		window.open(this.src, "_blank");
+	})
 })

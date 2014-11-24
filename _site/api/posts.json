@@ -1,6 +1,15 @@
 [
 
     {
+        "link": "/hacking/2014/11/24/beef-install.html",
+        "desc": "神器beeF之前在backtrack中粗略地使用过，不过当时使用的是已经安装好的环境。这次记录下如何在mac中安装并使用",
+        "date": "2014-11-24 00:00:00 +0800",
+        "title": "Mac下安装beeF以及简单使用",
+        "style": "",
+        "category": "hacking"
+    },
+
+    {
         "link": "/linux/2014/11/21/ssh-upload-download-file.html",
         "desc": "linux中如果要进行文件上传下载，除了用ftp外，ssh也是一个不错的选择。",
         "date": "2014-11-21 00:00:00 +0800",

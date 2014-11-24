@@ -15,7 +15,6 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
-	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -44,7 +43,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">17</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">18</span></a> 
 							</li>
 							<li class="divider"></li>
 						
@@ -69,7 +68,7 @@
 							</li>
 						
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('hacking');"><span class="glyphicon glyphicon-file"></span> hacking<span class="pull-right badge">2</span></a>
+								<a href="javascript:void(0);" onclick="getCategory('hacking');"><span class="glyphicon glyphicon-file"></span> hacking<span class="pull-right badge">3</span></a>
 							</li>
 						
 							<li>
@@ -119,6 +118,25 @@
 	<!-- 文章列表 -->
 <div class="container">
 	<div class="row" id="posts">
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/hacking/2014/11/24/beef-install.html">Mac下安装beeF以及简单使用</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">24</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							神器beeF之前在backtrack中粗略地使用过，不过当时使用的是已经安装好的环境。这次记录下如何在mac中安装并使用
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -451,7 +469,7 @@
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">17</i>全部分类',
+	text: '<i class="pull-right badge">18</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -502,7 +520,7 @@ category_menu.push({
 });
 
 category_menu.push({
-	text: '<i class="pull-right badge">2</i>hacking',
+	text: '<i class="pull-right badge">3</i>hacking',
 	icon: 'glyphicon-file',
 	callback: function(){
 		getCategory('hacking');
