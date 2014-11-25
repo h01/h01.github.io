@@ -1,0 +1,91 @@
+---
+category:	chrome
+layout:		post
+title:		Chrome扩展设置代理方法
+desc:		对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问
+tags:		[chrome.proxy,chrome代理,chrome设置代理]
+---
+#### 参考文档
+1.[Proxy](https://lmk123.duapp.com/extensions/proxy)    
+2.[ChromeSetting](https://lmk123.duapp.com/extensions/types#ChromeSetting)    
+照顾像我这样不翻墙、E文差的伙伴。。
+
+#### 声明权限
+[code:js:]
+{
+	"permissions": ["proxy"]
+}
+[codend]
+
+#### 基本方法
+[code:js:]
+chrome.proxy.settings =  {
+	clear: function (details, callback) {},
+	get: function (details, callback) {},
+	set: function (details, callback) {},
+	onChange: Event
+}
+[codend]
+
+#### 实现原理
+先看下`chrome.proxy.settings.get`的源码：
+[code:js:]
+chrome.proxy.settings.get = function (details, callback) {
+	var getSchema = this.functionSchemas.get.definition.parameters;
+	validate([details, callback], getSchema);
+	return sendRequest('types.ChromeSetting.get',
+		[prefKey, details, callback],
+		extendSchema(getSchema));
+} 
+[codend]
+其他源码也类似，就不贴了。通过代码可以看出，其实。。只是对`ChromeSettiing`进行了封装而已。。
+
+#### 获取代理设置
+[code:js:]
+chrome.proxy.settings.get({}, function(config){
+	console.log(config.value);
+})
+[codend]
+其中第一个参数为要获取的策略，比如在隐身模式下的设置等，具体可以参考文档2
+
+#### 清除代理设置
+[code:js:]
+chrome.proxy.settings.clear({},function(){})
+[codend]
+其实就是把代理设置为默认
+
+#### 设置代理
+[code:js:]
+// 代理配置
+var config = {
+	mode: 'fixed_servers',
+	// mode模式有几种:
+	// 1.direct			直接连接
+	// 2.auto_detect	使用WPAD设置
+	// 3.pac_script		使用PAC脚本
+	// 4.fixed_servers	使用固定代理服务器
+	// 5.system			使用系统设置
+	rules: {
+		proxyForHttp: {
+			scheme: 'http',		// 代理方法
+			host: '127.0.0.1',	// 代理地址
+			port: 8080			// 代理端口
+		},
+		// rules规则有几种:
+		// 1.singleProxy	// 用于所有请求协议
+		// 2.proxyForHttp	// 用于http协议
+		// 3.proxyForHttps	// 用于https协议
+		// 4.proxyForFtp	// 用于ftp协议
+		// 5.fallbackProxy	// 用于其他协议，如上未选协议
+		// 6.bypassList		// 白名单列表，为不使用代理的url数组
+	}
+}
+// 设置代理
+chrome.proxy.settings.set({
+	value: config,		// 配置，为我们所定义
+	scope: 'regular'	// 类型，可参考文档2
+}, function(){
+	console.log("设置完毕后的回调函数");
+})
+[codend]
+其他设置日后再添～
