@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hotes - Chrome扩展设置代理方法</title>
+	<meta name="description" content="对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问">
+	<meta name="keywords" content="chrome.proxy,chrome代理,chrome设置代理">
+	<link rel="shortcut icon" href="/static/img/icon.png" />
+	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/SyntaxHighlighter/shCore.js"></script>
+	<script src="/static/js/custom.js"></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hotes-navbar-collapse">
+					<span class="sr-only">切换</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">Hotes</a>
+				<p class="navbar-text hidden-xs">简记，为简单而记！</p>
+			</div>
+			<div class="collapse navbar-collapse" id="hotes-navbar-collapse">
+				<!-- 页面导航栏 -->
+				<ul class="nav navbar-nav pull-right">
+				
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
+					</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+					
+					<li>
+					
+						<a href="/guest/"><span class="glyphicon glyphicon-envelope"></span> 留言</a>
+					</li>
+					
+				
+					
+				
+					
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<!-- 文章内容 -->
+	<div class="container">
+		<!-- 内容 -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Chrome扩展设置代理方法</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 简介 -->
+				<blockquote class="text-muted" style="font-size: 14px;">对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问</blockquote>
+				<!-- 正文 -->
+				<div style="font-size: 14px;" id="content">
+					<h4 id="section">参考文档</h4>
+<p>1.<a href="https://lmk123.duapp.com/extensions/proxy">Proxy</a>  <br />
+2.<a href="https://lmk123.duapp.com/extensions/types#ChromeSetting">ChromeSetting</a>  <br />
+照顾像我这样不翻墙、E文差的伙伴。。</p>
+
+<h4 id="section-1">声明权限</h4>
+<p><pre class="brush:js;toolbar:false">
+{
+	“permissions”: [“proxy”]
+}
+</pre></p>
+
+<h4 id="section-2">基本方法</h4>
+<p><pre class="brush:js;toolbar:false">
+chrome.proxy.settings =  {
+	clear: function (details, callback) {},
+	get: function (details, callback) {},
+	set: function (details, callback) {},
+	onChange: Event
+}
+</pre></p>
+
+<h4 id="section-3">实现原理</h4>
+<p>先看下<code>chrome.proxy.settings.get</code>的源码：
+<pre class="brush:js;toolbar:false">
+chrome.proxy.settings.get = function (details, callback) {
+	var getSchema = this.functionSchemas.get.definition.parameters;
+	validate([details, callback], getSchema);
+	return sendRequest(‘types.ChromeSetting.get’,
+		[prefKey, details, callback],
+		extendSchema(getSchema));
+} 
+</pre>
+其他源码也类似，就不贴了。通过代码可以看出，其实。。只是对<code>ChromeSettiing</code>进行了封装而已。。</p>
+
+<h4 id="section-4">获取代理设置</h4>
+<p><pre class="brush:js;toolbar:false">
+chrome.proxy.settings.get({}, function(config){
+	console.log(config.value);
+})
+</pre>
+其中第一个参数为要获取的策略，比如在隐身模式下的设置等，具体可以参考文档2</p>
+
+<h4 id="section-5">清除代理设置</h4>
+<p><pre class="brush:js;toolbar:false">
+chrome.proxy.settings.clear({},function(){})
+</pre>
+其实就是把代理设置为默认</p>
+
+<h4 id="section-6">设置代理</h4>
+<p><pre class="brush:js;toolbar:false">
+// 代理配置
+var config = {
+	mode: ‘fixed_servers’,
+	// mode模式有几种:
+	// 1.direct			直接连接
+	// 2.auto_detect	使用WPAD设置
+	// 3.pac_script		使用PAC脚本
+	// 4.fixed_servers	使用固定代理服务器
+	// 5.system			使用系统设置
+	rules: {
+		proxyForHttp: {
+			scheme: ‘http’,		// 代理方法
+			host: ‘127.0.0.1’,	// 代理地址
+			port: 8080			// 代理端口
+		},
+		// rules规则有几种:
+		// 1.singleProxy	// 用于所有请求协议
+		// 2.proxyForHttp	// 用于http协议
+		// 3.proxyForHttps	// 用于https协议
+		// 4.proxyForFtp	// 用于ftp协议
+		// 5.fallbackProxy	// 用于其他协议，如上未选协议
+		// 6.bypassList		// 白名单列表，为不使用代理的url数组
+	}
+}
+// 设置代理
+chrome.proxy.settings.set({
+	value: config,		// 配置，为我们所定义
+	scope: ‘regular’	// 类型，可参考文档2
+}, function(){
+	console.log(“设置完毕后的回调函数”);
+})
+</pre>
+其他设置日后再添～</p>
+
+				</div>
+			</div>
+		</div>
+		<!-- 评论吐槽 -->
+		<div class="panel panel-default hidden-xs">
+			<div class="panel-heading">
+				<h3 class="panel-title"><span class="glyphicon glyphicon-asterisk"></span> 评论吐槽</h3>
+			</div>
+			<div class="panel-body">
+				<!-- 多说评论框 start -->
+				<div class="ds-thread" data-thread-key="0" data-title="Chrome扩展设置代理方法" data-url="http://ursb.org/chrome/2014/11/25/chrome.proxy.html"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"h01ger"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+	</div>
+	<!-- 底部文件 -->
+	<hr class="divider">
+	<footer>
+		<div class="container">
+			<div class="pull-left">
+				<a href="/feed.xml" target="_blank" class="text-danger">RSS</a>
+				<span class="text-muted"> | </span>
+				<a href="https://github.com/h01" target="_blank" class="text-success">GitHub</a>
+				<div style="display: none;">
+					<!-- 百度统计 -->
+					<script type="text/javascript">
+						var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+						document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39aaf5727abfcedefcdeecf3aad6d895' type='text/javascript'%3E%3C/script%3E"));
+					</script>
+				</div>
+			</div>
+			<div class="pull-right">
+				<p class="text-muted">&copy; 2014 Hotes.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- 谷歌更新优化 -->
+	<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			try {
+				var pageTracker = _gat._getTracker("chrome.proxy,chrome代理,chrome设置代理");
+				pageTracker._trackPageview();
+			} catch(err) {}
+	</script>
+</body>
+</html>

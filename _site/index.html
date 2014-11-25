@@ -43,12 +43,12 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">18</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">19</span></a> 
 							</li>
 							<li class="divider"></li>
 						
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('chrome');"><span class="glyphicon glyphicon-file"></span> chrome<span class="pull-right badge">6</span></a>
+								<a href="javascript:void(0);" onclick="getCategory('chrome');"><span class="glyphicon glyphicon-file"></span> chrome<span class="pull-right badge">7</span></a>
 							</li>
 						
 							<li>
@@ -118,6 +118,25 @@
 	<!-- 文章列表 -->
 <div class="container">
 	<div class="row" id="posts">
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/chrome/2014/11/25/chrome.proxy.html">Chrome扩展设置代理方法</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">25</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -469,7 +488,7 @@
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">18</i>全部分类',
+	text: '<i class="pull-right badge">19</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -480,7 +499,7 @@ category_menu.push({
 });
 
 category_menu.push({
-	text: '<i class="pull-right badge">6</i>chrome',
+	text: '<i class="pull-right badge">7</i>chrome',
 	icon: 'glyphicon-file',
 	callback: function(){
 		getCategory('chrome');

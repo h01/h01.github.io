@@ -4,9 +4,17 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Mon, 24 Nov 2014 13:19:54 +0800</lastBuildDate>
+		<lastBuildDate>Tue, 25 Nov 2014 11:42:08 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>Chrome扩展设置代理方法</title>
+			<link>http://ursb.org/chrome/2014/11/25/chrome.proxy.html</link>
+			<pubDate>Tue, 25 Nov 2014 00:00:00 +0800</pubDate>
+			<category>chrome.proxy,chrome代理,chrome设置代理</category>
+			<description>对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问</description>
+		</item>
 		
 		<item>
 			<title>Mac下安装beeF以及简单使用</title>
@@ -78,14 +86,6 @@
 			<pubDate>Thu, 06 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Javascript,Web Worker,html5 worker,Javascript Worker使用</category>
 			<description>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。</description>
-		</item>
-		
-		<item>
-			<title>socket.io的简单使用</title>
-			<link>http://ursb.org/nodejs/2014/11/04/socket.io.html</link>
-			<pubDate>Tue, 04 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Javascript,socket.io,socket.io.js使用,node.js Websocket</category>
-			<description>socket.io 是一个为实时应用提供跨平台实时通信的库。简记如何与Node.js完美搭配使用</description>
 		</item>
 		
 	</channel>
