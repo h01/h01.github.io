@@ -15,6 +15,7 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -79,10 +80,11 @@
 				<blockquote class="text-muted" style="font-size: 14px;">这里简单介绍如何设置自动更新升级我们的Chrome扩展</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<h5 id="section">先贴上两个文档：</h5>
+					<h4 id="section">参考文档</h4>
 <p>1.<a href="http://open.chrome.360.cn/extension_dev/autoupdate.html">自动升级–扩展开发文档</a>  <br />
 2.<a href="https://developer.chrome.com/extensions/autoupdate">Autoupdating - Google Chrome</a></p>
 
+<h4 id="section-1">配置文件</h4>
 <p>我们直接在<code>manifest.json</code>中设置<code>update_url</code>
 <pre class="brush:javascript;toolbar:false">
 {
@@ -105,41 +107,42 @@
 第一二行不用理解，第三行的<code>appid</code>为我们的扩展的ID，如何查看？直接生成crx后，拖入扩展程序页面即可看到（需要开发者选项）
 然后关键的就是<code>updatecheck</code>这个节点了，<code>codebase</code>为更新的crx文件地址，<code>version</code>为更新的crx版本，这个版本要和crx文件中的版本一致。</p>
 
-<p>接下来就是PHP代码了，简单随手写了下，需要的拿去。。
+<h4 id="section-2">更新代码</h4>
+<p>简单随手写了下，需要的拿去。。
 <pre class="brush:php;toolbar:false">
-<?php
+&lt;?php
 /*
  * Chrome升级xml类
  * by Holger
  * at 2014-10-06
  */
 class ChromeUpdate{
-    protected $aid = "";
-    protected $crx = "";
-    protected $ver = "";
+    protected $aid = “”;
+    protected $crx = “”;
+    protected $ver = “”;
     function __construct($appId, $crxUrl, $version){
-        $this->aid = $appId;
-        $this->crx = $crxUrl;
-        $this->ver = $version;
+        $this-&gt;aid = $appId;
+        $this-&gt;crx = $crxUrl;
+        $this-&gt;ver = $version;
     }
     function show(){
-        header("Content-Type: text/xml;");
-        $dom = new DOMDocument("1.0", "UTF-8");
-        $gup = $dom->createElement("gupdate");
-        $app = $dom->createElement("app");
-        $chk = $dom->createElement("updatecheck");
-        $gup->setAttribute("xmlns", "http://www.google.com/update2/response");
-        $gup->setAttribute("protocol", "2.0");
-        $app->setAttribute("appid", $this->aid);
-        $chk->setAttribute("codebase", $this->crx);
-        $chk->setAttribute("version", $this->ver);
-        $app->appendChild($chk);
-        $gup->appendChild($app);
-        $dom->appendChild($gup);
-        echo $dom->saveXML();
+        header(“Content-Type: text/xml;”);
+        $dom = new DOMDocument(“1.0”, “UTF-8”);
+        $gup = $dom-&gt;createElement(“gupdate”);
+        $app = $dom-&gt;createElement(“app”);
+        $chk = $dom-&gt;createElement(“updatecheck”);
+        $gup-&gt;setAttribute(“xmlns”, “http://www.google.com/update2/response”);
+        $gup-&gt;setAttribute(“protocol”, “2.0”);
+        $app-&gt;setAttribute(“appid”, $this-&gt;aid);
+        $chk-&gt;setAttribute(“codebase”, $this-&gt;crx);
+        $chk-&gt;setAttribute(“version”, $this-&gt;ver);
+        $app-&gt;appendChild($chk);
+        $gup-&gt;appendChild($app);
+        $dom-&gt;appendChild($gup);
+        echo $dom-&gt;saveXML();
     }
 }
-?>
+?&gt;
 </pre></p>
 
 

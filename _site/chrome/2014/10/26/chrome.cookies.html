@@ -15,6 +15,7 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -79,42 +80,24 @@
 				<blockquote class="text-muted" style="font-size: 14px;">记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<h4 id="section">【设置权限】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+					<h4 id="section">设置权限</h4>
+<p><pre class="brush:js;toolbar:false">
 “permissions”: [
     “cookies”,
-    “<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
+    “&lt;all_urls&gt;”  // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
 ]
-</pre></all_urls></p>
+</pre></p>
 
-<p><code>cookie</code>对象包含如下10项属性：</p>
-
-<pre><code>name            // 名称   
-value           // 值    
-domain          // 域    
-hostOnly        // 是否只允许完全匹配domain的请求访问     
-path            // 路径   
-secure          // 是否只允许安全连接调用  
-httpOnly        // 是否禁止客户端调用    
-session         // 是否是session   
-expirationDate  // 过期时间     
-storeId         // cookie store的id  
-</code></pre>
-
-<p>(以上及以下部分内容来源于<code>《Chrome扩展及应用开发》</code>)</p>
-
-<h4 id="cookie">【读取cookie】</h4>
-
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="cookie">读取cookie</h4>
+<p><pre class="brush:js;toolbar:false">
 // get方法获取指定url和name等匹配的cookie(url和name为必须)
 chrome.cookies.get({
     url: “https://ursb.org”,
     name: “vist”
 }, function(cs){
     console.log(cs);
-});</p>
-
-<p>// getAll方法获取所有匹配条件的cookies
+});
+// getAll方法获取所有匹配条件的cookies
 // 1.获取某域下所有cookies
 chrome.cookies.getAll({
     url: “https://ursb.org”
@@ -127,9 +110,8 @@ chrome.cookies.getAll({}, function(cs){
 });
 </pre></p>
 
-<h4 id="cookie-1">【设置cookie】</h4>
-
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="cookie-1">设置cookie</h4>
+<p><pre class="brush:js;toolbar:false">
 chrome.cookies.set({
     url: “https://ursb.org”,    // 必选，其他可选（如果不存在则创建）
     name: “vist”,
@@ -139,9 +121,8 @@ chrome.cookies.set({
 });
 </pre></p>
 
-<h4 id="cookie-2">【删除cookie】</h4>
-
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="cookie-2">删除cookie</h4>
+<p><pre class="brush:js;toolbar:false">
 chrome.cookies.remove({
     url: “https://ursb.org”,
     name: “vist”
@@ -150,9 +131,8 @@ chrome.cookies.remove({
 });
 </pre></p>
 
-<h4 id="cookiestore">【获取全部CookieStore】</h4>
-
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="cookiestore">获取全部CookieStore</h4>
+<p><pre class="brush:js;toolbar:false">
 // chrome.cookies.getAllCookieStores(callback);
 // 我们首先要定义一个获取结果的回调函数，如下
 function getAllCS(cs){
@@ -165,9 +145,8 @@ chrome.cookies.getAllCookieStores(getAllCS);
 // *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id
 </pre></p>
 
-<h4 id="cookie-3">【监控操作cookie行为】</h4>
-
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="cookie-3">监控操作cookie行为</h4>
+<p><pre class="brush:js;toolbar:false">
 chrome.cookies.onChanged.addListener(function(info){
     console.log(info);
 });

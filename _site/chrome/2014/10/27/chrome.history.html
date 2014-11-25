@@ -15,6 +15,7 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -79,25 +80,13 @@
 				<blockquote class="text-muted" style="font-size: 14px;">历史用于记录用户访问过的页面。Chrome提供了history接口，允许扩展对用户的访问历史进行管理。</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<h4 id="section">【声明权限】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+					<h4 id="section">声明权限</h4>
+<p><pre class="brush:js;toolbar:false">
 “permissions”: [“history”]
 </pre></p>
 
-<p>chrome.history方法有下：</p>
-
-<pre><code>addUrl
-deleteAll
-deleteRange
-deleteUrl
-getVisits
-onVisitRemoved
-onVisited
-search
-</code></pre>
-
-<h4 id="section-1">【读取历史】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="section-1">读取历史</h4>
+<p><pre class="brush:js;toolbar:false">
 // chrome.history.getVisits(Object, callback);
 // Object中url为必选参数
 // Callback中返回的对象有6个属性:id, url, title, lastVisiTime, visitCount, typedCount
@@ -108,8 +97,8 @@ chrome.history.getVisits({
 });
 </pre></p>
 
-<h4 id="section-2">【搜索历史】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="section-2">搜索历史</h4>
+<p><pre class="brush:js;toolbar:false">
 chrome.history.search({
     text: “Holger”,    // 匹配指定文字
     startTime: new Date().getTime() - 24<em>3600</em>1000,    // 开始时间
@@ -120,8 +109,8 @@ chrome.history.search({
 });
 </pre></p>
 
-<h4 id="section-3">【添加历史】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="section-3">添加历史</h4>
+<p><pre class="brush:js;toolbar:false">
 // chrome.history.addUrl(Object, callback)
 // Object只需要url参数即可,callback为执行成功后调用
 chrome.history.addUrl({
@@ -131,37 +120,34 @@ chrome.history.addUrl({
 });
 </pre></p>
 
-<h4 id="section-4">【删除历史】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="section-4">删除历史</h4>
+<p><pre class="brush:js;toolbar:false">
 // 删除指定URL的历史
 chrome.history.deleteUrl({
     url: “https://ursb.org”
 }, function(){
     console.log(“deleted done!”);
-});</p>
-
-<p>// 删除指定时间段历史
+});
+// 删除指定时间段历史
 chrome.history.deleteRange({
     startTime: new Date().getTime()-24<em>3600</em>1000,
     endTime: new Date().getTime()
 }, function(){
     console.log(“…”);
-});</p>
-
-<p>// 删除全部的历史
+});
+// 删除全部的历史
 chrome.history.deleteAll(function(){
     console.log(“!!”);
 }
 </pre></p>
 
-<h4 id="section-5">【监听历史操作】</h4>
-<p><pre class="brush:javascript;toolbar:false">
+<h4 id="section-5">监听历史操作</h4>
+<p><pre class="brush:js;toolbar:false">
 // 监听用户访问历史
 chrome.history.onVisited.addListener(function(item){
     console.log(item);
-};</p>
-
-<p>// 监听用户删除历史
+};
+// 监听用户删除历史
 chrome.history.onVisitRemoved.addListener(function(item){
     console.log(item);
 }

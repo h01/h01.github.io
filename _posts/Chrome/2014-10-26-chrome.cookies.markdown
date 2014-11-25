@@ -5,32 +5,16 @@ title:       Chrome扩展开发之Cookie管理
 desc:        记录chrome.cookies接口的读取，设置，添加，删除，监控等功能。
 tags:        [Chrome,Chrome扩展开发,ChromeCookie管理,Chrome.cookies]
 ---
-#### 【设置权限】
-[code:javascript:]
+#### 设置权限
+[code:js:]
 "permissions": [
     "cookies",
-    "<all_urls>"    // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
+    "&lt;all_urls&gt;"  // 此处设置为管理所有COOKIE，如果需要指定的地址，则为对应的URL
 ]
 [codend]
 
-`cookie`对象包含如下10项属性：
-
-    name            // 名称   
-    value           // 值    
-    domain          // 域    
-    hostOnly        // 是否只允许完全匹配domain的请求访问     
-    path            // 路径   
-    secure          // 是否只允许安全连接调用  
-    httpOnly        // 是否禁止客户端调用    
-    session         // 是否是session   
-    expirationDate  // 过期时间     
-    storeId         // cookie store的id  
-
-(以上及以下部分内容来源于`《Chrome扩展及应用开发》`)
-
-#### 【读取cookie】
-
-[code:javascript:]
+#### 读取cookie
+[code:js:]
 // get方法获取指定url和name等匹配的cookie(url和name为必须)
 chrome.cookies.get({
     url: "https://ursb.org",
@@ -38,7 +22,6 @@ chrome.cookies.get({
 }, function(cs){
     console.log(cs);
 });
- 
 // getAll方法获取所有匹配条件的cookies
 // 1.获取某域下所有cookies
 chrome.cookies.getAll({
@@ -52,9 +35,8 @@ chrome.cookies.getAll({}, function(cs){
 });
 [codend]
 
-#### 【设置cookie】
-
-[code:javascript:]
+#### 设置cookie
+[code:js:]
 chrome.cookies.set({
     url: "https://ursb.org",    // 必选，其他可选（如果不存在则创建）
     name: "vist",
@@ -64,9 +46,8 @@ chrome.cookies.set({
 });
 [codend]
 
-#### 【删除cookie】
-
-[code:javascript:]
+#### 删除cookie
+[code:js:]
 chrome.cookies.remove({
     url: "https://ursb.org",
     name: "vist"
@@ -75,9 +56,8 @@ chrome.cookies.remove({
 });
 [codend]
 
-#### 【获取全部CookieStore】
-
-[code:javascript:]
+#### 获取全部CookieStore
+[code:js:]
 // chrome.cookies.getAllCookieStores(callback);
 // 我们首先要定义一个获取结果的回调函数，如下
 function getAllCS(cs){
@@ -90,9 +70,8 @@ chrome.cookies.getAllCookieStores(getAllCS);
 // *.tabIds为一个数组，包含了共享该cookieStore的所有tab的id
 [codend]
 
-#### 【监控操作cookie行为】
-
-[code:javascript:]
+#### 监控操作cookie行为
+[code:js:]
 chrome.cookies.onChanged.addListener(function(info){
     console.log(info);
 });
