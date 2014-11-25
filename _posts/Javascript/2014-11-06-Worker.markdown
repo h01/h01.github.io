@@ -47,5 +47,5 @@ worker.poseMessage({
 暂时就写到这啦！
 
 [link-w3c]: http://www.w3school.com.cn/html5/html_5_webworkers.asp
-[link-wacms]: https://github.com/h01/chrome.ext/tree/master/WaCms
-[link-hrss]: https://github.com/h01/chrome.ext/tree/master/hackerRss
+[link-wacms]: https://github.com/h01/WaCms
+[link-hrss]: https://github.com/h01/hackerRss
