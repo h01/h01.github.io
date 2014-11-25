@@ -2,11 +2,11 @@
 category:	Bootstrap
 style:		success
 layout:		post
-title:		BootStrap.ContextMenu 网页右键菜单插件
+title:		BootStrap右键菜单插件:bmenu
 desc:		基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。
-tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单]
+tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,bmenu]
 ---
-<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
+<script src="/static/js/bmenu.js"></script>
 #### 简介
 之前在写一个`web桌面`应用框架的时候写过一款"中文"的插件，当时是自己写的`css`和`js`，除了图标之外不需要依赖`bootstrap`的支持。      
 后来在测试的时候，发现并不怎么理想，尤其是在`firefox`、`Safari`下，中文有时候会不支持所以无法执行，并且想着还有很多`BUG`，于是就重新写了。。
@@ -14,18 +14,18 @@ tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单]
 目前貌似`bootstrap`已经更新到了`3.3.0`，但个人感觉不怎么美观，所以就在本人比较喜欢的`3.2.0`风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
 [code:js:]
 // 项目地址
-var github = "https://github.com/h01/javascript/tree/master/bootstrap.contextmenu";
+var github = "https://github.com/h01/bmenu
 [codend]
 
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：
 [code:html:]
-&lt;script&gt; src="/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js"&gt;&lt;/script&gt;
+&lt;script&gt; src="bmenu.js"&gt;&lt;/script&gt;
 [codend]
 
 然后我们来配置我们要创建的菜单对象：
 [code:js:]
-var menu = _ctxMenu.init([
+var menu = bmenu.init([
 {
     text: '文字',
     icon: '图标class',
@@ -37,7 +37,7 @@ var menu = _ctxMenu.init([
 [codend]
 然后我们把这个菜单绑定到`dom`上，比如`document`：
 [code:js:]
-_ctxMenu.bind(menu, document);
+bmenu.bind(menu, document);
 [codend]
 
 #### 文档
@@ -55,17 +55,17 @@ _ctxMenu.bind(menu, document);
 
 然后就是绑定方法，第一个参数为我们定义好的`menu`对象，第二个为要绑定某个`dom`的右键事件，如果是某个`ID`，则可以这样定义：
 [code:js:]
-_ctxMenu.bind(menu, document.getElementById('id'));
+bmenu.bind(menu, document.getElementById('id'));
 [codend]
 当然，如果我们图方便，也可以使用`Jquery`，不过使用方法有改变如下：
 [code:js:]
-_ctxMenu.bind(menu, $('#id')[0]);
+bmenu.bind(menu, $('#id')[0]);
 [codend]
 最后，试试在下面的吐槽`div`里右键一下？
 
 <script type="text/javascript">
 $(function(){
-    var menu1 = _ctxMenu.init([
+    var menu1 = bmenu.init([
     {
         text: '你说的太对了'
     },{
@@ -81,9 +81,9 @@ $(function(){
         }
     }
     ]);
-    _ctxMenu.bind(menu1, $(".panel")[1]);
+    bmenu.bind(menu1, $(".panel")[1]);
 
-    var menu2 = _ctxMenu.init([
+    var menu2 = bmenu.init([
         {
             text: '菜单出来啦'
         },{
@@ -136,6 +136,6 @@ $(function(){
         }
         ]);
 
-    _ctxMenu.bind(menu2, document);
+    bmenu.bind(menu2, document);
 })
 </script>
