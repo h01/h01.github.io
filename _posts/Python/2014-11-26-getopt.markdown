@@ -19,7 +19,7 @@ def getopt(args, shortopts, longopts = []):
     else:
         longopts = list(longopts)
     while args and args[0].startswith('-') and args[0] != '-':
-        if args[0] == '--':
+        if args[0] == '\-\-':
             args = args[1:]
             break
         if args[0].startswith('--'):
@@ -30,7 +30,7 @@ def getopt(args, shortopts, longopts = []):
 [codend]
 从代码可以看出，`getopt`需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。    
 第二个参数也为字符串，格式如`hvt:`，这个是短命令参数，比如`-h`、`-v`等，如果需要接收参数的值，则需要使用`:`。    
-第三个参数为长命令参数，格式可为字符串或数组，比如`--help`、`--version`等，同样，如果需要接收参数值，则需要使用`=`号，如`--test=`。    
+第三个参数为长命令参数，格式可为字符串或数组，比如`help`、`version`等，同样，如果需要接收参数值，则需要使用`=`号，如`test=`。    
 实现的原理就是通过字符串循环判断解析出对应的参数和值，就这么简单。使用也一样，so Easy~
 
 #### 简单例子
@@ -40,9 +40,9 @@ from sys import argv
 if \_\_name\_\_ == '\_\_main\_\_':
 	opts, args = getopt(argv[1:])
 	for key, value in opts:
-		if key in ['-h', '--help']:
+		if key in ['-h', '\-\-help']:
 			print 'help~~'
-		elif key in ['-t', '--test']:
+		elif key in ['-t', '\-\-test']:
 			print 'The test value is:%s'%value
 		else:
 			print '??%s:%s'%(key, value)
