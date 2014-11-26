@@ -93,12 +93,12 @@ def getopt(args, shortopts, longopts = []):
         longopts = list(longopts)
     while args and args[0].startswith(‘-‘) and args[0] != ‘-‘:
         if args[0] == ‘–’:
-            args = args[1;toolbar:false">
+            args = args[1:]
             break
         if args[0].startswith(‘–’):
-            opts, args = do_longs(opts, args[0][2;toolbar:false">, longopts, args[1;toolbar:false">)
+            opts, args = do_longs(opts, args[0][2:], longopts, args[1:])
         else:
-            opts, args = do_shorts(opts, args[0][1;toolbar:false">, shortopts, args[1;toolbar:false">)
+            opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])
     return opts, args
 </pre>
 从代码可以看出，<code>getopt</code>需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。  <br />
@@ -111,7 +111,7 @@ def getopt(args, shortopts, longopts = []):
 from getopt import getopt
 from sys import argv
 if __name__ == ‘__main__’:
-	opts, args = getopt(argv[1;toolbar:false">)
+	opts, args = getopt(argv[1:])
 	for key, value in opts:
 		if key in [‘-h’, ‘–help’]:
 			print ‘help~~’
@@ -123,8 +123,8 @@ if __name__ == ‘__main__’:
 然后命令行输入
 <pre class="brush:shell;toolbar:false">
 $ ./test.py -t hahahah!
-$ ./test.py –help
-$ ./test.py –test=”哈哈哈..hahah   hahah !!”
+$ ./test.py --help
+$ ./test.py --test=”哈哈哈..hahah   hahah !!”
 </pre></p>
 
 				</div>

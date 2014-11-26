@@ -50,6 +50,6 @@ if \_\_name\_\_ == '\_\_main\_\_':
 然后命令行输入
 [code:shell:edoc]
 $ ./test.py -t hahahah!
-$ ./test.py --help
-$ ./test.py --test="哈哈哈..hahah   hahah !!"
+$ ./test.py \-\-help
+$ ./test.py \-\-test="哈哈哈..hahah   hahah !!"
 [codend]
