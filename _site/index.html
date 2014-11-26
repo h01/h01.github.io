@@ -44,7 +44,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">20</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">21</span></a> 
 							</li>
 							<li class="divider"></li>
 						
@@ -77,7 +77,7 @@
 							</li>
 						
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('python');"><span class="glyphicon glyphicon-file"></span> python<span class="pull-right badge">1</span></a>
+								<a href="javascript:void(0);" onclick="getCategory('python');"><span class="glyphicon glyphicon-file"></span> python<span class="pull-right badge">2</span></a>
 							</li>
 						
 							<li class="divider"></li>
@@ -121,6 +121,25 @@
 	<!-- 文章列表 -->
 <div class="container">
 	<div class="row" id="posts">
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/python/2014/11/26/http-proxy.html">Python验证http代理函数</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">26</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							简记如何使用Python验证http代理是否存活
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -510,7 +529,7 @@
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">20</i>全部分类',
+	text: '<i class="pull-right badge">21</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -577,7 +596,7 @@ category_menu.push({
 });
 
 category_menu.push({
-	text: '<i class="pull-right badge">1</i>python',
+	text: '<i class="pull-right badge">2</i>python',
 	icon: 'glyphicon-file',
 	callback: function(){
 		getCategory('python');

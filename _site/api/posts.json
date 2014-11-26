@@ -1,6 +1,15 @@
 [
 
     {
+        "link": "/python/2014/11/26/http-proxy.html",
+        "desc": "简记如何使用Python验证http代理是否存活",
+        "date": "2014-11-26 00:00:00 +0800",
+        "title": "Python验证http代理函数",
+        "style": "",
+        "category": "Python"
+    },
+
+    {
         "link": "/python/2014/11/26/getopt.html",
         "desc": "简单介绍getopt模块是如何实现解析参数以及如何简单使用例子",
         "date": "2014-11-26 00:00:00 +0800",

@@ -4,9 +4,17 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Wed, 26 Nov 2014 21:55:41 +0800</lastBuildDate>
+		<lastBuildDate>Wed, 26 Nov 2014 22:26:05 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>Python验证http代理函数</title>
+			<link>http://ursb.org/python/2014/11/26/http-proxy.html</link>
+			<pubDate>Wed, 26 Nov 2014 00:00:00 +0800</pubDate>
+			<category>python,python proxy,python代理,python http代理,http代理验证</category>
+			<description>简记如何使用Python验证http代理是否存活</description>
+		</item>
 		
 		<item>
 			<title>Python模块getopt简解</title>
@@ -78,14 +86,6 @@
 			<pubDate>Sun, 09 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,bmenu</category>
 			<description>基于bootstrap(v.3.2.0)写了个右键菜单的小&quot;插件&quot;，这里简单介绍下使用方法。</description>
-		</item>
-		
-		<item>
-			<title>Jekyll生成Json数据</title>
-			<link>http://ursb.org/jekyll/2014/11/07/genJson.html</link>
-			<pubDate>Fri, 07 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Jekyll,Jekyll 2 Json,Jekyll生成Json</category>
-			<description>简记如何使用Jekyll生成Json，以及如何处理一些小问题</description>
 		</item>
 		
 	</channel>
