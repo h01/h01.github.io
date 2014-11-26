@@ -20,12 +20,12 @@ def getopt(args, shortopts, longopts = []):
         longopts = list(longopts)
     while args and args[0].startswith('-') and args[0] != '-':
         if args[0] == '--':
-            args = args[1:edoc]
+            args = args[1:]
             break
         if args[0].startswith('--'):
-            opts, args = do_longs(opts, args[0][2:edoc], longopts, args[1:edoc])
+            opts, args = do_longs(opts, args[0][2:], longopts, args[1:])
         else:
-            opts, args = do_shorts(opts, args[0][1:edoc], shortopts, args[1:edoc])
+            opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])
     return opts, args
 [codend]
 从代码可以看出，`getopt`需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。    
@@ -38,7 +38,7 @@ def getopt(args, shortopts, longopts = []):
 from getopt import getopt
 from sys import argv
 if \_\_name\_\_ == '\_\_main\_\_':
-	opts, args = getopt(argv[1:edoc])
+	opts, args = getopt(argv[1:])
 	for key, value in opts:
 		if key in ['-h', '--help']:
 			print 'help~~'
