@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hotes - 更准确高效地获取客户端浏览器|系统信息</title>
-	<meta name="description" content="如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)">
-	<meta name="keywords" content="Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本">
+	<title>Hotes - Python模块getopt简解</title>
+	<meta name="description" content="简单介绍getopt模块是如何实现解析参数以及如何简单使用例子">
+	<meta name="keywords" content="python,python getopt,getopt模块">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
 	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
@@ -70,65 +70,61 @@
 		<!-- 内容 -->
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> 更准确高效地获取客户端浏览器|系统信息</h3>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Python模块getopt简解</h3>
 			</div>
 			<div class="panel-body">
 				<!-- 简介 -->
-				<blockquote class="text-muted" style="font-size: 14px;">如何使用js来获取客户端所使用的浏览器版本，操作系统版本以及其他详细的信息？那些过时的就算了，也许这篇文章能给你启发 :)</blockquote>
+				<blockquote class="text-muted" style="font-size: 14px;">简单介绍getopt模块是如何实现解析参数以及如何简单使用例子</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<h4 id="section">前言</h4>
-<p>尝试着在百度、谷歌搜索过相关资料，大多都是互相转载而且版权一大堆内容特垃圾的那种～～鄙视中。。  <br />
-现在需要的是获取浏览器的具体版本和操作系统的具体版本，比如<code>iPhone</code>,<code>Android</code>,<code>Win10</code>,<code>IE11</code>等等比较新鲜的东西，网上传的那种就见鬼去了～  <br />
-所以呢，我就打算自己动刀，想一个比较完美又可以扩展的办法，终于弄出了点眉目。</p>
+					<h4 id="section">模块简介</h4>
+<p><code>getopt</code>是<code>Python</code>自带的用于处理命令行参数的模块</p>
 
-<h4 id="section-1">获取操作系统以及版本</h4>
+<h4 id="section-1">源码解析</h4>
+<p>加上这段只是为了让这篇初学者都不屑于浏览的文章看起来高大上~  <br />
+先贴上主要代码:
+<code>python
+def getopt(args, shortopts, longopts = []):
+    opts = []
+    if type(longopts) == type(""):
+        longopts = [longopts]
+    else:
+        longopts = list(longopts)
+    while args and args[0].startswith('-') and args[0] != '-':
+        if args[0] == '--':
+            args = args[1;toolbar:false">
+            break
+        if args[0].startswith('--'):
+            opts, args = do_longs(opts, args[0][2;toolbar:false">, longopts, args[1;toolbar:false">)
+        else:
+            opts, args = do_shorts(opts, args[0][1;toolbar:false">, shortopts, args[1;toolbar:false">)
+    return opts, args
+</code>
+从代码可以看出，<code>getopt</code>需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。  <br />
+第二个参数也为字符串，格式如<code>hvt:</code>，这个是短命令参数，比如<code>-h</code>、<code>-v</code>等，如果需要接收参数的值，则需要使用<code>:</code>。  <br />
+第三个参数为长命令参数，格式可为字符串或数组，比如<code>--help</code>、<code>--version</code>等，同样，如果需要接收参数值，则需要使用<code>=</code>号，如<code>--test=</code>。  <br />
+实现的原理就是通过字符串循环判断解析出对应的参数和值，就这么简单。使用也一样，so Easy~</p>
 
-<h5 id="section-2">【思路】</h5>
-<p>创建一个对象数组，保存操作系统的通用名称，比如<code>Windows</code>,<code>Mac OSX</code>,<code>iPhone</code>等，然后再保存一个对应的正则表达式，用来从<code>UserAgent</code>中匹配出具体的版本号。    </p>
-
-<h5 id="section-3">【实现】</h5>
-<p><pre class="brush:javascript;toolbar:false">
-var info = {};
-var temp = {};
-info.ua = navigator.userAgent;
-// 
-// 获取操作系统版本
-//
-temp.os = {
-    ‘Mac OS X’: /Mac OS X ([\d._]<em>)/,
-    ‘iPhone OS’: /iPhone OS ([\d._]</em>)/,
-}
-for (var o in temp.os){
-    if (info.ua.indexOf(o)) {
-        var m = info.ua.match(temp.os[o]);
-        info.os = m ? m[0] : (info.os || ‘UnknowOS’);
-    };
-}
-</pre>
-上面的代码中<code>temp.os</code>对象可以自由地扩展，我想你都懂并能领会其中的好处！</p>
-
-<h4 id="section-4">获取浏览器和版本</h4>
-<p>同上面一样，就不多说了，直接上代码：
-<pre class="brush:javascript;toolbar:false">
-//
-// 获取浏览器版本
-//
-temp.browser = {
-    ‘Safari’: /Safari\/([\d.]+)$/,
-    ‘Chrome’: /Chrome\/([\d.]+)/,
-    ‘Firefox’: /Firefox\/([\d.]+)$/,
-}
-for (var b in temp.browser){
-    if (info.ua.indexOf(b)) {
-        var m = info.ua.match(temp.browser[b]);
-        info.browser = m ? m[0] : (info.browser || ‘UnknowBrowser’);
-    };
-}
-</pre></p>
-
-<h4 id="section-5">总结</h4>
-<p>其实呢，我觉得<code>js</code>好玩的地方非常多，有很多地方是其他语言无法超越的。当然，每个语言都有自己的长处，随个人所好～</p>
+<h4 id="section-2">简单例子</h4>
+<p><code>python
+from getopt import getopt
+from sys import argv
+if __name__ == '__main__':
+	opts, args = getopt(argv[1;toolbar:false">)
+	for key, value in opts:
+		if key in ['-h', '--help']:
+			print 'help~~'
+		elif key in ['-t', '--test']:
+			print 'The test value is:%s'%value
+		else:
+			print '??%s:%s'%(key, value)
+</code>
+然后命令行输入
+<code>bash
+$ ./test.py -t hahahah!
+$ ./test.py --help
+$ ./test.py --test="哈哈哈..hahah   hahah !!"
+</code></p>
 
 				</div>
 			</div>
@@ -140,7 +136,7 @@ for (var b in temp.browser){
 			</div>
 			<div class="panel-body">
 				<!-- 多说评论框 start -->
-				<div class="ds-thread" data-thread-key="0" data-title="更准确高效地获取客户端浏览器|系统信息" data-url="http://ursb.org/javascript/2014/11/13/get-client-info.html"></div>
+				<div class="ds-thread" data-thread-key="0" data-title="Python模块getopt简解" data-url="http://ursb.org/python/2014/11/26/getopt.html"></div>
 				<!-- 多说评论框 end -->
 				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 				<script type="text/javascript">
@@ -184,7 +180,7 @@ for (var b in temp.browser){
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 			try {
-				var pageTracker = _gat._getTracker("Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览器版本,js获取操作系统版本");
+				var pageTracker = _gat._getTracker("python,python getopt,getopt模块");
 				pageTracker._trackPageview();
 			} catch(err) {}
 	</script>

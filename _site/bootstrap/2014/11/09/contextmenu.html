@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimun-scale=1.0, maximun-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hotes - BootStrap.ContextMenu 网页右键菜单插件</title>
+	<title>Hotes - BootStrap右键菜单插件:bmenu</title>
 	<meta name="description" content="基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。">
-	<meta name="keywords" content="Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单">
+	<meta name="keywords" content="Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,bmenu">
 	<link rel="shortcut icon" href="/static/img/icon.png" />
 	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
@@ -15,7 +15,6 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
-	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -51,8 +50,6 @@
 					
 				
 					
-				
-					
 					
 					<li>
 					
@@ -73,14 +70,14 @@
 		<!-- 内容 -->
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> BootStrap.ContextMenu 网页右键菜单插件</h3>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> BootStrap右键菜单插件:bmenu</h3>
 			</div>
 			<div class="panel-body">
 				<!-- 简介 -->
 				<blockquote class="text-muted" style="font-size: 14px;">基于bootstrap(v.3.2.0)写了个右键菜单的小"插件"，这里简单介绍下使用方法。</blockquote>
 				<!-- 正文 -->
 				<div style="font-size: 14px;" id="content">
-					<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
+					<script src="/static/js/bmenu.js"></script>
 
 <h4 id="section">简介</h4>
 <p>之前在写一个<code>web桌面</code>应用框架的时候写过一款”中文”的插件，当时是自己写的<code>css</code>和<code>js</code>，除了图标之外不需要依赖<code>bootstrap</code>的支持。    <br />
@@ -89,18 +86,18 @@
 <p>目前貌似<code>bootstrap</code>已经更新到了<code>3.3.0</code>，但个人感觉不怎么美观，所以就在本人比较喜欢的<code>3.2.0</code>风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
 <pre class="brush:js;toolbar:false">
 // 项目地址
-var github = “https://github.com/h01/javascript/tree/master/bootstrap.contextmenu”;
+var github = “https://github.com/h01/bmenu
 </pre></p>
 
 <h4 id="section-1">使用</h4>
 <p>使用的方法很简单，首先在页面中加载我们的<code>js</code>文件：
 <pre class="brush:html;toolbar:false">
-&lt;script&gt; src=”/static/bootstrap.contextmenu/bootstrap.contextmenu.min.js”&gt;&lt;/script&gt;
+&lt;script&gt; src=”bmenu.js”&gt;&lt;/script&gt;
 </pre></p>
 
 <p>然后我们来配置我们要创建的菜单对象：
 <pre class="brush:js;toolbar:false">
-var menu = _ctxMenu.init([
+var menu = bmenu.init([
 {
     text: ‘文字’,
     icon: ‘图标class’,
@@ -112,7 +109,7 @@ var menu = _ctxMenu.init([
 </pre>
 然后我们把这个菜单绑定到<code>dom</code>上，比如<code>document</code>：
 <pre class="brush:js;toolbar:false">
-_ctxMenu.bind(menu, document);
+bmenu.bind(menu, document);
 </pre></p>
 
 <h4 id="section-2">文档</h4>
@@ -130,17 +127,17 @@ _ctxMenu.bind(menu, document);
 
 <p>然后就是绑定方法，第一个参数为我们定义好的<code>menu</code>对象，第二个为要绑定某个<code>dom</code>的右键事件，如果是某个<code>ID</code>，则可以这样定义：
 <pre class="brush:js;toolbar:false">
-_ctxMenu.bind(menu, document.getElementById(‘id’));
+bmenu.bind(menu, document.getElementById(‘id’));
 </pre>
 当然，如果我们图方便，也可以使用<code>Jquery</code>，不过使用方法有改变如下：
 <pre class="brush:js;toolbar:false">
-_ctxMenu.bind(menu, $(‘#id’)[0]);
+bmenu.bind(menu, $(‘#id’)[0]);
 </pre>
 最后，试试在下面的吐槽<code>div</code>里右键一下？</p>
 
 <script type="text/javascript">
 $(function(){
-    var menu1 = _ctxMenu.init([
+    var menu1 = bmenu.init([
     {
         text: '你说的太对了'
     },{
@@ -156,9 +153,9 @@ $(function(){
         }
     }
     ]);
-    _ctxMenu.bind(menu1, $(".panel")[1]);
+    bmenu.bind(menu1, $(".panel")[1]);
 
-    var menu2 = _ctxMenu.init([
+    var menu2 = bmenu.init([
         {
             text: '菜单出来啦'
         },{
@@ -211,7 +208,7 @@ $(function(){
         }
         ]);
 
-    _ctxMenu.bind(menu2, document);
+    bmenu.bind(menu2, document);
 })
 </script>
 
@@ -226,7 +223,7 @@ $(function(){
 			</div>
 			<div class="panel-body">
 				<!-- 多说评论框 start -->
-				<div class="ds-thread" data-thread-key="0" data-title="BootStrap.ContextMenu 网页右键菜单插件" data-url="http://ursb.org/bootstrap/2014/11/09/contextmenu.html"></div>
+				<div class="ds-thread" data-thread-key="0" data-title="BootStrap右键菜单插件:bmenu" data-url="http://ursb.org/bootstrap/2014/11/09/contextmenu.html"></div>
 				<!-- 多说评论框 end -->
 				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 				<script type="text/javascript">
@@ -270,7 +267,7 @@ $(function(){
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 			try {
-				var pageTracker = _gat._getTracker("Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单");
+				var pageTracker = _gat._getTracker("Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,bmenu");
 				pageTracker._trackPageview();
 			} catch(err) {}
 	</script>

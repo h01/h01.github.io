@@ -15,7 +15,6 @@
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/static/SyntaxHighlighter/shCore.js"></script>
 	<script src="/static/js/custom.js"></script>
-	<script src="/static/js/cache.js"></script>
 </head>
 <body>
 	<!-- 导航栏 -->
@@ -44,7 +43,7 @@
 						</a>
 						<ul class="dropdown-menu" role="menu">
 							<li>
-								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">19</span></a> 
+								<a href="javascript:void(0);" onclick="getCategory('all');"><span class="glyphicon glyphicon-th"></span> 全部分类 <span class="pull-right badge">20</span></a> 
 							</li>
 							<li class="divider"></li>
 						
@@ -76,6 +75,10 @@
 								<a href="javascript:void(0);" onclick="getCategory('linux');"><span class="glyphicon glyphicon-file"></span> linux<span class="pull-right badge">1</span></a>
 							</li>
 						
+							<li>
+								<a href="javascript:void(0);" onclick="getCategory('python');"><span class="glyphicon glyphicon-file"></span> python<span class="pull-right badge">1</span></a>
+							</li>
+						
 							<li class="divider"></li>
 							<li>
 								<a href="javascript:void(0);" onclick="getCategory('');"><span class="glyphicon glyphicon-th-large"></span> 默认分类</a>
@@ -92,8 +95,6 @@
 					
 						<a href="/about/"><span class="glyphicon glyphicon-heart"></span> 关于</a>
 					</li>
-					
-				
 					
 				
 					
@@ -119,6 +120,25 @@
 	<!-- 文章列表 -->
 <div class="container">
 	<div class="row" id="posts">
+		
+		<div class="col-md-6 col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/python/2014/11/26/getopt.html">Python模块getopt简解</a></h3>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<div class="pull-left" align="center">
+							<p style="font-size: 33px;margin-bottom: -5px;" class="text-muted">26</p>
+							<p class="text-muted">2014-11</p>
+						</div>
+						<div class="media-body text-muted" style="padding-left: 5px;">
+							简单介绍getopt模块是如何实现解析参数以及如何简单使用例子
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -256,7 +276,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-success">
 				<div class="panel-heading">
-					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/bootstrap/2014/11/09/contextmenu.html">BootStrap.ContextMenu 网页右键菜单插件</a></h3>
+					<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> <a href="/bootstrap/2014/11/09/contextmenu.html">BootStrap右键菜单插件:bmenu</a></h3>
 				</div>
 				<div class="panel-body">
 					<div class="media">
@@ -484,12 +504,12 @@
 	</div>
 </div>
 <!-- 右键菜单 -->
-<script src="/static/bootstrap.contextmenu/bootstrap.contextmenu.js"></script>
+<script src="/static/js/bmenu.js"></script>
 
 <script type="text/javascript">
 var category_menu = [];
 category_menu.push({
-	text: '<i class="pull-right badge">19</i>全部分类',
+	text: '<i class="pull-right badge">20</i>全部分类',
 	icon: 'glyphicon-th',
 	callback: function(){
 		getCategory('all');
@@ -556,6 +576,14 @@ category_menu.push({
 });
 
 category_menu.push({
+	text: '<i class="pull-right badge">1</i>python',
+	icon: 'glyphicon-file',
+	callback: function(){
+		getCategory('python');
+	}
+});
+
+category_menu.push({
 	text: '---'
 });
 category_menu.push({
@@ -566,7 +594,7 @@ category_menu.push({
 	}
 });
 
-var mainmenu = _ctxMenu.init([
+var mainmenu = bmenu.init([
 {
 	text: '返回顶部',
 	icon: 'glyphicon-chevron-up',
@@ -620,7 +648,7 @@ var mainmenu = _ctxMenu.init([
 	disabled: true
 }
 ]);
-_ctxMenu.bind(mainmenu, document);
+bmenu.bind(mainmenu, document);
 </script>
 
 

@@ -1,6 +1,15 @@
 [
 
     {
+        "link": "/python/2014/11/26/getopt.html",
+        "desc": "简单介绍getopt模块是如何实现解析参数以及如何简单使用例子",
+        "date": "2014-11-26 00:00:00 +0800",
+        "title": "Python模块getopt简解",
+        "style": "",
+        "category": "Python"
+    },
+
+    {
         "link": "/chrome/2014/11/25/chrome.proxy.html",
         "desc": "对chrome.proxy的简单介绍以及如何使用chrome.proxy进行网页代理访问",
         "date": "2014-11-25 00:00:00 +0800",
@@ -67,7 +76,7 @@
         "link": "/bootstrap/2014/11/09/contextmenu.html",
         "desc": "基于bootstrap(v.3.2.0)写了个右键菜单的小&quot;插件&quot;，这里简单介绍下使用方法。",
         "date": "2014-11-09 00:00:00 +0800",
-        "title": "BootStrap.ContextMenu 网页右键菜单插件",
+        "title": "BootStrap右键菜单插件:bmenu",
         "style": "success",
         "category": "Bootstrap"
     },

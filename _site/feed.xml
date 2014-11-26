@@ -4,9 +4,17 @@
 		<title>Hotes</title>
 		<atom:link href="http://ursb.org/feed.xml" rel="self" type="application/rss+xml" />
 		<link>http://ursb.org</link>
-		<lastBuildDate>Tue, 25 Nov 2014 19:39:08 +0800</lastBuildDate>
+		<lastBuildDate>Wed, 26 Nov 2014 18:16:22 +0800</lastBuildDate>
 		<language>zh-CN</language>
 		<generator>root@ursb.org</generator>
+		
+		<item>
+			<title>Python模块getopt简解</title>
+			<link>http://ursb.org/python/2014/11/26/getopt.html</link>
+			<pubDate>Wed, 26 Nov 2014 00:00:00 +0800</pubDate>
+			<category>python,python getopt,getopt模块</category>
+			<description>简单介绍getopt模块是如何实现解析参数以及如何简单使用例子</description>
+		</item>
 		
 		<item>
 			<title>Chrome扩展设置代理方法</title>
@@ -65,10 +73,10 @@
 		</item>
 		
 		<item>
-			<title>BootStrap.ContextMenu 网页右键菜单插件</title>
+			<title>BootStrap右键菜单插件:bmenu</title>
 			<link>http://ursb.org/bootstrap/2014/11/09/contextmenu.html</link>
 			<pubDate>Sun, 09 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单</category>
+			<category>Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,bmenu</category>
 			<description>基于bootstrap(v.3.2.0)写了个右键菜单的小&quot;插件&quot;，这里简单介绍下使用方法。</description>
 		</item>
 		
@@ -78,14 +86,6 @@
 			<pubDate>Fri, 07 Nov 2014 00:00:00 +0800</pubDate>
 			<category>Jekyll,Jekyll 2 Json,Jekyll生成Json</category>
 			<description>简记如何使用Jekyll生成Json，以及如何处理一些小问题</description>
-		</item>
-		
-		<item>
-			<title>Web Worker简单使用</title>
-			<link>http://ursb.org/javascript/2014/11/06/Worker.html</link>
-			<pubDate>Thu, 06 Nov 2014 00:00:00 +0800</pubDate>
-			<category>Javascript,Web Worker,html5 worker,Javascript Worker使用</category>
-			<description>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。</description>
 		</item>
 		
 	</channel>
