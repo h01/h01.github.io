@@ -11,7 +11,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 
 #### 配置文件
 我们直接在`manifest.json`中设置`update_url`
-[code:javascript:]
+[code:javascript:edoc]
 {
     ...
     "update_url": "http://ursb.org/chrome/test/update.php",
@@ -21,7 +21,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 `update.php`也可以为静态的xml文件地址，不过为了动态更新方便，直接用php读取数据库或者文本等等操作。。
 
 输出的xml文件格式如下：
-[code:xml:]
+[code:xml:edoc]
 <?xml version="1.0" encoding="UTF-8"?>    
 <gupdate xmlns="http://www.google.com/update2/response" protocol="2.0">
     <app appid="dikhaimodgjmmdgjlaeicddkepoeoibj">
@@ -34,7 +34,7 @@ tags:        [Chrome,update,Chrome扩展,Chrome扩展自动升级,Chrome扩展�
 
 #### 更新代码
 简单随手写了下，需要的拿去。。
-[code:php:]
+[code:php:edoc]
 &lt;?php
 /*
  * Chrome升级xml类

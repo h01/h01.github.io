@@ -16,7 +16,7 @@ tags:		[Javascript,xss,js-getClientInfo,js获取客户端信息,js获取浏览�
 创建一个对象数组，保存操作系统的通用名称，比如`Windows`,`Mac OSX`,`iPhone`等，然后再保存一个对应的正则表达式，用来从`UserAgent`中匹配出具体的版本号。    
 
 ##### 【实现】
-[code:javascript:]
+[code:javascript:edoc]
 var info = {};
 var temp = {};
 info.ua = navigator.userAgent;
@@ -38,7 +38,7 @@ for (var o in temp.os){
 
 #### 获取浏览器和版本
 同上面一样，就不多说了，直接上代码：
-[code:javascript:]
+[code:javascript:edoc]
 //
 // 获取浏览器版本
 //

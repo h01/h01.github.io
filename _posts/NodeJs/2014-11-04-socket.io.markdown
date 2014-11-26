@@ -6,12 +6,12 @@ desc:        socket.io 是一个为实时应用提供跨平台实时通信的库
 tags:        [Javascript,socket.io,socket.io.js使用,node.js Websocket]
 ---
 具体的介绍就不说了，在服务端安装命令：
-[code:shell:]
+[code:shell:edoc]
 npm install socket.io
 [codend]
 
 安装完毕我们本地监听一个`web`端口用于和用户交互以及通信：
-[code:js:]
+[code:js:edoc]
 var io = require("socket.io").listen(8888);
 function debug(msg){
     console.log('[-] %s', msg);
@@ -34,7 +34,7 @@ io.sockets.on('connection', function(socket){
 [codend]
 
 然后客户端调用`web`的`socket.io.js`，或者直接调用外部`cdn`的`js`文件，进行和客户端通信：
-[code:js:]
+[code:js:edoc]
 &lt;script src="http://localhost:8888/socket.io/socket.io.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
 var socket = io.connect("http://localhost:8888");

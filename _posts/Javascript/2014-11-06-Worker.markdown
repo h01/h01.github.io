@@ -15,7 +15,7 @@ tags:       [Javascript,Web Worker,html5 worker,Javascript Worker使用]
 
 #### 如何使用
 我们先定义一个`Worker`对象，也就是一个js文件啦，比如`worker.js`。代码参考如下：
-[code:javascript:]
+[code:javascript:edoc]
 // 导入外部js文件使用
 importScripts("data.js");
 // 监听消息
@@ -30,7 +30,7 @@ postMessage({
 [codend]
 
 然后我们创建`Worker`对象然后进行调用：
-[code:javascript:]
+[code:javascript:edoc]
 // 初始化对象
 var worker = new Worker("worker.js");
 // 监听消息

@@ -10,6 +10,7 @@
 	<link rel="shortcut icon" href="/static/img/icon.png" />
 	<link rel="stylesheet" type="text/css" href="/static/SyntaxHighlighter/shCoreDefault.css">
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/highlight.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/custom.css">
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/bootstrap/js/bootstrap.min.js"></script>
@@ -83,48 +84,48 @@
 <h4 id="section-1">源码解析</h4>
 <p>加上这段只是为了让这篇初学者都不屑于浏览的文章看起来高大上~  <br />
 先贴上主要代码:
-<code>python
+<pre class="brush:python;toolbar:false">
 def getopt(args, shortopts, longopts = []):
     opts = []
-    if type(longopts) == type(""):
+    if type(longopts) == type(“”):
         longopts = [longopts]
     else:
         longopts = list(longopts)
-    while args and args[0].startswith('-') and args[0] != '-':
-        if args[0] == '--':
+    while args and args[0].startswith(‘-‘) and args[0] != ‘-‘:
+        if args[0] == ‘–’:
             args = args[1;toolbar:false">
             break
-        if args[0].startswith('--'):
+        if args[0].startswith(‘–’):
             opts, args = do_longs(opts, args[0][2;toolbar:false">, longopts, args[1;toolbar:false">)
         else:
             opts, args = do_shorts(opts, args[0][1;toolbar:false">, shortopts, args[1;toolbar:false">)
     return opts, args
-</code>
+</pre>
 从代码可以看出，<code>getopt</code>需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。  <br />
 第二个参数也为字符串，格式如<code>hvt:</code>，这个是短命令参数，比如<code>-h</code>、<code>-v</code>等，如果需要接收参数的值，则需要使用<code>:</code>。  <br />
 第三个参数为长命令参数，格式可为字符串或数组，比如<code>--help</code>、<code>--version</code>等，同样，如果需要接收参数值，则需要使用<code>=</code>号，如<code>--test=</code>。  <br />
 实现的原理就是通过字符串循环判断解析出对应的参数和值，就这么简单。使用也一样，so Easy~</p>
 
 <h4 id="section-2">简单例子</h4>
-<p><code>python
+<p><pre class="brush:python;toolbar:false">
 from getopt import getopt
 from sys import argv
-if __name__ == '__main__':
+if __name__ == ‘__main__’:
 	opts, args = getopt(argv[1;toolbar:false">)
 	for key, value in opts:
-		if key in ['-h', '--help']:
-			print 'help~~'
-		elif key in ['-t', '--test']:
-			print 'The test value is:%s'%value
+		if key in [‘-h’, ‘–help’]:
+			print ‘help~~’
+		elif key in [‘-t’, ‘–test’]:
+			print ‘The test value is:%s’%value
 		else:
-			print '??%s:%s'%(key, value)
-</code>
+			print ‘??%s:%s’%(key, value)
+</pre>
 然后命令行输入
-<code>bash
+<pre class="brush:shell;toolbar:false">
 $ ./test.py -t hahahah!
-$ ./test.py --help
-$ ./test.py --test="哈哈哈..hahah   hahah !!"
-</code></p>
+$ ./test.py –help
+$ ./test.py –test=”哈哈哈..hahah   hahah !!”
+</pre></p>
 
 				</div>
 			</div>

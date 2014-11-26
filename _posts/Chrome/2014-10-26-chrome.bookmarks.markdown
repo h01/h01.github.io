@@ -6,14 +6,14 @@ desc:        chrome.bookmarks接口的添加、管理、删除、编辑书签等
 tags:        [Chrome,Chrome扩展开发,Chrome书签管理,Chrome.bookmarks]
 ---
 #### 声明权限
-[code:js:]
+[code:js:edoc]
 {
     "permissions": ["bookmarks"]
 }
 [codend]
 
 #### 创建书签
-[code:js:]
+[code:js:edoc]
 // 创建文件夹
 chrome.bookmarks.create({
     title: "文件夹2",
@@ -33,7 +33,7 @@ chrome.bookmarks.create({
 [codend]
 
 #### 调整书签位置
-[code:js:]
+[code:js:edoc]
 chrome.bookmarks.move('250', {
     parentId: '1',  // 要移动到的文件夹ID，1=顶部文件夹
     index: 55       // 在文件夹中的位置
@@ -43,7 +43,7 @@ chrome.bookmarks.move('250', {
 [codend]
 
 #### 修改更新标签
-[code:js:]
+[code:js:edoc]
 chrome.bookmarks.update('167', {
     title: '修改后的标题',
     url: 'https://ursb.org/notes/'
@@ -53,7 +53,7 @@ chrome.bookmarks.update('167', {
 [codend]
 
 #### 删除书签和文件夹
-[code:js:]
+[code:js:edoc]
 // 删除书签或空的文件夹
 chrome.bookmarks.remove('250', function(){
     console.log('ID=250的书签已经删除!');
@@ -65,7 +65,7 @@ chrome.bookmarks.removeTree('250', function(){
 [codend]
 
 #### 获取书签和分组
-[code:js:]
+[code:js:edoc]
 // 获取所有书签和文件夹
 chrome.bookmarks.getTree(function(bms){
     console.log(bms);
@@ -93,7 +93,7 @@ chrome.bookmarks.search('keyword', function(bms){
 [codend]
 
 #### 书签事件
-[code:javascript:]
+[code:javascript:edoc]
 // 创建书签事件
 chrome.bookmarks.onCreated.addListener(function(bm){
     console.log("创建了书签");

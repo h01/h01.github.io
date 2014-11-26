@@ -12,19 +12,19 @@ tags:		[Bootstrap,bootstrap.contextmenu,bootstrap Table,contextmenu右键菜单,
 后来在测试的时候，发现并不怎么理想，尤其是在`firefox`、`Safari`下，中文有时候会不支持所以无法执行，并且想着还有很多`BUG`，于是就重新写了。。
 
 目前貌似`bootstrap`已经更新到了`3.3.0`，但个人感觉不怎么美观，所以就在本人比较喜欢的`3.2.0`风格的基础上写了一点样式，想知道长啥样？<kbd>右键试试!</kbd>
-[code:js:]
+[code:js:edoc]
 // 项目地址
 var github = "https://github.com/h01/bmenu
 [codend]
 
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：
-[code:html:]
+[code:html:edoc]
 &lt;script&gt; src="bmenu.js"&gt;&lt;/script&gt;
 [codend]
 
 然后我们来配置我们要创建的菜单对象：
-[code:js:]
+[code:js:edoc]
 var menu = bmenu.init([
 {
     text: '文字',
@@ -36,7 +36,7 @@ var menu = bmenu.init([
 ]);
 [codend]
 然后我们把这个菜单绑定到`dom`上，比如`document`：
-[code:js:]
+[code:js:edoc]
 bmenu.bind(menu, document);
 [codend]
 
@@ -45,7 +45,7 @@ bmenu.bind(menu, document);
 菜单的选项使用注意：
 1.icon的图标为[Glyphicon字体图标](http://v3.bootcss.com/components/#glyphicons)中的图标，不过我们不需要前面的`glyphicon`，只需要后面的就可以了，比如：glyphicon-plus    
 2.其他可以不定义，`text`为必须，如果需要分隔符，只需要设置为`---`即可。如：
-[code:js:]
+[code:js:edoc]
 {
     text: '---'
 }
@@ -54,11 +54,11 @@ bmenu.bind(menu, document);
 4.`menu`多级菜单和一级菜单定义方法一样。
 
 然后就是绑定方法，第一个参数为我们定义好的`menu`对象，第二个为要绑定某个`dom`的右键事件，如果是某个`ID`，则可以这样定义：
-[code:js:]
+[code:js:edoc]
 bmenu.bind(menu, document.getElementById('id'));
 [codend]
 当然，如果我们图方便，也可以使用`Jquery`，不过使用方法有改变如下：
-[code:js:]
+[code:js:edoc]
 bmenu.bind(menu, $('#id')[0]);
 [codend]
 最后，试试在下面的吐槽`div`里右键一下？

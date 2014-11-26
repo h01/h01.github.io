@@ -8,7 +8,7 @@ tags:        [Javascript,loadScript,同步加载js文件]
 #### 代码贴上
 实现的原理很简单，我们首先创建一个`script`元素并赋予`src`值，等加载完毕后再执行`callback`函数。    
 代码直接贴出来吧，很简单：
-[code:js:]
+[code:js:edoc]
 function loadScript(opt){
 	var u = opt.url;
 	var s = opt.success || function(){};
@@ -35,7 +35,7 @@ function loadScript(opt){
 [codend]
 
 #### 调用方法
-[code:js:]
+[code:js:edoc]
 loadScript({
 	url: '/jquery.js',
 	success: function(){

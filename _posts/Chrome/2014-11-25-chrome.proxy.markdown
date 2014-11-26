@@ -11,14 +11,14 @@ tags:		[chrome.proxy,chrome代理,chrome设置代理]
 照顾像我这样不翻墙、E文差的伙伴。。
 
 #### 声明权限
-[code:js:]
+[code:js:edoc]
 {
 	"permissions": ["proxy"]
 }
 [codend]
 
 #### 基本方法
-[code:js:]
+[code:js:edoc]
 chrome.proxy.settings =  {
 	clear: function (details, callback) {},
 	get: function (details, callback) {},
@@ -29,7 +29,7 @@ chrome.proxy.settings =  {
 
 #### 实现原理
 先看下`chrome.proxy.settings.get`的源码：
-[code:js:]
+[code:js:edoc]
 chrome.proxy.settings.get = function (details, callback) {
 	var getSchema = this.functionSchemas.get.definition.parameters;
 	validate([details, callback], getSchema);
@@ -41,7 +41,7 @@ chrome.proxy.settings.get = function (details, callback) {
 其他源码也类似，就不贴了。通过代码可以看出，其实。。只是对`ChromeSettiing`进行了封装而已。。
 
 #### 获取代理设置
-[code:js:]
+[code:js:edoc]
 chrome.proxy.settings.get({}, function(config){
 	console.log(config.value);
 })
@@ -49,13 +49,13 @@ chrome.proxy.settings.get({}, function(config){
 其中第一个参数为要获取的策略，比如在隐身模式下的设置等，具体可以参考文档2
 
 #### 清除代理设置
-[code:js:]
+[code:js:edoc]
 chrome.proxy.settings.clear({},function(){})
 [codend]
 其实就是把代理设置为默认
 
 #### 设置代理
-[code:js:]
+[code:js:edoc]
 // 代理配置
 var config = {
 	mode: 'fixed_servers',

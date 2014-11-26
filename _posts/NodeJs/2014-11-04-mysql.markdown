@@ -6,12 +6,12 @@ desc:       简记如何使用Node.js连接MySql并进行执行语句操作
 tags:       [Node.js,Node.js操作mysql]
 ---
 #### 安装`mysql`模块：
-[code:shell:]
+[code:shell:edoc]
 npm install mysql
 [codend]
 
 #### 初始化并连接`mysql`
-[code:javascript:]
+[code:javascript:edoc]
 var mysql = require("mysql");
 var conn  = mysql.createConnection({
     host: 'localhost',
@@ -24,7 +24,7 @@ conn.connect();
 [codend]
 
 #### 执行`SQL`语句并获取结果
-[code:javascript:]
+[code:javascript:edoc]
 conn.query("SELECT user,host,password FROM user", function(err, rows, fields){
     if (err) throw err;
     for (var i in rows){

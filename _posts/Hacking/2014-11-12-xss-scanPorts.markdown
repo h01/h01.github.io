@@ -11,7 +11,7 @@ tags:		[xss,javascript扫描端口,xss扫描端口]
 
 #### 实现
 先简单贴一些代码：
-[code:javascript:]
+[code:javascript:edoc]
 function scan(ip, port){
 	var s = document.createElement("script");
 	s.src = "http://" + ip + ":" + port;
@@ -22,7 +22,7 @@ function scan(ip, port){
 }
 [codend]
 然后我们使用`for`循环扫描端口，例如：
-[code:javascript:]
+[code:javascript:edoc]
 for (var i = 0; i < 100; i++) {
 	scan("10.1.1.1", i);
 };

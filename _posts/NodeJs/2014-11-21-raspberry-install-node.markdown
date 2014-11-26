@@ -8,7 +8,7 @@ tags:		[node.js,raspberry,树莓派,树莓派安装node.js,raspberry install nod
 之所以说一步到位，是因为我们只需要下载官网已经编译好的程序然后配置环境就可以了～
 
 #### 下载程序
-[code:shell:]
+[code:shell:edoc]
 cd ~
 wget -N http://nodejs.org/dist/v0.10.28/node-v0.10.28-linux-arm-pi.tar.gz
 tar xzvf node-v0.10.28-linux-arm-pi.tar.gz
@@ -19,24 +19,24 @@ mv node-v0.10.28-linux-arm-pi/ node
 #### 配置环境
 我们可以直接进入`node/bin`目录就可以直接执行`./node --version`命令了。    
 但是这样显然是很麻烦的，所以我们把`node/bin`的目录加入到我们的执行环境中：
-[code:shell:]
+[code:shell:edoc]
 cd ~
 vim .profile
 [codend]
 然后我们添加环境变量：
-[code:shell:]
+[code:shell:edoc]
 PATH=$PATH:/home/pi/node/bin
 [codend]
 保存，更新：
-[code:shell:]
+[code:shell:edoc]
 source .profile
 [codend]
 这样直接输入如下命令就可执行了：
-[code:shell:]
+[code:shell:edoc]
 node --version
 [codend]
 最后，我们要解决在`root`权限下执行命令无法找到的问题：
-[code:shell:]
+[code:shell:edoc]
 sudo vim /etc/sudoers
 # 在Defaults		secure_path=".."后加入node/bin路径，如/home/pi/node/bin
 :wq!

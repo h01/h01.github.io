@@ -7,19 +7,19 @@ tags:		[beef,beef-xss,install-beef,安装beef,mac安装beef,beef使用]
 ---
 #### 安装环境
 首先我们从`GitHub`中把最新的版本下载回来
-[code:shell:]
+[code:shell:edoc]
 $ git clone https://github.com/beefproject/beef.git
 [codend]
 进入目录直接执行`./beef`发现需要安装依赖环境`bundler`，根据`./install`的提示进行安装(预先已经安装好`ruby`环境)
-[code:shell:]
+[code:shell:edoc]
 $ sudo gem install bundler
 [codend]
 然后直接使用`bundler`进行安装：
-[code:shell:]
+[code:shell:edoc]
 $ bundle install
 [codend]
 骚等片刻，会安装一堆东西，完毕后直接运行即可：
-[code:shell:]
+[code:shell:edoc]
 $ ./beef
 [codend]
 附上运行的截图：    
