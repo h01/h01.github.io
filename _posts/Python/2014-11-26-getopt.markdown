@@ -12,6 +12,7 @@ tags:       [python, python getopt,getopt模块]
 加上这段只是为了让这篇初学者都不屑于浏览的文章看起来高大上~    
 先贴上主要代码:
 [code:python:]
+{% raw %}
 def getopt(args, shortopts, longopts = []):
     opts = []
     if type(longopts) == type(""):
@@ -27,6 +28,7 @@ def getopt(args, shortopts, longopts = []):
         else:
             opts, args = do_shorts(opts, args[0][1:], shortopts, args[1:])
     return opts, args
+{% endraw %}
 [codend]
 从代码可以看出，`getopt`需要两个必选参数和第三个可选参数，第一个为字符串，也就是我们命令行中所输入的参数。    
 第二个参数也为字符串，格式如`hvt:`，这个是短命令参数，比如`-h`、`-v`等，如果需要接收参数的值，则需要使用`:`。    
@@ -35,6 +37,7 @@ def getopt(args, shortopts, longopts = []):
 
 #### 简单例子
 [code:python:]
+{% raw %}
 from getopt import getopt
 from sys import argv
 if __name__ == '__main__':
@@ -47,6 +50,7 @@ if __name__ == '__main__':
 		else:
 			print '??%s:%s'%(key, value)
 [codend]
+{% endraw %}
 然后命令行输入
 [code:bash:]
 $ ./test.py -t hahahah!
