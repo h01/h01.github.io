@@ -88,4 +88,21 @@ chrome.proxy.settings.set({
 	console.log("设置完毕后的回调函数");
 })
 [codend]
+
+#### 设置代理:pacScript
+[code:js:edoc]
+var pacJs = '
+function FindProxyForURL(u, h){
+	return "PROXY 127.0.0.1:8080";
+}
+';
+var config = {
+	mode: 'pac_script',
+	pacScript: {
+		data: pacJs
+	}
+};
+// ..后面相同设置
+[codend]
+
 其他设置日后再添～
