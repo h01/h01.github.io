@@ -64,5 +64,11 @@ $(document).ready(function(){
 	// 图片点击事件
 	$("img").click(function(){
 		window.open(this.src, "_blank");
-	})
+	});
+	// 链接点击事件
+	$("a").click(function(){
+		if (this.href.indexOf('/') == 0) {
+			this.innerText = '开启阿三模式加载中..';
+		};
+	});
 })
