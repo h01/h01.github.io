@@ -1,0 +1,62 @@
+---
+category:	Chrome
+layout:		post
+title:		Chrome.storage存储API简单使用
+desc:		有时候我们不满足于localStorage只能保存string的单调功能，那么试一试chrome.storage中存储多种类型的本领？
+tags:		[chrome,chrome.storage,chrome存储API]
+---
+#### 参考文档
+1.[lmk123.duapp.com](https://lmk123.duapp.com/extensions/storage)    
+*.本文中的操作实例仅仅使用`storage.local`，其他API都类似。
+
+#### 声明权限
+[code:js:edoc]
+{
+	"permissions": ["storage"]
+}
+[codend]
+
+#### 保存数据
+[code:js:edoc]
+// chrome.storage.local.set函数需要两个参数，一个为存储对象，一个为回调函数
+chrome.storage.local.set({
+	string: '可以存储字符串',
+	array: ['或者', '数组'],
+	object: {k: '或者', v: '对象'},
+	int: 111
+}, function(){
+	console.log('保存成功');
+})
+[codend]
+
+#### 获取数据
+[code:js:edoc]
+// chrome.storage.local.get函数需要两个参数，第一个为要获取的键值，第二个是获取成功回调函数
+chrome.storage.local.get('array', function(arr){
+	console.log(arr);
+});
+// 还可以这样
+chrome.storage.local.get(['object', 'string'], function(obj){
+	console.log(obj.object);
+	console.log(obj.string);
+});
+[codend]
+
+#### 删除数据
+[code:js:edoc]
+chrome.storage.local.remove('string', function(){
+	console.log('删除成功');
+});
+// 或者
+chrome.storage.local.remove(['int', 'array'], function(){
+	console.log('删除成功');
+});
+[codend]
+
+#### 清空数据
+[code:js:edoc]
+chrome.storage.local.clear();
+[codend]
+
+#### 监听事件
+由于不怎么使用，暂时不记。。
