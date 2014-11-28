@@ -67,7 +67,7 @@ $(document).ready(function(){
 	});
 	// 链接点击事件
 	$("a").click(function(){
-		if (this.href.indexOf('/') == 0) {
+		if (this.href.indexOf('.html') == 0) {
 			this.innerText = '开启阿三模式加载中..';
 		};
 	});
