@@ -20,7 +20,7 @@ var github = "https://github.com/h01/bmenu
 #### 使用
 使用的方法很简单，首先在页面中加载我们的`js`文件：
 [code:html:edoc]
-&lt;script&gt; src="bmenu.js"&gt;&lt;/script&gt;
+&lt;script src="bmenu.js"&gt;&lt;/script&gt;
 [codend]
 
 然后我们来配置我们要创建的菜单对象：
